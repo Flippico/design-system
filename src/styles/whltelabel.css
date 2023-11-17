@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'FlippicoHead';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/flippico/Roboto-Regular.ttf')
+    format('ttf');
+}
+
+@font-face {
+  font-family: 'FlippicoHead';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../assets/fonts/flippico/Roboto-Bold.ttf')
+    format('ttf');
+}
+
+@font-face {
+  font-family: 'FlippicoText';
+  src: url('../assets/fonts/flippico/Roboto-Light.ttf')
+    format('ttf');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'FlippicoText';
+  src: url('../assets/fonts/flippico/Roboto-Medium.ttf')
+    format('ttf');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'FlippicoText';
+  src: url('../assets/fonts/flippico/Roboto-Bold.ttf')
+    format('ttf');
+  font-style: normal;
+  font-weight: 700;
+}
+
+:host,
+.flippico {
+  color-scheme: light;
+  --flp-theme: flp-wl;
+  font-family: FlippicoText, Arial, sans-serif;
+}
