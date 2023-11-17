@@ -1,1 +1,1 @@
-{"v":3,"stories":{}}
+{"v":3,"stories":{"components-header--default":{"id":"components-header--default","name":"Default","title":"components/Header","importPath":"./src/components/flp-header/flp-header.stories.ts","tags":["story"],"kind":"components/Header","story":"Default","parameters":{"__id":"components-header--default","docsOnly":false,"fileName":"./src/components/flp-header/flp-header.stories.ts"}}}}
