@@ -1,0 +1,19 @@
+import { CSSResultGroup, html } from 'lit';
+import { FLPComponent } from '../../flp-component';
+import {customElement, property} from 'lit/decorators.js';
+
+import { whitelabel } from './{{name}}.styles';
+
+/**
+ * @summary This the {{name}} component
+ *
+ * @tag {{name}}
+ */
+ @customElement({{name}})
+export class FLP{{sentence (replace name "flp-" "")}} extends FLPComponent {
+  static styles: CSSResultGroup = [whitelabel];
+
+  render() {
+    return html`<div><slot></slot></div>`;
+  }
+}

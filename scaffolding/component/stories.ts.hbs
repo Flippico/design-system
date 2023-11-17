@@ -1,0 +1,29 @@
+import { html } from 'lit';
+import { Story } from '../../../types/storybook';
+import { {{sentence (replace name "flp-" "")}} } from './{{name}}.types';
+import './{{name}}';
+
+export default {
+  title: 'components/{{component}}/{{sentence (replace name "flp-" "")}}',
+  component: '{{name}}',
+}
+
+const defaultProps: {{sentence (replace name "flp-" "")}} = {};
+
+const Template: Story<{{sentence (replace name "flp-" "")}}> = (
+  props: {{sentence (replace name "flp-" "")}},
+  {
+    globals: { theme },
+  }: {
+    globals: { theme: string };
+  }
+) => html`
+  <div>
+    <{{name}} .theme=${theme}>
+      {{sentence (replace name "flp-" "")}}
+    </{{name}}>
+  </div>
+`;
+
+export const Default = Template.bind({});
+Default.args = defaultProps;

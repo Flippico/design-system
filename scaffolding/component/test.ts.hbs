@@ -1,0 +1,17 @@
+import { expect, fixture, html } from '@open-wc/testing';
+import sinon from 'sinon';
+import { FLP{{sentence (replace name "flp-" "")}} } from './{{name}}.js';
+import './{{name}}.js';
+
+describe('{{name}}', () => {
+  afterEach(() => {
+    sinon.restore();
+  });
+
+  it('passes accessibility test', async () => {
+    const el = await fixture<flp{{sentence (replace name "flp-" "")}}>(
+      html` <{{name}}>{{sentence (replace name "flp-" "")}} content</{{name}}> `
+    );
+    await expect(el).to.be.accessible();
+  });
+});
