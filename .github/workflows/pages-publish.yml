@@ -19,11 +19,11 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: npm install # Or yarn install, depending on your project
+        run: yarn install
 
       - name: Build and Deploy
         run: |
-          npm run build-storybook
+          yarn build-storybook
         env:
           NODE_ENV: production
 
