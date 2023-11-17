@@ -19,45 +19,42 @@ export default (plop) => {
       },
     ],
   
-    actions: data => {
-      const componentType = data.area.split('/')[1];
-      const component = componentType[0].toUpperCase() + componentType.slice(1);
-  
+    actions: data => {;
       const actions = [
         {
           type: 'add',
-          path: `./../src/${data.area}/{{name}}.ts`,
+          path: `./../src/components/{{name}}/{{name}}.ts`,
           templateFile: './component/index.ts.hbs',
           abortOnFail: true,
-          data: { ...data, component },
+          data,
         },
         {
           type: 'add',
-          path: `./../src/${data.area}/{{name}}.stories.ts`,
+          path: `./../src/components/{{name}}/{{name}}.stories.ts`,
           templateFile: './component/stories.ts.hbs',
           abortOnFail: true,
-          data: { ...data, component },
+          data,
         },
         {
           type: 'add',
-          path: `./../src/${data.area}/{{name}}.types.ts`,
+          path: `./../src/components/{{name}}/{{name}}.types.ts`,
           templateFile: './component/types.ts.hbs',
           abortOnFail: true,
-          data: { ...data, component },
+          data,
         },
         {
           type: 'add',
-          path: `./../src/${data.area}/{{name}}.styles.ts`,
+          path: `./../src/components/{{name}}/{{name}}.styles.ts`,
           templateFile: './component/styles.ts.hbs',
           abortOnFail: true,
-          data: { ...data, component },
+          data,
         },
         {
           type: 'add',
-          path: `./../src/${data.area}/{{name}}.test.ts`,
+          path: `./../src/components/{{name}}/{{name}}.test.ts`,
           templateFile: './component/test.ts.hbs',
           abortOnFail: true,
-          data: { ...data, component },
+          data,
         },
       ];
       return actions;
