@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "declaration": true,
     "emitDeclarationOnly": true,
+    "removeComments": true,
 
     /* Linting */
     "strict": true,

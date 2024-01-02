@@ -15,6 +15,6 @@ export default defineConfig({
       fileName: 'bundle'
     },
     cssCodeSplit: true,
-    manifest: true,
+    manifest: false,
   },
 })

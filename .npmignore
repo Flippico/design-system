@@ -6,7 +6,7 @@ scripts
 .cache
 tsc
 tsconfig.json
-vite.config.json
+vite.config.ts
 yarn.lock
 .gitgnore
 node_modules
