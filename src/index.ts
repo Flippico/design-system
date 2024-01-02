@@ -1,4 +1,3 @@
-export * from './components/flp-button/index.js';
-export * from './components/flp-input/index.js';
-
+export { FlpButton } from './components/flp-button';
+export { FlpInput } from './components/flp-input';
 export { FlpHeader } from './components/flp-header/flp-header';

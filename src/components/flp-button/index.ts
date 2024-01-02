@@ -1,19 +1,17 @@
-import { FlpButton } from './flp-button.js';
+import { FlpButton as FlpButtonRaw } from './flp-button.js';
 import * as React from 'react';
 import { EventName, createComponent } from '@lit/react';
 import type { FlpBlurEvent, FlpFocusEvent, FlpInvalidEvent } from '../../events/index.js';
 
-export * from './flp-button.js';
-
 declare global {
   interface HTMLElementTagNameMap {
-    'flp-button': FlpButton;
+    'flp-button': FlpButtonRaw;
   }
 }
 
-const reactWrapper = createComponent({
+const FlpButton = createComponent({
   tagName: 'flp-button',
-  elementClass: FlpButton,
+  elementClass: FlpButtonRaw,
   react: React,
   events: {
     onFlpBlur: 'flp-blur' as EventName<FlpBlurEvent>,
@@ -23,4 +21,6 @@ const reactWrapper = createComponent({
   displayName: 'FlpButton'
 });
 
-export default reactWrapper;
+export { 
+  FlpButton
+};

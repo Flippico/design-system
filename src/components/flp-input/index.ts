@@ -1,19 +1,17 @@
-import { FlpInput } from './flp-input.js';
+import { FlpInput as FlpInputRaw } from './flp-input.js';
 import * as React from 'react';
 import { EventName, createComponent } from '@lit/react';
 import { FlpBlurEvent, FlpChangeEvent, FlpClearEvent, FlpFocusEvent, FlpInputEvent } from '../../events/index.js';
 
-export * from './flp-input.js';
-
 declare global {
   interface HTMLElementTagNameMap {
-    'flp-input': FlpInput;
+    'flp-input': FlpInputRaw;
   }
 }
 
-const reactWrapper = createComponent({
+const FlpInput = createComponent({
   tagName: 'flp-input',
-  elementClass: FlpInput,
+  elementClass: FlpInputRaw,
   react: React,
   events: {
     onFlpClear: 'flp-clear' as EventName<FlpClearEvent>,
@@ -25,4 +23,4 @@ const reactWrapper = createComponent({
   displayName: 'FlpInput'
 });
 
-export default reactWrapper;
+export { FlpInput };
