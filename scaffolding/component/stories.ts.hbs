@@ -2,6 +2,8 @@ import { html } from 'lit';
 import { Story } from '../../types/storybook';
 import { {{sentence (replace name "flp-" "")}} } from './{{name}}.types';
 import './{{name}}';
+import './../../themes/light.css';
+import './../../themes/dark.css';
 
 export default {
   title: 'components/{{sentence (replace name "flp-" "")}}',
@@ -18,8 +20,8 @@ const Template: Story<{{sentence (replace name "flp-" "")}}> = (
     globals: { theme: string };
   }
 ) => html`
-  <div>
-    <{{name}} .theme=${theme}>
+  <div class="flp-theme-light">
+    <{{name}}>
       {{sentence (replace name "flp-" "")}}
     </{{name}}>
   </div>
