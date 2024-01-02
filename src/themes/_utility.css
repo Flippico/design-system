@@ -1,0 +1,29 @@
+/*
+ * This file contains utility classes that can't be contained in a component and must be applied to the light DOM. None
+ * of the rules in this stylesheet should target component tags or HTML tags, and all classes *must* start with ".flp-"
+ * to reduce the possibility of collisions.
+ */
+
+.flp-scroll-lock {
+  padding-right: var(--flp-scroll-lock-size) !important;
+  overflow: hidden !important;
+}
+
+.flp-toast-stack {
+  position: fixed;
+  top: 0;
+  inset-inline-end: 0;
+  z-index: var(--flp-z-index-toast);
+  width: 28rem;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.flp-toast-stack flp-alert {
+  margin: var(--flp-spacing-medium);
+}
+
+.flp-toast-stack flp-alert::part(base) {
+  box-shadow: var(--flp-shadow-large);
+}

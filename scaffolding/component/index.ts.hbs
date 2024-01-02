@@ -1,5 +1,5 @@
 import { CSSResultGroup, html } from 'lit';
-import { FLPComponent } from '../../flp-component';
+import FlpElement from '../../utils/flippico-element';
 import {customElement, property} from 'lit/decorators.js';
 
 import { flippico } from './{{name}}.styles';
@@ -10,7 +10,7 @@ import { flippico } from './{{name}}.styles';
  * @tag {{name}}
  */
  @customElement("{{name}}")
-export class FLP{{sentence (replace name "flp-" "")}} extends FLPComponent {
+export class Flp{{sentence (replace name "flp-" "")}} extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   render() {

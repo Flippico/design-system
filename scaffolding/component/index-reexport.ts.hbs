@@ -1,0 +1,22 @@
+import { Flp{{sentence (replace name "flp-" "")}} } from './{{name}}.js';
+import * as React from 'react';
+import { EventName, createComponent } from '@lit/react';
+
+export * from './{{name}}.js';
+
+declare global {
+  interface HTMLElementTagNameMap {
+    '{{name}}': Flp{{sentence (replace name "flp-" "")}};
+  }
+}
+
+const reactWrapper = createComponent({
+  tagName: '{{name}}',
+  elementClass: Flp{{sentence (replace name "flp-" "")}},
+  react: React,
+  events: {
+  },
+  displayName: 'Flp{{sentence (replace name "flp-" "")}}'
+});
+
+export default reactWrapper;

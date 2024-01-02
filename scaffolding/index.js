@@ -30,6 +30,13 @@ export default (plop) => {
         },
         {
           type: 'add',
+          path: `./../src/components/{{name}}/index.ts`,
+          templateFile: './component/index-reexport.ts.hbs',
+          abortOnFail: true,
+          data,
+        },
+        {
+          type: 'add',
           path: `./../src/components/{{name}}/{{name}}.stories.ts`,
           templateFile: './component/stories.ts.hbs',
           abortOnFail: true,
