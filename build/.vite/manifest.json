@@ -1,0 +1,7 @@
+{
+  "src/index.ts": {
+    "file": "bundle.js",
+    "isEntry": true,
+    "src": "src/index.ts"
+  }
+}
