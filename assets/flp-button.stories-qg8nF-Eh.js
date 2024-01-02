@@ -1,4 +1,4 @@
-import{i as m,x as c}from"./lit-element-w72SgdYd.js";import{e as y,F as _,H as x,v as w,a as k,o as a}from"./if-defined-y2hKh_N8.js";import{F as C,t as $}from"./custom-element-fmFNofkQ.js";import{c as B,r as g,n,w as S}from"./dark-eo65Sget.js";const D=m`
+import{i as g,x as s}from"./lit-element-w72SgdYd.js";import{e as m,F as y,H as _,v as x,a as w,o as l}from"./if-defined-y2hKh_N8.js";import{F as k,t as C}from"./custom-element-fmFNofkQ.js";import{c as B,r as v,n as r,w as $}from"./dark-eo65Sget.js";const D=g`
   ${B}
 
   :host {
@@ -593,25 +593,20 @@ import{i as m,x as c}from"./lit-element-w72SgdYd.js";import{e as y,F as _,H as x
   :host(.flp-button-group__button[checked]) {
     z-index: 2;
   }
-`;/**
- * @license
- * Copyright 2020 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */const z=Symbol.for(""),p=(r,...e)=>({_$litStatic$:e.reduce((s,u,l)=>s+(i=>{if(i._$litStatic$!==void 0)return i._$litStatic$;throw Error(`Value passed to 'literal' function must be a 'literal' result: ${i}. Use 'unsafeStatic' to pass non-literal values, but
-            take care to ensure page security.`)})(u)+r[l+1],r[0]),r:z});var F=Object.defineProperty,V=Object.getOwnPropertyDescriptor,o=(r,e,s,u)=>{for(var l=u>1?void 0:u?V(e,s):e,i=r.length-1,d;i>=0;i--)(d=r[i])&&(l=(u?d(e,s,l):d(l))||l);return u&&l&&F(e,s,l),l};let t=class extends C{constructor(){super(...arguments),this.formControlController=new _(this,{assumeInteractionOn:["click"]}),this.hasSlotController=new x(this,"[default]","prefix","suffix"),this.hasFocus=!1,this.invalid=!1,this.title="",this.variant="default",this.size="medium",this.caret=!1,this.disabled=!1,this.loading=!1,this.outline=!1,this.pill=!1,this.circle=!1,this.type="button",this.name="",this.value="",this.href="",this.rel="noreferrer noopener"}get validity(){return this.isButton()?this.button.validity:w}get validationMessage(){return this.isButton()?this.button.validationMessage:""}firstUpdated(){this.isButton()&&this.formControlController.updateValidity()}handleBlur(){this.hasFocus=!1,this.emit("flp-blur")}handleFocus(){this.hasFocus=!0,this.emit("flp-focus")}handleClick(){this.type==="submit"&&this.formControlController.submit(this),this.type==="reset"&&this.formControlController.reset(this)}handleInvalid(r){this.formControlController.setValidity(!1),this.formControlController.emitInvalidEvent(r)}isButton(){return!this.href}isLink(){return!!this.href}handleDisabledChange(){this.isButton()&&this.formControlController.setValidity(this.disabled)}click(){this.button.click()}focus(r){this.button.focus(r)}blur(){this.button.blur()}checkValidity(){return this.isButton()?this.button.checkValidity():!0}getForm(){return this.formControlController.getForm()}reportValidity(){return this.isButton()?this.button.reportValidity():!0}setCustomValidity(r){this.isButton()&&(this.button.setCustomValidity(r),this.formControlController.updateValidity())}render(){const r=this.isLink();return r?p`a`:p`button`,c`
+`;var z=Object.defineProperty,F=Object.getOwnPropertyDescriptor,o=(n,e,b,u)=>{for(var a=u>1?void 0:u?F(e,b):e,c=n.length-1,d;c>=0;c--)(d=n[c])&&(a=(u?d(e,b,a):d(a))||a);return u&&a&&z(e,b,a),a};let t=class extends k{constructor(){super(...arguments),this.formControlController=new y(this,{assumeInteractionOn:["click"]}),this.hasSlotController=new _(this,"[default]","prefix","suffix"),this.hasFocus=!1,this.invalid=!1,this.title="",this.variant="default",this.size="medium",this.caret=!1,this.disabled=!1,this.loading=!1,this.outline=!1,this.pill=!1,this.circle=!1,this.type="button",this.name="",this.value="",this.href="",this.rel="noreferrer noopener"}get validity(){return this.isButton()?this.button.validity:x}get validationMessage(){return this.isButton()?this.button.validationMessage:""}firstUpdated(){this.isButton()&&this.formControlController.updateValidity()}handleBlur(){this.hasFocus=!1,this.emit("flp-blur")}handleFocus(){this.hasFocus=!0,this.emit("flp-focus")}handleClick(){this.type==="submit"&&this.formControlController.submit(this),this.type==="reset"&&this.formControlController.reset(this)}handleInvalid(n){this.formControlController.setValidity(!1),this.formControlController.emitInvalidEvent(n)}isButton(){return!this.href}isLink(){return!!this.href}handleDisabledChange(){this.isButton()&&this.formControlController.setValidity(this.disabled)}click(){this.button.click()}focus(n){this.button.focus(n)}blur(){this.button.blur()}checkValidity(){return this.isButton()?this.button.checkValidity():!0}getForm(){return this.formControlController.getForm()}reportValidity(){return this.isButton()?this.button.reportValidity():!0}setCustomValidity(n){this.isButton()&&(this.button.setCustomValidity(n),this.formControlController.updateValidity())}render(){const n=this.isLink();return s`
       <button
         part="base"
-        class=${k({button:!0,"button--default":this.variant==="default","button--primary":this.variant==="primary","button--success":this.variant==="success","button--neutral":this.variant==="neutral","button--warning":this.variant==="warning","button--danger":this.variant==="danger","button--text":this.variant==="text","button--small":this.size==="small","button--medium":this.size==="medium","button--large":this.size==="large","button--caret":this.caret,"button--circle":this.circle,"button--disabled":this.disabled,"button--focused":this.hasFocus,"button--loading":this.loading,"button--standard":!this.outline,"button--outline":this.outline,"button--pill":this.pill,"button--has-label":this.hasSlotController.test("[default]"),"button--has-prefix":this.hasSlotController.test("prefix"),"button--has-suffix":this.hasSlotController.test("suffix")})}
-        ?disabled=${a(r?void 0:this.disabled)}
-        type=${a(r?void 0:this.type)}
+        class=${w({button:!0,"button--default":this.variant==="default","button--primary":this.variant==="primary","button--success":this.variant==="success","button--neutral":this.variant==="neutral","button--warning":this.variant==="warning","button--danger":this.variant==="danger","button--text":this.variant==="text","button--small":this.size==="small","button--medium":this.size==="medium","button--large":this.size==="large","button--caret":this.caret,"button--circle":this.circle,"button--disabled":this.disabled,"button--focused":this.hasFocus,"button--loading":this.loading,"button--standard":!this.outline,"button--outline":this.outline,"button--pill":this.pill,"button--has-label":this.hasSlotController.test("[default]"),"button--has-prefix":this.hasSlotController.test("prefix"),"button--has-suffix":this.hasSlotController.test("suffix")})}
+        ?disabled=${l(n?void 0:this.disabled)}
+        type=${l(n?void 0:this.type)}
         title=${this.title}
-        name=${a(r?void 0:this.name)}
-        value=${a(r?void 0:this.value)}
-        href=${a(r?this.href:void 0)}
-        target=${a(r?this.target:void 0)}
-        download=${a(r?this.download:void 0)}
-        rel=${a(r?this.rel:void 0)}
-        role=${a(r?void 0:"button")}
+        name=${l(n?void 0:this.name)}
+        value=${l(n?void 0:this.value)}
+        href=${l(n?this.href:void 0)}
+        target=${l(n?this.target:void 0)}
+        download=${l(n?this.download:void 0)}
+        rel=${l(n?this.rel:void 0)}
+        role=${l(n?void 0:"button")}
         aria-disabled=${this.disabled?"true":"false"}
         tabindex=${this.disabled?"-1":"0"}
         @blur=${this.handleBlur}
@@ -622,10 +617,10 @@ import{i as m,x as c}from"./lit-element-w72SgdYd.js";import{e as y,F as _,H as x
         <slot name="prefix" part="prefix" class="button__prefix"></slot>
         <slot part="label" class="button__label"></slot>
         <slot name="suffix" part="suffix" class="button__suffix"></slot>
-        ${this.caret?c` <flp-icon part="caret" class="button__caret" library="system" name="caret"></flp-icon> `:""}
-        ${this.loading?c`<flp-spinner part="spinner"></flp-spinner>`:""}
+        ${this.caret?s` <flp-icon part="caret" class="button__caret" library="system" name="caret"></flp-icon> `:""}
+        ${this.loading?s`<flp-spinner part="spinner"></flp-spinner>`:""}
       </button>
-    `}};t.styles=[D];o([y(".button")],t.prototype,"button",2);o([g()],t.prototype,"hasFocus",2);o([g()],t.prototype,"invalid",2);o([n()],t.prototype,"title",2);o([n({reflect:!0})],t.prototype,"variant",2);o([n({reflect:!0})],t.prototype,"size",2);o([n({type:Boolean,reflect:!0})],t.prototype,"caret",2);o([n({type:Boolean,reflect:!0})],t.prototype,"disabled",2);o([n({type:Boolean,reflect:!0})],t.prototype,"loading",2);o([n({type:Boolean,reflect:!0})],t.prototype,"outline",2);o([n({type:Boolean,reflect:!0})],t.prototype,"pill",2);o([n({type:Boolean,reflect:!0})],t.prototype,"circle",2);o([n()],t.prototype,"type",2);o([n()],t.prototype,"name",2);o([n()],t.prototype,"value",2);o([n()],t.prototype,"href",2);o([n()],t.prototype,"target",2);o([n()],t.prototype,"rel",2);o([n()],t.prototype,"download",2);o([n()],t.prototype,"form",2);o([n({attribute:"formaction"})],t.prototype,"formAction",2);o([n({attribute:"formenctype"})],t.prototype,"formEnctype",2);o([n({attribute:"formmethod"})],t.prototype,"formMethod",2);o([n({attribute:"formnovalidate",type:Boolean})],t.prototype,"formNoValidate",2);o([n({attribute:"formtarget"})],t.prototype,"formTarget",2);o([S("disabled",{waitUntilFirstUpdate:!0})],t.prototype,"handleDisabledChange",1);t=o([$("flp-button")],t);const E={title:"components/Button",component:"flp-button"},P={},T=(r,{globals:{theme:e}})=>c`
+    `}};t.styles=[D];o([m(".button")],t.prototype,"button",2);o([v()],t.prototype,"hasFocus",2);o([v()],t.prototype,"invalid",2);o([r()],t.prototype,"title",2);o([r({reflect:!0})],t.prototype,"variant",2);o([r({reflect:!0})],t.prototype,"size",2);o([r({type:Boolean,reflect:!0})],t.prototype,"caret",2);o([r({type:Boolean,reflect:!0})],t.prototype,"disabled",2);o([r({type:Boolean,reflect:!0})],t.prototype,"loading",2);o([r({type:Boolean,reflect:!0})],t.prototype,"outline",2);o([r({type:Boolean,reflect:!0})],t.prototype,"pill",2);o([r({type:Boolean,reflect:!0})],t.prototype,"circle",2);o([r()],t.prototype,"type",2);o([r()],t.prototype,"name",2);o([r()],t.prototype,"value",2);o([r()],t.prototype,"href",2);o([r()],t.prototype,"target",2);o([r()],t.prototype,"rel",2);o([r()],t.prototype,"download",2);o([r()],t.prototype,"form",2);o([r({attribute:"formaction"})],t.prototype,"formAction",2);o([r({attribute:"formenctype"})],t.prototype,"formEnctype",2);o([r({attribute:"formmethod"})],t.prototype,"formMethod",2);o([r({attribute:"formnovalidate",type:Boolean})],t.prototype,"formNoValidate",2);o([r({attribute:"formtarget"})],t.prototype,"formTarget",2);o([$("disabled",{waitUntilFirstUpdate:!0})],t.prototype,"handleDisabledChange",1);t=o([C("flp-button")],t);const W={title:"components/Button",component:"flp-button"},S={},P=(n,{globals:{theme:e}})=>s`
   <div>
     <div class="flp-theme-light">
       <h3>Light variant</h3>
@@ -649,7 +644,7 @@ import{i as m,x as c}from"./lit-element-w72SgdYd.js";import{e as y,F as _,H as x
       <flp-button variant="text">Text</flp-button>
     </div>
   </div>
-`,b=T.bind({});b.args=P;var f,h,v;b.parameters={...b.parameters,docs:{...(f=b.parameters)==null?void 0:f.docs,source:{originalSource:`(props: Button, {
+`,i=P.bind({});i.args=S;var p,f,h;i.parameters={...i.parameters,docs:{...(p=i.parameters)==null?void 0:p.docs,source:{originalSource:`(props: Button, {
   globals: {
     theme
   }
@@ -681,5 +676,5 @@ import{i as m,x as c}from"./lit-element-w72SgdYd.js";import{e as y,F as _,H as x
       <flp-button variant="text">Text</flp-button>
     </div>
   </div>
-\``,...(v=(h=b.parameters)==null?void 0:h.docs)==null?void 0:v.source}}};const I=["Default"];export{b as Default,I as __namedExportsOrder,E as default};
-//# sourceMappingURL=flp-button.stories-loiuIHxh.js.map
+\``,...(h=(f=i.parameters)==null?void 0:f.docs)==null?void 0:h.source}}};const L=["Default"];export{i as Default,L as __namedExportsOrder,W as default};
+//# sourceMappingURL=flp-button.stories-qg8nF-Eh.js.map
