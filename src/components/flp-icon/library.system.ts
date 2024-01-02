@@ -122,6 +122,7 @@ const icons = {
 
 const systemLibrary: IconLibrary = {
   name: 'system',
+  // @ts-ignore
   resolver: (name: keyof typeof icons) => {
     if (name in icons) {
       return `data:image/svg+xml,${encodeURIComponent(icons[name])}`;

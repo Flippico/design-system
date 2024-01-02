@@ -6,7 +6,6 @@ import FlpElement, { FlpFormControl } from '../../utils/flippico-element.js';
 import { FormControlController, validValidityState } from '../../utils/form.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { watch } from '../../utils/watch.js';
-import { literal } from 'lit/static-html.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 /**
@@ -228,7 +227,7 @@ export class FlpButton extends FlpElement implements FlpFormControl {
 
   render() {
     const isLink = this.isLink();
-    const tag = isLink ? literal`a` : literal`button`;
+    // const tag = isLink ? literal`a` : literal`button`;
 
     /* eslint-disable lit/no-invalid-html */
     /* eslint-disable lit/binding-positions */

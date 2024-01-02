@@ -1,6 +1,6 @@
 import { FlpIcon } from './flp-icon.js';
 import * as React from 'react';
-import { EventName, createComponent } from '@lit/react';
+import { createComponent } from '@lit/react';
 
 export * from './flp-icon.js';
 

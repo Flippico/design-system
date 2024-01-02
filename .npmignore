@@ -1,0 +1,13 @@
+src
+scripts
+.storybook
+.vscode
+.github
+.cache
+tsc
+tsconfig.json
+vite.config.json
+yarn.lock
+.gitgnore
+node_modules
+scaffolding
