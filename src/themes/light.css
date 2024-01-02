@@ -1,3 +1,5 @@
+@import url("common.css");
+
 :root,
 :host,
 .flp-theme-light {
@@ -366,10 +368,9 @@
    */
 
   /* Fonts */
-  --flp-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  --flp-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --flp-font-serif: Georgia, 'Times New Roman', serif;
+  --flp-font-mono: FlippicoText, Arial, sans-serif;
+  --flp-font-sans: FlippicoText, Arial, sans-serif;
+  --flp-font-serif: FlippicoText, Arial, sans-serif;
 
   /* Font sizes */
   --flp-font-size-2x-small: 0.625rem; /* 10px */

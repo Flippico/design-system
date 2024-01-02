@@ -22,11 +22,25 @@ const Template: Story<Button> = (
 ) => html`
   <div>
     <div class="flp-theme-light">
-      <flp-button title="Light button">Light button</flp-button>
+      <h3>Light variant</h3>
+      <flp-button>Default</flp-button>
+      <flp-button variant="primary">Primary</flp-button>
+      <flp-button variant="success">Success</flp-button>
+      <flp-button variant="neutral">Neutral</flp-button>
+      <flp-button variant="danger">Danger</flp-button>
+      <flp-button variant="warning">Warning</flp-button>
+      <flp-button variant="text">Text</flp-button>
     </div>
     <br/>
     <div class="flp-theme-dark">
-      <flp-button title="Dark button">Dark button</flp-button>
+      <h3>Dark variant</h3>
+      <flp-button>Default</flp-button>
+      <flp-button variant="primary">Primary</flp-button>
+      <flp-button variant="success">Success</flp-button>
+      <flp-button variant="neutral">Neutral</flp-button>
+      <flp-button variant="danger">Danger</flp-button>
+      <flp-button variant="warning">Warning</flp-button>
+      <flp-button variant="text">Text</flp-button>
     </div>
   </div>
 `;
