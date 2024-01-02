@@ -12,6 +12,8 @@ storybook-static
 dist
 dist-ssr
 *.local
+.cache
+assets/icons
 
 # Editor directories and files
 .vscode/*

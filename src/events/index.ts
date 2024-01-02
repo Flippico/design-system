@@ -4,3 +4,5 @@ export type { FlpInvalidEvent } from './flp-invalid.js';
 export type { FlpChangeEvent } from './flp-change.js';
 export type { FlpClearEvent } from './flp-clear.js';
 export type { FlpInputEvent } from './flp-input.js';
+export type { FlpErrorEvent } from './flp-error.js';
+export type { FlpLoadEvent } from './flp-load.js';

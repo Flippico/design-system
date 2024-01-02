@@ -9,11 +9,13 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "new": "plop --plopfile scaffolding/index.js"
+    "new": "plop --plopfile scaffolding/index.js",
+    "postinstall": "node scripts/make-icons.js"
   },
   "dependencies": {
     "@lit/react": "^1.0.2",
     "@open-wc/testing": "^4.0.0",
+    "bootstrap-icons": "^1.11.2",
     "handlebars": "^4.7.8",
     "handlebars-helpers": "^0.10.0",
     "lit": "^3.0.2",
@@ -27,8 +29,14 @@
     "@storybook/builder-vite": "^7.5.3",
     "@storybook/web-components": "^7.5.3",
     "@storybook/web-components-vite": "^7.5.3",
+    "command-line-args": "^5.2.1",
+    "download": "^8.0.0",
+    "front-matter": "^4.0.2",
+    "globby": "^14.0.0",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "recursive-copy": "^2.0.14",
     "storybook": "^7.5.3",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
