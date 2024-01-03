@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import { globby } from 'globby';
 
+const alwaysExternal = ['@lit/react', 'react'];
+
 // https://vitejs.dev/config/
 export default defineConfig({
   mode: 'production',
@@ -19,6 +21,7 @@ export default defineConfig({
     cssCodeSplit: true,
     manifest: false,
     rollupOptions: {
+      external: alwaysExternal,
       output: {
         entryFileNames: (entryInfo: any) => {
           if (entryInfo.facadeModuleId.includes('components')) {
