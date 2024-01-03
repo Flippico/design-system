@@ -1,7 +1,7 @@
 {
   "name": "@flippico/design-system",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.6",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,7 @@
     "generate-icons": "node scripts/make-icons.js"
   },
   "dependencies": {
-    "@lit/react": "1.0.2",
+    "@lit/react": "1.0.0",
     "@open-wc/testing": "4.0.0",
     "bootstrap-icons": "1.11.2",
     "handlebars": "4.7.8",
@@ -25,7 +25,9 @@
   },
   "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/bundle.js"
+    ".": "./dist/index.js",
+    "./dark.css": "./dist/dark.css",
+    "./light.css": "./dist/light.css"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.5.3",

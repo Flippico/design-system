@@ -1,5 +1,5 @@
-import { FlpButton as FlpButtonRaw } from './flp-button.js';
 import * as React from 'react';
+import { FlpButton as FlpButtonRaw } from './flp-button.js';
 import { EventName, createComponent } from '@lit/react';
 import type { FlpBlurEvent, FlpFocusEvent, FlpInvalidEvent } from '../../events/index.js';
 
