@@ -119,7 +119,7 @@ export function getTabbableElements(root: HTMLElement | ShadowRoot) {
       }
 
       if (el instanceof HTMLSlotElement && getSlottedChildrenOutsideRootElement(el, root)) {
-        el.assignedElements({ flatten: true }).forEach((assignedEl: HTMLElement) => {
+        el.assignedElements({ flatten: true }).forEach((assignedEl: any) => {
           walk(assignedEl);
         });
       }
