@@ -1,4 +1,4 @@
-import { FlpModal } from './flp-modal.js';
+import { FlpModal as FlpModalRaw } from './flp-modal.js';
 import * as React from 'react';
 import { EventName, createComponent } from '@lit/react';
 import { FlpAfterHide } from '../../events/flp-after-hide.js';
@@ -8,17 +8,15 @@ import { FlpShow } from '../../events/flp-show.js';
 import { FlpRequestClose } from '../../events/flp-request-close.js';
 import { FlpHide } from '../../events/flp-hide.js';
 
-export * from './flp-modal.js';
-
 declare global {
   interface HTMLElementTagNameMap {
-    'flp-modal': FlpModal;
+    'flp-modal': FlpModalRaw;
   }
 }
 
-const reactWrapper = createComponent({
+const FlpModal = createComponent({
   tagName: 'flp-modal',
-  elementClass: FlpModal,
+  elementClass: FlpModalRaw,
   react: React,
   events: {
     onFlpAfterHide: 'flp-after-hide' as EventName<FlpAfterHide>,
@@ -31,4 +29,6 @@ const reactWrapper = createComponent({
   displayName: 'FlpModal'
 });
 
-export default reactWrapper;
+export {
+  FlpModal
+};
