@@ -1,5 +1,5 @@
-import{i as g,x as s}from"./lit-element-w72SgdYd.js";import{e as m,F as y,H as _,v as x,a as w,o as l}from"./if-defined-y2hKh_N8.js";import{F as k,t as C}from"./custom-element-fmFNofkQ.js";import{c as B,r as v,n as r,w as $}from"./dark-eo65Sget.js";const D=g`
-  ${B}
+import{i as p,x as d}from"./lit-element-w72SgdYd.js";import{e as f,F as h,H as v,v as g,a as m,o as n}from"./form-5KtZygxB.js";import{F as y,t as _}from"./custom-element-fmFNofkQ.js";import{c as x,r as c,n as r,w}from"./dark-eo65Sget.js";const k=p`
+  ${x}
 
   :host {
     display: inline-block;
@@ -593,20 +593,20 @@ import{i as g,x as s}from"./lit-element-w72SgdYd.js";import{e as m,F as y,H as _
   :host(.flp-button-group__button[checked]) {
     z-index: 2;
   }
-`;var z=Object.defineProperty,F=Object.getOwnPropertyDescriptor,o=(n,e,b,u)=>{for(var a=u>1?void 0:u?F(e,b):e,c=n.length-1,d;c>=0;c--)(d=n[c])&&(a=(u?d(e,b,a):d(a))||a);return u&&a&&z(e,b,a),a};let t=class extends k{constructor(){super(...arguments),this.formControlController=new y(this,{assumeInteractionOn:["click"]}),this.hasSlotController=new _(this,"[default]","prefix","suffix"),this.hasFocus=!1,this.invalid=!1,this.title="",this.variant="default",this.size="medium",this.caret=!1,this.disabled=!1,this.loading=!1,this.outline=!1,this.pill=!1,this.circle=!1,this.type="button",this.name="",this.value="",this.href="",this.rel="noreferrer noopener"}get validity(){return this.isButton()?this.button.validity:x}get validationMessage(){return this.isButton()?this.button.validationMessage:""}firstUpdated(){this.isButton()&&this.formControlController.updateValidity()}handleBlur(){this.hasFocus=!1,this.emit("flp-blur")}handleFocus(){this.hasFocus=!0,this.emit("flp-focus")}handleClick(){this.type==="submit"&&this.formControlController.submit(this),this.type==="reset"&&this.formControlController.reset(this)}handleInvalid(n){this.formControlController.setValidity(!1),this.formControlController.emitInvalidEvent(n)}isButton(){return!this.href}isLink(){return!!this.href}handleDisabledChange(){this.isButton()&&this.formControlController.setValidity(this.disabled)}click(){this.button.click()}focus(n){this.button.focus(n)}blur(){this.button.blur()}checkValidity(){return this.isButton()?this.button.checkValidity():!0}getForm(){return this.formControlController.getForm()}reportValidity(){return this.isButton()?this.button.reportValidity():!0}setCustomValidity(n){this.isButton()&&(this.button.setCustomValidity(n),this.formControlController.updateValidity())}render(){const n=this.isLink();return s`
+`;var C=Object.defineProperty,B=Object.getOwnPropertyDescriptor,o=(l,a,u,i)=>{for(var e=i>1?void 0:i?B(a,u):a,s=l.length-1,b;s>=0;s--)(b=l[s])&&(e=(i?b(a,u,e):b(e))||e);return i&&e&&C(a,u,e),e};let t=class extends y{constructor(){super(...arguments),this.formControlController=new h(this,{assumeInteractionOn:["click"]}),this.hasSlotController=new v(this,"[default]","prefix","suffix"),this.hasFocus=!1,this.invalid=!1,this.title="",this.variant="default",this.size="medium",this.caret=!1,this.disabled=!1,this.loading=!1,this.outline=!1,this.pill=!1,this.circle=!1,this.type="button",this.name="",this.value="",this.href="",this.rel="noreferrer noopener"}get validity(){return this.isButton()?this.button.validity:g}get validationMessage(){return this.isButton()?this.button.validationMessage:""}firstUpdated(){this.isButton()&&this.formControlController.updateValidity()}handleBlur(){this.hasFocus=!1,this.emit("flp-blur")}handleFocus(){this.hasFocus=!0,this.emit("flp-focus")}handleClick(){this.type==="submit"&&this.formControlController.submit(this),this.type==="reset"&&this.formControlController.reset(this)}handleInvalid(l){this.formControlController.setValidity(!1),this.formControlController.emitInvalidEvent(l)}isButton(){return!this.href}isLink(){return!!this.href}handleDisabledChange(){this.isButton()&&this.formControlController.setValidity(this.disabled)}click(){this.button.click()}focus(l){this.button.focus(l)}blur(){this.button.blur()}checkValidity(){return this.isButton()?this.button.checkValidity():!0}getForm(){return this.formControlController.getForm()}reportValidity(){return this.isButton()?this.button.reportValidity():!0}setCustomValidity(l){this.isButton()&&(this.button.setCustomValidity(l),this.formControlController.updateValidity())}render(){const l=this.isLink();return d`
       <button
         part="base"
-        class=${w({button:!0,"button--default":this.variant==="default","button--primary":this.variant==="primary","button--success":this.variant==="success","button--neutral":this.variant==="neutral","button--warning":this.variant==="warning","button--danger":this.variant==="danger","button--text":this.variant==="text","button--small":this.size==="small","button--medium":this.size==="medium","button--large":this.size==="large","button--caret":this.caret,"button--circle":this.circle,"button--disabled":this.disabled,"button--focused":this.hasFocus,"button--loading":this.loading,"button--standard":!this.outline,"button--outline":this.outline,"button--pill":this.pill,"button--has-label":this.hasSlotController.test("[default]"),"button--has-prefix":this.hasSlotController.test("prefix"),"button--has-suffix":this.hasSlotController.test("suffix")})}
-        ?disabled=${l(n?void 0:this.disabled)}
-        type=${l(n?void 0:this.type)}
+        class=${m({button:!0,"button--default":this.variant==="default","button--primary":this.variant==="primary","button--success":this.variant==="success","button--neutral":this.variant==="neutral","button--warning":this.variant==="warning","button--danger":this.variant==="danger","button--text":this.variant==="text","button--small":this.size==="small","button--medium":this.size==="medium","button--large":this.size==="large","button--caret":this.caret,"button--circle":this.circle,"button--disabled":this.disabled,"button--focused":this.hasFocus,"button--loading":this.loading,"button--standard":!this.outline,"button--outline":this.outline,"button--pill":this.pill,"button--has-label":this.hasSlotController.test("[default]"),"button--has-prefix":this.hasSlotController.test("prefix"),"button--has-suffix":this.hasSlotController.test("suffix")})}
+        ?disabled=${n(l?void 0:this.disabled)}
+        type=${n(l?void 0:this.type)}
         title=${this.title}
-        name=${l(n?void 0:this.name)}
-        value=${l(n?void 0:this.value)}
-        href=${l(n?this.href:void 0)}
-        target=${l(n?this.target:void 0)}
-        download=${l(n?this.download:void 0)}
-        rel=${l(n?this.rel:void 0)}
-        role=${l(n?void 0:"button")}
+        name=${n(l?void 0:this.name)}
+        value=${n(l?void 0:this.value)}
+        href=${n(l?this.href:void 0)}
+        target=${n(l?this.target:void 0)}
+        download=${n(l?this.download:void 0)}
+        rel=${n(l?this.rel:void 0)}
+        role=${n(l?void 0:"button")}
         aria-disabled=${this.disabled?"true":"false"}
         tabindex=${this.disabled?"-1":"0"}
         @blur=${this.handleBlur}
@@ -617,64 +617,8 @@ import{i as g,x as s}from"./lit-element-w72SgdYd.js";import{e as m,F as y,H as _
         <slot name="prefix" part="prefix" class="button__prefix"></slot>
         <slot part="label" class="button__label"></slot>
         <slot name="suffix" part="suffix" class="button__suffix"></slot>
-        ${this.caret?s` <flp-icon part="caret" class="button__caret" library="system" name="caret"></flp-icon> `:""}
-        ${this.loading?s`<flp-spinner part="spinner"></flp-spinner>`:""}
+        ${this.caret?d` <flp-icon part="caret" class="button__caret" library="system" name="caret"></flp-icon> `:""}
+        ${this.loading?d`<flp-spinner part="spinner"></flp-spinner>`:""}
       </button>
-    `}};t.styles=[D];o([m(".button")],t.prototype,"button",2);o([v()],t.prototype,"hasFocus",2);o([v()],t.prototype,"invalid",2);o([r()],t.prototype,"title",2);o([r({reflect:!0})],t.prototype,"variant",2);o([r({reflect:!0})],t.prototype,"size",2);o([r({type:Boolean,reflect:!0})],t.prototype,"caret",2);o([r({type:Boolean,reflect:!0})],t.prototype,"disabled",2);o([r({type:Boolean,reflect:!0})],t.prototype,"loading",2);o([r({type:Boolean,reflect:!0})],t.prototype,"outline",2);o([r({type:Boolean,reflect:!0})],t.prototype,"pill",2);o([r({type:Boolean,reflect:!0})],t.prototype,"circle",2);o([r()],t.prototype,"type",2);o([r()],t.prototype,"name",2);o([r()],t.prototype,"value",2);o([r()],t.prototype,"href",2);o([r()],t.prototype,"target",2);o([r()],t.prototype,"rel",2);o([r()],t.prototype,"download",2);o([r()],t.prototype,"form",2);o([r({attribute:"formaction"})],t.prototype,"formAction",2);o([r({attribute:"formenctype"})],t.prototype,"formEnctype",2);o([r({attribute:"formmethod"})],t.prototype,"formMethod",2);o([r({attribute:"formnovalidate",type:Boolean})],t.prototype,"formNoValidate",2);o([r({attribute:"formtarget"})],t.prototype,"formTarget",2);o([$("disabled",{waitUntilFirstUpdate:!0})],t.prototype,"handleDisabledChange",1);t=o([C("flp-button")],t);const W={title:"components/Button",component:"flp-button"},S={},P=(n,{globals:{theme:e}})=>s`
-  <div>
-    <div class="flp-theme-light">
-      <h3>Light variant</h3>
-      <flp-button>Default</flp-button>
-      <flp-button variant="primary">Primary</flp-button>
-      <flp-button variant="success">Success</flp-button>
-      <flp-button variant="neutral">Neutral</flp-button>
-      <flp-button variant="danger">Danger</flp-button>
-      <flp-button variant="warning">Warning</flp-button>
-      <flp-button variant="text">Text</flp-button>
-    </div>
-    <br/>
-    <div class="flp-theme-dark">
-      <h3>Dark variant</h3>
-      <flp-button>Default</flp-button>
-      <flp-button variant="primary">Primary</flp-button>
-      <flp-button variant="success">Success</flp-button>
-      <flp-button variant="neutral">Neutral</flp-button>
-      <flp-button variant="danger">Danger</flp-button>
-      <flp-button variant="warning">Warning</flp-button>
-      <flp-button variant="text">Text</flp-button>
-    </div>
-  </div>
-`,i=P.bind({});i.args=S;var p,f,h;i.parameters={...i.parameters,docs:{...(p=i.parameters)==null?void 0:p.docs,source:{originalSource:`(props: Button, {
-  globals: {
-    theme
-  }
-}: {
-  globals: {
-    theme: string;
-  };
-}) => html\`
-  <div>
-    <div class="flp-theme-light">
-      <h3>Light variant</h3>
-      <flp-button>Default</flp-button>
-      <flp-button variant="primary">Primary</flp-button>
-      <flp-button variant="success">Success</flp-button>
-      <flp-button variant="neutral">Neutral</flp-button>
-      <flp-button variant="danger">Danger</flp-button>
-      <flp-button variant="warning">Warning</flp-button>
-      <flp-button variant="text">Text</flp-button>
-    </div>
-    <br/>
-    <div class="flp-theme-dark">
-      <h3>Dark variant</h3>
-      <flp-button>Default</flp-button>
-      <flp-button variant="primary">Primary</flp-button>
-      <flp-button variant="success">Success</flp-button>
-      <flp-button variant="neutral">Neutral</flp-button>
-      <flp-button variant="danger">Danger</flp-button>
-      <flp-button variant="warning">Warning</flp-button>
-      <flp-button variant="text">Text</flp-button>
-    </div>
-  </div>
-\``,...(h=(f=i.parameters)==null?void 0:f.docs)==null?void 0:h.source}}};const L=["Default"];export{i as Default,L as __namedExportsOrder,W as default};
-//# sourceMappingURL=flp-button.stories-qg8nF-Eh.js.map
+    `}};t.styles=[k];o([f(".button")],t.prototype,"button",2);o([c()],t.prototype,"hasFocus",2);o([c()],t.prototype,"invalid",2);o([r()],t.prototype,"title",2);o([r({reflect:!0})],t.prototype,"variant",2);o([r({reflect:!0})],t.prototype,"size",2);o([r({type:Boolean,reflect:!0})],t.prototype,"caret",2);o([r({type:Boolean,reflect:!0})],t.prototype,"disabled",2);o([r({type:Boolean,reflect:!0})],t.prototype,"loading",2);o([r({type:Boolean,reflect:!0})],t.prototype,"outline",2);o([r({type:Boolean,reflect:!0})],t.prototype,"pill",2);o([r({type:Boolean,reflect:!0})],t.prototype,"circle",2);o([r()],t.prototype,"type",2);o([r()],t.prototype,"name",2);o([r()],t.prototype,"value",2);o([r()],t.prototype,"href",2);o([r()],t.prototype,"target",2);o([r()],t.prototype,"rel",2);o([r()],t.prototype,"download",2);o([r()],t.prototype,"form",2);o([r({attribute:"formaction"})],t.prototype,"formAction",2);o([r({attribute:"formenctype"})],t.prototype,"formEnctype",2);o([r({attribute:"formmethod"})],t.prototype,"formMethod",2);o([r({attribute:"formnovalidate",type:Boolean})],t.prototype,"formNoValidate",2);o([r({attribute:"formtarget"})],t.prototype,"formTarget",2);o([w("disabled",{waitUntilFirstUpdate:!0})],t.prototype,"handleDisabledChange",1);t=o([_("flp-button")],t);
+//# sourceMappingURL=flp-button-tf0aVxxG.js.map
