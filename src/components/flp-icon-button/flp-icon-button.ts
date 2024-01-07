@@ -3,7 +3,6 @@ import FlpElement from '../../utils/flippico-element';
 import {customElement, property, query, state} from 'lit/decorators.js';
 
 import { flippico } from './flp-icon-button.styles';
-import { literal } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 
