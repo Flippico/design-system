@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { globby } from 'globby';
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const alwaysExternal = ['@lit/react', 'react'];
 
@@ -15,6 +16,7 @@ export default defineConfig({
         'src/index.ts',
         'src/themes/dark.css',
         'src/themes/light.css',
+        'src/themes/common.css',
       ],
       formats: ['es'],
     },
@@ -38,4 +40,14 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/assets',
+          dest: 'assets'
+        }
+      ]
+    })
+  ]
 })

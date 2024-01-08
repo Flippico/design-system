@@ -11,6 +11,7 @@ tsc
 node_modules
 storybook-static
 dist
+dist-cdn
 dist-ssr
 *.local
 .cache

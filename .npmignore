@@ -11,3 +11,6 @@ yarn.lock
 .gitgnore
 node_modules
 scaffolding
+dist-cdn
+vite-bundle.config.ts
+index.html
