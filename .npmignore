@@ -14,3 +14,4 @@ scaffolding
 dist-cdn
 vite-bundle.config.ts
 index.html
+storybook-static
