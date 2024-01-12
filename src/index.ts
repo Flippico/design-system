@@ -10,4 +10,7 @@ export { FlpAlert } from './components/flp-alert';
 export { FlpBadge } from './components/flp-badge';
 export { FlpSwitch } from './components/flp-switch';
 export { FlpCard } from './components/flp-card';
-export { FlpCheckbox } from './components/flp-checkbox';
+export { FlpSelect } from './components/flp-select';
+export { FlpPopup } from './components/flp-popup';
+export { FlpTag } from './components/flp-tag';
+export { FlpDropdown } from './components/flp-dropdown';

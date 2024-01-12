@@ -10,7 +10,7 @@ import { flippico } from './{{name}}.styles';
  * @tag {{name}}
  */
  @customElement("{{name}}")
-export class Flp{{sentence (replace name "flp-" "")}} extends FlpElement {
+export class Flp{{pascalcase (replace (replace name "flp-" "") "-" " ")}} extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   render() {

@@ -11,3 +11,7 @@ import './components/flp-badge/flp-badge';
 import './components/flp-checkbox/flp-checkbox';
 import './components/flp-card/flp-card';
 import './components/flp-switch/flp-switch';
+import './components/flp-select/flp-select';
+import './components/flp-tag/flp-tag';
+import './components/flp-popup/flp-popup';
+import './components/flp-dropdown/flp-dropdown';

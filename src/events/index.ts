@@ -12,3 +12,6 @@ export type { FlpAfterShowEvent } from './flp-after-show.js';
 export type { FlpInitialFocusEvent } from './flp-initial-focus.js';
 export type { FlpRequestCloseEvent } from './flp-request-close.js';
 export type { FlpHideEvent } from './flp-hide.js';
+export type { FlpRemoveEvent } from './flp-remove.js';
+export type { FlpRepositionEvent } from './flp-reposition.js';
+export type { FlpSelectEvent } from './flp-select.js';
