@@ -6,3 +6,8 @@ export { FlpDrawer } from './components/flp-drawer';
 export { FlpIconButton } from './components/flp-icon-button';
 export { FlpAvatar } from './components/flp-avatar';
 export { FlpLogo } from './components/flp-logo';
+export { FlpAlert } from './components/flp-alert';
+export { FlpBadge } from './components/flp-badge';
+export { FlpSwitch } from './components/flp-switch';
+export { FlpCard } from './components/flp-card';
+export { FlpCheckbox } from './components/flp-checkbox';

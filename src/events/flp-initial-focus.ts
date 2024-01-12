@@ -1,7 +1,7 @@
-export type FlpInitialFocus = CustomEvent<Record<PropertyKey, never>>;
+export type FlpInitialFocusEvent = CustomEvent<Record<PropertyKey, never>>;
 
 declare global {
   interface GlobalEventHandlersEventMap {
-    'flp-initial-focus': FlpInitialFocus;
+    'flp-initial-focus': FlpInitialFocusEvent;
   }
 }

@@ -6,3 +6,8 @@ import './components/flp-drawer/flp-drawer';
 import './components/flp-icon-button/flp-icon-button';
 import './components/flp-avatar/flp-avatar';
 import './components/flp-logo/flp-logo';
+import './components/flp-alert/flp-alert';
+import './components/flp-badge/flp-badge';
+import './components/flp-checkbox/flp-checkbox';
+import './components/flp-card/flp-card';
+import './components/flp-switch/flp-switch';

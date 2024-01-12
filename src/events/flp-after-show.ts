@@ -1,7 +1,7 @@
-export type FlpAfterShow = CustomEvent<Record<PropertyKey, never>>;
+export type FlpAfterShowEvent = CustomEvent<Record<PropertyKey, never>>;
 
 declare global {
   interface GlobalEventHandlersEventMap {
-    'flp-after-show': FlpAfterShow;
+    'flp-after-show': FlpAfterShowEvent;
   }
 }
