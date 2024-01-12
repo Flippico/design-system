@@ -1,6 +1,6 @@
 import { FlpDivider as FlpDividerRaw } from './flp-divider.js';
 import * as React from 'react';
-import { EventName, createComponent } from '@lit/react';
+import { createComponent } from '@lit/react';
 
 declare global {
   interface HTMLElementTagNameMap {

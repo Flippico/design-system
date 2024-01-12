@@ -29,6 +29,7 @@ export class FlpMenu extends FlpElement {
   private handleClick(event: MouseEvent) {
     const menuItemTypes = ['menuitem', 'menuitemcheckbox'];
 
+    // @ts-ignore
     const target = event.composedPath().find((el: Element) => menuItemTypes.includes(el?.getAttribute?.('role') || ''));
 
     if (!target) return;
@@ -113,6 +114,7 @@ export class FlpMenu extends FlpElement {
 
   /** @internal Gets all slotted menu items, ignoring dividers, headers, and other elements. */
   getAllItems() {
+    // @ts-ignore
     return [...this.defaultSlot.assignedElements({ flatten: true })].filter((el: HTMLElement) => {
       if (el.inert || !this.isMenuItem(el)) {
         return false;

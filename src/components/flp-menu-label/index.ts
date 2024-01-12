@@ -1,6 +1,6 @@
 import { FlpMenuLabel as FlpMenuLabelRaw } from './flp-menu-label.js';
 import * as React from 'react';
-import { EventName, createComponent } from '@lit/react';
+import { createComponent } from '@lit/react';
 
 declare global {
   interface HTMLElementTagNameMap {

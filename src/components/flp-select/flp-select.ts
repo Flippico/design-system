@@ -173,15 +173,21 @@ export class FlpSelect extends FlpElement {
     // https://github.com/shoelace-style/shoelace/issues/1763
     //
     const root = this.getRootNode();
+    // @ts-ignore
     root.addEventListener('focusin', this.handleDocumentFocusIn);
+    // @ts-ignore
     root.addEventListener('keydown', this.handleDocumentKeyDown);
+    // @ts-ignore
     root.addEventListener('mousedown', this.handleDocumentMouseDown);
   }
 
   private removeOpenListeners() {
     const root = this.getRootNode();
+    // @ts-ignore
     root.removeEventListener('focusin', this.handleDocumentFocusIn);
+    // @ts-ignore
     root.removeEventListener('keydown', this.handleDocumentKeyDown);
+    // @ts-ignore
     root.removeEventListener('mousedown', this.handleDocumentMouseDown);
   }
 

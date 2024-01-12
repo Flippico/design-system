@@ -1,4 +1,4 @@
-export type FlpRepositionEvent = CustomEvent<{ source: 'close-button' | 'keyboard' | 'overlay' }>;
+export type FlpRepositionEvent = CustomEvent<Record<PropertyKey, never>>;
 
 declare global {
   interface GlobalEventHandlersEventMap {

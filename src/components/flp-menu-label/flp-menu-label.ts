@@ -1,6 +1,6 @@
 import { CSSResultGroup, html } from 'lit';
 import FlpElement from '../../utils/flippico-element';
-import {customElement, property} from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 
 import { flippico } from './flp-menu-label.styles';
 

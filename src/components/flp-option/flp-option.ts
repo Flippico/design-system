@@ -17,7 +17,6 @@ export class FlpOption extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   private cachedTextLabel: string;
-  // @ts-expect-error - Controller is currently unused
 
   @query('.option__label') defaultSlot: HTMLSlotElement;
 
