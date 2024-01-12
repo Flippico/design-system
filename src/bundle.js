@@ -15,4 +15,4 @@ import './components/flp-select/flp-select';
 import './components/flp-tag/flp-tag';
 import './components/flp-popup/flp-popup';
 import './components/flp-dropdown/flp-dropdown';
-import './components/flp-menu/flp-menu';
+import './components/flp-divider/flp-divider';
