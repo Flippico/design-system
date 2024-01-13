@@ -26,6 +26,11 @@ const Template: Story<Alert> = (
       <flp-icon slot="icon" name="info-circle"></flp-icon>
       Some text
     </flp-alert>
+    <br/>
+    <flp-alert open variant="success">
+      <flp-icon slot="icon" name="check2-circle"></flp-icon>
+      Some text
+    </flp-alert>
   </div>
 `;
 

@@ -1,4 +1,4 @@
-import { FlpIcon } from './flp-icon.js';
+import { FlpIcon as FlpIconRaw } from './flp-icon.js';
 import * as React from 'react';
 import { createComponent } from '@lit/react';
 
@@ -6,17 +6,19 @@ export * from './flp-icon.js';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'flp-icon': FlpIcon;
+    'flp-icon': FlpIconRaw;
   }
 }
 
-const reactWrapper = createComponent({
+const FlpIcon = createComponent({
   tagName: 'flp-icon',
-  elementClass: FlpIcon,
+  elementClass: FlpIconRaw,
   react: React,
   events: {
   },
   displayName: 'FlpIcon'
 });
 
-export default reactWrapper;
+export {
+  FlpIcon
+};
