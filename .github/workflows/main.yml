@@ -42,4 +42,4 @@ jobs:
           aws-region: eu-central-1
 
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./dist-cdn s3://flippico-assets --delete
+        run: aws s3 sync ./dist-cdn s3://flippico-assets/design-system --delete
