@@ -17,3 +17,4 @@ import './components/flp-popup/flp-popup';
 import './components/flp-dropdown/flp-dropdown';
 import './components/flp-divider/flp-divider';
 import './components/flp-icon/flp-icon';
+import './components/flp-option/flp-option';
