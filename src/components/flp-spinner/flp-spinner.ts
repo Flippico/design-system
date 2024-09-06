@@ -5,10 +5,8 @@ import FlpElement from '../../utils/flippico-element.js';
 import { customElement } from 'lit/decorators.js';
 
 @customElement("flp-spinner")
-export default class FlpSpinner extends FlpElement {
+export class FlpSpinner extends FlpElement {
   static styles: CSSResultGroup = styles;
-
-
   render() {
     return html`
       <svg part="base" class="spinner" role="progressbar" aria-label="loading">

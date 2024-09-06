@@ -25,7 +25,7 @@ export default defineConfig({
       },
       preserveEntrySignatures: false,
       plugins: [
-        minifyHTML(),
+        // minifyHTML(),
         uglify(),
       ]
     },
