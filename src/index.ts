@@ -19,3 +19,4 @@ export { FlpDivider } from './components/flp-divider';
 export { FlpIcon } from './components/flp-icon';
 export { FlpOption } from './components/flp-option';
 export { FlpRange } from './components/flp-range';
+export { FlpSpinner } from './components/flp-spinner';
