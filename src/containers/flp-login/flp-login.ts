@@ -39,7 +39,7 @@ export class FlpLogin extends FlpElement {
     const res = await fetch(`https://staging.amadeus.flippi.co/${formData.get('tenant_key')}/login`, {
       method: "POST",
       body: formData,
-    }).catch(err => this.errorText = "Error while send to API");
+    }).catch(() => this.errorText = "Error while send to API");
     console.log('res', res);
   }
 
