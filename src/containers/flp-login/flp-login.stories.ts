@@ -1,6 +1,11 @@
 import { html } from 'lit';
 import { Story } from '../../types/storybook';
 import { Login } from './flp-login.types';
+import "./../../components/flp-card";
+import "./../../components/flp-button";
+import "./../../components/flp-input";
+import "./../../components/flp-logo";
+import "./../../components/flp-divider";
 import './flp-login';
 import './../../themes/light.css';
 import './../../themes/dark.css';
