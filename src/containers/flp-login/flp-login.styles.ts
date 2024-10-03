@@ -2,6 +2,11 @@ import { css } from 'lit';
 
 export const flippico = css`
 
+.auth-container {
+  max-width: 450px;
+  width: 100%;
+}
+
 .logo-container {
   text-align: center;
 }

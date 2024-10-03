@@ -30,4 +30,12 @@ export default defineConfig({
       ]
     },
   },
+  resolve: {
+    alias: [
+      {
+        find: "/assets/fonts/flippico/",
+        replacement: "flippico-assets.s3.eu-central-1.amazonaws.com/design-system/assets/"
+      }
+    ]
+  }
 })

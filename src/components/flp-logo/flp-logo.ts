@@ -7,7 +7,9 @@ import { classMap } from 'lit/directives/class-map.js';
 // @ts-expect-error
 import kwLogo from './../../assets/logo/kw/main.png';
 // @ts-expect-error
-import flippicoLogo from './../../assets/logo/flippico/main.png';
+// import flippicoLogo from './../../assets/logo/flippico/main.png';
+const flippicoLogo = new URL('./../../assets/logo/flippico/main.png', import.meta.url).href
+
 
 /**
  * @summary This the flp-logo component
