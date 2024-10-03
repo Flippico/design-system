@@ -19,7 +19,7 @@ ${componentStyles}
   border: solid var(--flp-panel-border-width) var(--flp-panel-border-color);
   border-top-width: calc(var(--flp-panel-border-width) * 3);
   border-radius: var(--flp-border-radius-medium);
-  font-family: var(--flp-font-sans);
+  font-family: var(--flp-font-light);
   font-size: var(--flp-font-size-small);
   font-weight: var(--flp-font-weight-normal);
   line-height: 1.6;

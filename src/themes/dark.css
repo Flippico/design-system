@@ -369,7 +369,7 @@
 
   /* Fonts */
   --flp-font-mono: FlippicoText, Arial, sans-serif;
-  --flp-font-sans: FlippicoText, Arial, sans-serif;
+  --flp-font-light: FlippicoText, Arial, sans-serif;
   --flp-font-serif: FlippicoText, Arial, sans-serif;
 
   /* Font sizes */
@@ -441,7 +441,7 @@
   --flp-input-border-radius-medium: var(--flp-border-radius-medium);
   --flp-input-border-radius-large: var(--flp-border-radius-medium);
 
-  --flp-input-font-family: var(--flp-font-sans);
+  --flp-input-font-family: var(--flp-font-light);
   --flp-input-font-weight: var(--flp-font-weight-normal);
   --flp-input-font-size-small: var(--flp-font-size-small);
   --flp-input-font-size-medium: var(--flp-font-size-medium);
@@ -511,7 +511,7 @@
   --flp-tooltip-border-radius: var(--flp-border-radius-medium);
   --flp-tooltip-background-color: var(--flp-color-neutral-800);
   --flp-tooltip-color: var(--flp-color-neutral-0);
-  --flp-tooltip-font-family: var(--flp-font-sans);
+  --flp-tooltip-font-family: var(--flp-font-light);
   --flp-tooltip-font-weight: var(--flp-font-weight-normal);
   --flp-tooltip-font-size: var(--flp-font-size-small);
   --flp-tooltip-line-height: var(--flp-line-height-dense);

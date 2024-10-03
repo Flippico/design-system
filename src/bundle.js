@@ -20,3 +20,4 @@ import './components/flp-icon/flp-icon';
 import './components/flp-option/flp-option';
 import './components/flp-range/flp-range';
 import './components/flp-spinner/flp-spinner';
+import './containers/flp-login/flp-login';

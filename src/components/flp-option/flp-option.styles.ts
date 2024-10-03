@@ -18,7 +18,7 @@ ${componentStyles}
   position: relative;
   display: flex;
   align-items: center;
-  font-family: var(--flp-font-sans);
+  font-family: var(--flp-font-light);
   font-size: var(--flp-font-size-medium);
   font-weight: var(--flp-font-weight-normal);
   line-height: var(--flp-line-height-normal);

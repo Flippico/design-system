@@ -18,7 +18,7 @@ export const flippico = css`
   width: var(--size);
   height: var(--size);
   background-color: var(--flp-color-neutral-400);
-  font-family: var(--flp-font-sans);
+  font-family: var(--flp-font-light);
   font-size: calc(var(--size) * 0.5);
   font-weight: var(--flp-font-weight-normal);
   color: var(--flp-color-neutral-0);

@@ -33,7 +33,7 @@ ${componentStyles}
 }
 
 .dropdown__panel {
-  font-family: var(--flp-font-sans);
+  font-family: var(--flp-font-light);
   font-size: var(--flp-font-size-medium);
   font-weight: var(--flp-font-weight-normal);
   box-shadow: var(--flp-shadow-large);

@@ -10,7 +10,7 @@ ${componentStyles}
 
 .menu-label {
   display: inline-block;
-  font-family: var(--flp-font-sans);
+  font-family: var(--flp-font-light);
   font-size: var(--flp-font-size-small);
   font-weight: var(--flp-font-weight-semibold);
   line-height: var(--flp-line-height-normal);
