@@ -34,7 +34,7 @@
   font-family: 'FlippicoTextMedium';
   src: url('../assets/fonts/flippico/Roboto-Medium.ttf')
     format('truetype');
-  font-style: normal;
-  font-weight: 500;
+  font-style: s;
+  font-weight: 400;
 }
 

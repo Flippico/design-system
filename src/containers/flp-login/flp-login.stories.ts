@@ -26,7 +26,7 @@ const Template: Story<Login> = (
   }
 ) => html`
   <div class="flp-theme-light">
-    <flp-login tenant_key="some key" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
+    <flp-login tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback" staging></flp-login>
   </div>
 `;
 

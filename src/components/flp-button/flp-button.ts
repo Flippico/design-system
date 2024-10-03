@@ -1,4 +1,4 @@
-import { CSSResultGroup, html } from 'lit';
+import { CSSResultGroup } from 'lit';
 import { HasSlotController } from '../../utils/slot.js';
 import {customElement, property, query, state} from 'lit/decorators.js';
 import { flippico } from './flp-button.styles.js';
@@ -7,6 +7,7 @@ import { FormControlController, validValidityState } from '../../utils/form.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { watch } from '../../utils/watch.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { html, literal } from 'lit/static-html.js';
 
 /**
  * @summary This the flp-button component
@@ -227,12 +228,12 @@ export class FlpButton extends FlpElement implements FlpFormControl {
 
   render() {
     const isLink = this.isLink();
-    // const tag = isLink ? literal`a` : literal`button`;
+    const tag = isLink ? literal`a` : literal`button`;
 
     /* eslint-disable lit/no-invalid-html */
     /* eslint-disable lit/binding-positions */
     return html`
-      <button
+      <${tag}
         part="base"
         class=${classMap({
           button: true,
@@ -282,7 +283,7 @@ export class FlpButton extends FlpElement implements FlpFormControl {
           this.caret ? html` <flp-icon part="caret" class="button__caret" library="system" name="caret"></flp-icon> ` : ''
         }
         ${this.loading ? html`<flp-spinner part="spinner"></flp-spinner>` : ''}
-      </button>
+      </${tag}>
     `;
   }
 }

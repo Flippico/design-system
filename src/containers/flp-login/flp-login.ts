@@ -6,7 +6,11 @@ import "./../../components/flp-button";
 import "./../../components/flp-input";
 import "./../../components/flp-logo";
 import "./../../components/flp-divider";
+import "./../../components/flp-icon";
+import "./../../components/flp-checkbox";
+import "./../../components/flp-spinner";
 import { flippico } from './flp-login.styles';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * @summary This the flp-login component
@@ -17,49 +21,98 @@ import { flippico } from './flp-login.styles';
 export class FlpLogin extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
-  @property({ attribute: "tenant_key" }) tenantKey = '';
-  @property({ attribute: "login_callback" }) loginCallback = '';
-  @property({ attribute: "logout_callback" }) logoutCallback = '';
+  @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
+  @property({ type: String, attribute: "login_callback" }) loginCallback = '';
+  @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
+  @property({ type: String, attribute: "name" }) name = '';
+  @property({ type: Boolean, attribute: "staging" }) staging = false;
 
   @state() errorText: null | string;
+  @state() loginPending: boolean = false;
+
+  baseUrl = this.staging ? "https://staging.amadeus.flippi.co" : "https://amadeus.flippi.co";
+
+  async loginByGoogle() {
+    console.log('login by google');
+  }
+
+  async loginByApple() {
+    console.log('login by apple');
+  }
 
   async onSubmitHandle(event: any) {
     event.preventDefault();
+    this.loginPending = true;
     const formData = new FormData(event.target);
     if (Array.from(formData.values()).some(item => item === '')) {
-      this.errorText = 'Error'
+      this.errorText = 'Password or email is empty';
+      this.loginPending = false;
       return;
     }
+    
     console.log('email', formData.get('email'));
     console.log('password', formData.get('password'));
-    console.log('tenant_key', formData.get('tenant_key'));
-    console.log('login_callback', formData.get('login_callback'));
-    console.log('logout_callback', formData.get('logout_callback'));
+    console.log('tenant-key', formData.get('tenant-key'));
+    console.log('login-callback', formData.get('login-callback'));
+    console.log('logout-callback', formData.get('logout-callback'));
     this.errorText = null;
-    const res = await fetch(`https://staging.amadeus.flippi.co/${formData.get('tenant_key')}/login`, {
+    fetch(`${this.baseUrl}/${formData.get('tenant-key')}/login`, {
       method: "POST",
       body: formData,
-    }).catch(() => this.errorText = "Error while send to API");
-    console.log('res', res);
+    })
+    .then(res => res.json())
+    .then((res) => {
+      window.location.replace(`${this.loginCallback}/${res.message.token}`);
+    })
+    .catch(() => this.errorText = "Error while send to API")
+    .finally(() => this.loginPending = false);
   }
 
   render() {
     return html`
     <flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
-        <div class="logo-container">
+        <div class="logo-container text-align-center">
           <flp-logo></flp-logo>
         </div>
-        <flp-divider></flp-divider>
-        <flp-input type="email" required name="email" label="Email"></flp-input>
-        <flp-input name="password" error="sds" required type="password" label="Password" password-toggle></flp-input>
-        <flp-button variant="primary" type="submit">Login</flp-button>
-        <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
-        <input type="hidden" name="login_callback" value=${this.loginCallback} />
-        <input type="hidden" name="logout_callback" value=${this.logoutCallback} />
+        <h2 class="text-align-center">Hello again!</h2>
+        <flp-button size="large" variant="default" @click=${this.loginByGoogle}>
+          <flp-icon slot="prefix" name="google"></flp-icon>
+          Login by Google
+        </flp-button>
         <br/>
         <br/>
-        <span class="error">${this.errorText}</span>
+        <flp-button size="large" variant="default" @click=${this.loginByApple}>
+          <flp-icon slot="prefix" name="apple"></flp-icon>
+          Login by Apple
+        </flp-button>
+
+        <div class="login-by-email-text">
+          <div class="login-by-email-text--line"></div>
+          <div class="text-align-center">or login by email</div>
+          <div class="login-by-email-text--line"></div>
+        </div>
+
+        <flp-input class="email--input" type="email" required name="email" label="Email"></flp-input>
+        <div class="password--and-forgot-password-link--container">
+          <flp-input name="password" error="sds" required type="password" label="Password" password-toggle></flp-input>
+          <div class="forgot-password-link--container">
+            <flp-button variant="text" href=${`${this.baseUrl}/${this.tenantKey}/reset-password`}>Fogrot password your password?</flp-button>
+          </div>
+        </div>
+        <input type="hidden" name="tenant-key" value=${this.tenantKey}/>
+        <input type="hidden" name="login-callback" value=${this.loginCallback} />
+        <input type="hidden" name="logout-callback" value=${this.logoutCallback} />
+        <flp-button 
+          class="mb-small" 
+          size="large" 
+          variant="primary" 
+          type="submit" 
+          .loading=${ifDefined(this.loginPending)} 
+          .disabled=${ifDefined(this.loginPending)}
+        >Login</flp-button>
+        <flp-button class="mb-medium" href=${`${this.baseUrl}/${this.tenantKey}/signup`} variant="primary" size="large" outline>Create new account by email</flp-button>
+        <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;
   }
