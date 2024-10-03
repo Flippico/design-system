@@ -22,6 +22,9 @@ export default defineConfig({
         dir: './dist-cdn',
         entryFileNames: 'bundle.js',
         format: "es",
+        assetFileNames: (assetInfo: any) => {
+          return `design-system/assets/${assetInfo.name}`;
+        },
       },
       preserveEntrySignatures: false,
       plugins: [
