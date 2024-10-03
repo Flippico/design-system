@@ -7,6 +7,22 @@ const config: StorybookConfig = {
     name: "@storybook/web-components-vite",
     options: {},
   },
+  async viteFinal(config) {
+    const { mergeConfig } = await import('vite');
+    return mergeConfig(config, {
+      build: {
+        rollupOptions: {
+          output: {
+            chunkFileNames: (chunkInfo) => {
+              let chunkName = chunkInfo.name || 'chunk';
+              chunkName = chunkName.replace("_", '');
+              return `${chunkName}-[hash].js`;
+            }
+          }
+        }
+      }
+    });
+  },
   docs: {
     autodocs: "tag",
   },
