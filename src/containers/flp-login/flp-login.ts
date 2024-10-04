@@ -7,7 +7,6 @@ import "./../../components/flp-input";
 import "./../../components/flp-logo";
 import "./../../components/flp-divider";
 import "./../../components/flp-icon";
-import "./../../components/flp-checkbox";
 import "./../../components/flp-spinner";
 import { flippico } from './flp-login.styles';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -95,7 +94,7 @@ export class FlpLogin extends FlpElement {
 
         <flp-input class="email--input" type="email" required name="email" label="Email"></flp-input>
         <div class="password--and-forgot-password-link--container">
-          <flp-input name="password" error="sds" required type="password" label="Password" password-toggle></flp-input>
+          <flp-input name="password" required type="password" label="Password" password-toggle></flp-input>
           <div class="forgot-password-link--container">
             <flp-button variant="text" href=${`${this.baseUrl}/${this.tenantKey}/reset-password`}>Fogrot your password?</flp-button>
           </div>

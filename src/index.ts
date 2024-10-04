@@ -21,3 +21,4 @@ export { FlpOption } from './components/flp-option';
 export { FlpRange } from './components/flp-range';
 export { FlpSpinner } from './components/flp-spinner';
 export { FlpLogin } from './containers/flp-login';
+export { FlpSignup } from './containers/flp-signup';
