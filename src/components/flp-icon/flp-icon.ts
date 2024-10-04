@@ -105,7 +105,6 @@ export class FlpIcon extends FlpElement {
 
   private getIconSource(): IconSource {
     const library = getIconLibrary(this.library);
-    console.log('library', library);
     if (this.name && library) {
       return {
         url: library.resolver(this.name),
