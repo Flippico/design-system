@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/web-components-vite";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -20,7 +21,17 @@ const config: StorybookConfig = {
             }
           }
         }
-      }
+      },
+      plugins: [
+        viteStaticCopy({
+          targets: [
+            {
+              src: 'src/assets/icons',
+              dest: 'assets'
+            }
+          ]
+        }) 
+      ]
     });
   },
   docs: {

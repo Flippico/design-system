@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import pkgMinifyHTML from 'rollup-plugin-minify-html-literals';
 import { uglify } from 'rollup-plugin-uglify';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 //@ts-ignore
 const minifyHTML = pkgMinifyHTML.default;
 
@@ -30,6 +31,14 @@ export default defineConfig({
       plugins: [
         // minifyHTML(),
         uglify(),
+        viteStaticCopy({
+          targets: [
+            {
+              src: 'src/assets/icons',
+              dest: 'design-systems/assets'
+            }
+          ]
+        })
       ]
     },
   },
