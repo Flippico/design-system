@@ -1,4 +1,4 @@
-import{k as s}from"./lit-element-CPYlYYac.js";import"./flp-icon-BDoUHotl.js";/* empty css             */import"./component.styles-CJs1ohMC.js";import"./property-CcHbFR6H.js";import"./state-Cw-lAQBx.js";import"./watch-CEsCE2EF.js";import"./directive-helpers-CHX3h6dV.js";const b={title:"components/Icon",component:"flp-icon"},r={},p=(a,{globals:{theme:l}})=>s`
+import{k as s}from"./lit-element-CPYlYYac.js";import"./flp-icon-CyHozCWl.js";/* empty css             */import"./component.styles-CJs1ohMC.js";import"./property-CcHbFR6H.js";import"./state-Cw-lAQBx.js";import"./watch-CEsCE2EF.js";import"./directive-helpers-CHX3h6dV.js";const b={title:"components/Icon",component:"flp-icon"},r={},p=(a,{globals:{theme:l}})=>s`
   <div class="flp-theme-light">
     <flp-icon name="8-square"></flp-icon>
   </div>
@@ -15,4 +15,4 @@ import{k as s}from"./lit-element-CPYlYYac.js";import"./flp-icon-BDoUHotl.js";/* 
     <flp-icon name="8-square"></flp-icon>
   </div>
 \``,...(n=(t=o.parameters)==null?void 0:t.docs)==null?void 0:n.source}}};const v=["Default"];export{o as Default,v as __namedExportsOrder,b as default};
-//# sourceMappingURL=flp-icon.stories-DLoiCJ6h.js.map
+//# sourceMappingURL=flp-icon.stories-DMfzup1N.js.map
