@@ -97,7 +97,7 @@ export class FlpLogin extends FlpElement {
         <div class="password--and-forgot-password-link--container">
           <flp-input name="password" error="sds" required type="password" label="Password" password-toggle></flp-input>
           <div class="forgot-password-link--container">
-            <flp-button variant="text" href=${`${this.baseUrl}/${this.tenantKey}/reset-password`}>Fogrot password your password?</flp-button>
+            <flp-button variant="text" href=${`${this.baseUrl}/${this.tenantKey}/reset-password`}>Fogrot your password?</flp-button>
           </div>
         </div>
         <input type="hidden" name="tenant-key" value=${this.tenantKey}/>
