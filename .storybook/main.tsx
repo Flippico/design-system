@@ -26,7 +26,7 @@ const config: StorybookConfig = {
         viteStaticCopy({
           targets: [
             {
-              src: 'src/assets/icons',
+              src: 'assets/icons',
               dest: 'assets'
             }
           ]
