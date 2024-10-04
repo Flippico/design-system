@@ -6,7 +6,7 @@ import fs from 'fs/promises';
 import { globby } from 'globby';
 import path from 'path';
 
-const iconDir = path.join('./assets/icons');
+const iconDir = path.join('./src/assets/icons');
 
 const iconPackageData = JSON.parse(await fs.readFile('./node_modules/bootstrap-icons/package.json', 'utf8'));
 

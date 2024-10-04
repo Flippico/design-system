@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "new": "plop --plopfile scaffolding/index.js",
-    "generate-icons": "node scripts/make-icons.js"
+    "generate-icons": "node scripts/make-icons.js",
+    "postinstall": "yarn generate-icons"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.5.4",

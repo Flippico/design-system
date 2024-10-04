@@ -16,6 +16,7 @@ dist-ssr
 *.local
 .cache
 assets/icons
+src/assets/icons
 
 # Editor directories and files
 .vscode/*
