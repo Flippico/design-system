@@ -31,8 +31,6 @@ export class FlpLogin extends FlpElement {
   @state() errorText: null | string;
   @state() loginPending: boolean = false;
 
-  baseUrl = getApiUrl(this.staging, this.develop);
-
   async loginByGoogle() {
     console.log('login by google');
   }
@@ -57,7 +55,7 @@ export class FlpLogin extends FlpElement {
     console.log('login-callback', formData.get('login-callback'));
     console.log('logout-callback', formData.get('logout-callback'));
     this.errorText = null;
-    fetch(`${this.baseUrl}/api/${formData.get('tenant-key')}/login`, {
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant-key')}/login`, {
       method: "POST",
       body: formData,
     })
@@ -98,7 +96,7 @@ export class FlpLogin extends FlpElement {
         <div class="password--and-forgot-password-link--container">
           <flp-input name="password" required type="password" label="Password" password-toggle></flp-input>
           <div class="forgot-password-link--container">
-            <flp-button variant="text" href=${`${this.baseUrl}/${this.tenantKey}/reset-password`}>Fogrot your password?</flp-button>
+            <flp-button variant="text" href=${`${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/reset-password`}>Fogrot your password?</flp-button>
           </div>
         </div>
         <input type="hidden" name="tenant-key" value=${this.tenantKey}/>
@@ -112,7 +110,7 @@ export class FlpLogin extends FlpElement {
           .loading=${ifDefined(this.loginPending)} 
           .disabled=${ifDefined(this.loginPending)}
         >Login</flp-button>
-        <flp-button class="mb-medium" href=${`${this.baseUrl}/${this.tenantKey}/signup`} variant="primary" size="large" outline>Create new account by email</flp-button>
+        <flp-button class="mb-medium" href=${`${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/signup`} variant="primary" size="large" outline>Create new account by email</flp-button>
         <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;

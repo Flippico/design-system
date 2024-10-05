@@ -26,8 +26,6 @@ export class FlpSignup extends FlpElement {
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
-  baseUrl = getApiUrl(this.staging, this.develop);
-
   @state() loginPending = false;
 
   onSubmitHandle(event: any) {
@@ -45,7 +43,7 @@ export class FlpSignup extends FlpElement {
     console.log('tenant-key', formData.get('tenant-key'));
     console.log('login-callback', formData.get('login-callback'));
     console.log('logout-callback', formData.get('logout-callback'));
-    fetch(`${this.baseUrl}/${formData.get('tenant-key')}/signup`, {
+    fetch(`${getApiUrl(this.staging, this.develop)}/${formData.get('tenant-key')}/signup`, {
       method: "POST",
       body: formData,
     })
@@ -76,7 +74,7 @@ export class FlpSignup extends FlpElement {
         >Signup</flp-button>
         <div class="login-container">
           <span>Already have account?</span>
-          <flp-button class="login--button" variant="text" href=${`${this.baseUrl}/${this.tenantKey}/login`}>Login</flp-button>
+          <flp-button class="login--button" variant="text" href=${`${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/login`}>Login</flp-button>
         </div>
       </form>
     </flp-card>`;
