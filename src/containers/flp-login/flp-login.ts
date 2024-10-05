@@ -10,6 +10,7 @@ import "./../../components/flp-icon";
 import "./../../components/flp-spinner";
 import { flippico } from './flp-login.styles';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { getApiUrl } from '../../utils/get-api-url';
 
 /**
  * @summary This the flp-login component
@@ -25,11 +26,12 @@ export class FlpLogin extends FlpElement {
   @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
   @property({ type: String, attribute: "name" }) name = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
+  @property({ type: Boolean, attribute: "develop" }) develop = false;
 
   @state() errorText: null | string;
   @state() loginPending: boolean = false;
 
-  baseUrl = this.staging ? "https://staging.amadeus.flippi.co" : "https://amadeus.flippi.co";
+  baseUrl = getApiUrl(this.staging, this.develop);
 
   async loginByGoogle() {
     console.log('login by google');

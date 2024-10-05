@@ -3,6 +3,7 @@ import FlpElement from '../../utils/flippico-element';
 import {customElement, property, state} from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { flippico } from './flp-confirm-signup.styles';
+import { getApiUrl } from '../../utils/get-api-url';
 
 /**
  * @summary This the flp-confirm-signup component
@@ -18,8 +19,9 @@ export class FlpConfirmSignup extends FlpElement {
   @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
   @property({ type: String, attribute: "name" }) name = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
+  @property({ type: Boolean, attribute: "develop" }) develop = false;
 
-  baseUrl = this.staging ? "https://staging.amadeus.flippi.co" : "https://amadeus.flippi.co";
+  baseUrl = getApiUrl(this.staging, this.develop);
 
   @state() loginPending = false;
 

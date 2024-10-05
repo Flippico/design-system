@@ -8,6 +8,7 @@ import "./../../components/flp-logo";
 import "./../../components/flp-divider";
 import { flippico } from './flp-signup.styles';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { getApiUrl } from '../../utils/get-api-url';
 
 /**
  * @summary This the flp-signup component
@@ -23,8 +24,9 @@ export class FlpSignup extends FlpElement {
   @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
   @property({ type: String, attribute: "name" }) name = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
+  @property({ type: Boolean, attribute: "develop" }) develop = false;
 
-  baseUrl = this.staging ? "https://staging.amadeus.flippi.co" : "https://amadeus.flippi.co";
+  baseUrl = getApiUrl(this.staging, this.develop);
 
   @state() loginPending = false;
 

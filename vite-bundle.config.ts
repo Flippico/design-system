@@ -39,7 +39,7 @@ export default defineConfig({
       targets: [
         {
           src: 'assets/icons',
-          dest: 'design-system/assets'
+          dest: 'assets'
         }
       ]
     })
