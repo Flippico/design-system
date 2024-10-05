@@ -51,7 +51,7 @@ export class FlpSignup extends FlpElement {
     })
     .then(res => res.json())
     .then((res) => {
-      window.location.replace(`${this.loginCallback}/${res.message.token}`);
+      window.location.replace(`${this.loginCallback}/api/${res.message.token}`);
     })
     .finally(() => this.loginPending = false);
   }

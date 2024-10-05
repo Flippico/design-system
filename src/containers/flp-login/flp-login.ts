@@ -57,7 +57,7 @@ export class FlpLogin extends FlpElement {
     console.log('login-callback', formData.get('login-callback'));
     console.log('logout-callback', formData.get('logout-callback'));
     this.errorText = null;
-    fetch(`${this.baseUrl}/${formData.get('tenant-key')}/login`, {
+    fetch(`${this.baseUrl}/api/${formData.get('tenant-key')}/login`, {
       method: "POST",
       body: formData,
     })
