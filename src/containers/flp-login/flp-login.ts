@@ -49,7 +49,7 @@ export class FlpLogin extends FlpElement {
       return;
     }
     this.errorText = null;
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant-key')}/login`, {
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant_key')}/login`, {
       method: "POST",
       body: formData,
     })
