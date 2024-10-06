@@ -36,7 +36,7 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant-key')}/signup`, {
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/signup`, {
       method: "POST",
       body: formData,
     })
