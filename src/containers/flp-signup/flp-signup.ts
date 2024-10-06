@@ -43,7 +43,7 @@ export class FlpSignup extends FlpElement {
     urlencoded.append("name", formData.get("name") as string);
     urlencoded.append("email", formData.get("email") as string);
     urlencoded.append("password", formData.get("password") as string);
-
+    console.log("before");
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/signup`, {
       method: "POST",
       body: urlencoded,
@@ -53,9 +53,7 @@ export class FlpSignup extends FlpElement {
     })
     .then((response) => {
       console.log(response);
-      if (response.status >= 300 && response.status < 400) {
-        window.location.href = response.headers.get('Location');
-      }
+      window.location.href = `${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/login`;
     })
     .finally(() => this.loginPending = false);
   }
