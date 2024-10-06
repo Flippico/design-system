@@ -48,12 +48,6 @@ export class FlpLogin extends FlpElement {
       this.loginPending = false;
       return;
     }
-    
-    console.log('email', formData.get('email'));
-    console.log('password', formData.get('password'));
-    console.log('tenant-key', formData.get('tenant-key'));
-    console.log('login-callback', formData.get('login-callback'));
-    console.log('logout-callback', formData.get('logout-callback'));
     this.errorText = null;
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant-key')}/login`, {
       method: "POST",
@@ -99,9 +93,9 @@ export class FlpLogin extends FlpElement {
             <flp-button variant="text" href=${`${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/reset-password`}>Fogrot your password?</flp-button>
           </div>
         </div>
-        <input type="hidden" name="tenant-key" value=${this.tenantKey}/>
-        <input type="hidden" name="login-callback" value=${this.loginCallback} />
-        <input type="hidden" name="logout-callback" value=${this.logoutCallback} />
+        <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
+        <input type="hidden" name="login_callback" value=${this.loginCallback} />
+        <input type="hidden" name="logout_callback" value=${this.logoutCallback} />
         <flp-button 
           class="mb-small" 
           size="large" 

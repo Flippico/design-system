@@ -36,13 +36,6 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
-    
-    console.log('email', formData.get('email'));
-    console.log('password', formData.get('password'));
-    console.log('name', formData.get('name'));
-    console.log('tenant-key', formData.get('tenant-key'));
-    console.log('login-callback', formData.get('login-callback'));
-    console.log('logout-callback', formData.get('logout-callback'));
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant-key')}/signup`, {
       method: "POST",
       body: formData,
@@ -64,9 +57,9 @@ export class FlpSignup extends FlpElement {
         <flp-input class="mb-small"  type="text" required name="name" label="Name"></flp-input>
         <flp-input class="mb-small"  type="email" required name="email" label="Email"></flp-input>
         <flp-input class="mb-medium"  name="password" required type="password" label="Password" password-toggle></flp-input>
-        <input type="hidden" name="tenant-key" value=${this.tenantKey}/>
-        <input type="hidden" name="login-callback" value=${this.loginCallback} />
-        <input type="hidden" name="logout-callback" value=${this.logoutCallback} />
+        <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
+        <input type="hidden" name="login_callback" value=${this.loginCallback} />
+        <input type="hidden" name="logout_callback" value=${this.logoutCallback} />
         <flp-button 
           class="mb-small" 
           size="large" 
