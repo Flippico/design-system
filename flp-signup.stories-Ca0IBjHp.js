@@ -30,7 +30,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-`;var _=Object.defineProperty,w=Object.getOwnPropertyDescriptor,o=(a,t,l,p)=>{for(var n=p>1?void 0:p?w(t,l):t,r=a.length-1,g;r>=0;r--)(g=a[r])&&(n=(p?g(t,l,n):g(n))||n);return p&&n&&_(t,l,n),n};let e=class extends y{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(a){a.preventDefault(),this.loginPending=!0;const t=new FormData(a.target);if(Array.from(t.values()).some(l=>l==="")){this.loginPending=!1;return}console.log("email",t.get("email")),console.log("password",t.get("password")),console.log("name",t.get("name")),console.log("tenant-key",t.get("tenant-key")),console.log("login-callback",t.get("login-callback")),console.log("logout-callback",t.get("logout-callback")),fetch(`${c(this.staging,this.develop)}/${t.get("tenant-key")}/signup`,{method:"POST",body:t}).then(l=>l.json()).then(l=>{window.location.replace(`${this.loginCallback}/api/${l.message.token}`)}).finally(()=>this.loginPending=!1)}render(){return b`<flp-card class="auth-container">
+`;var _=Object.defineProperty,w=Object.getOwnPropertyDescriptor,o=(a,t,l,p)=>{for(var n=p>1?void 0:p?w(t,l):t,r=a.length-1,g;r>=0;r--)(g=a[r])&&(n=(p?g(t,l,n):g(n))||n);return p&&n&&_(t,l,n),n};let e=class extends y{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(a){a.preventDefault(),this.loginPending=!0;const t=new FormData(a.target);if(Array.from(t.values()).some(l=>l==="")){this.loginPending=!1;return}console.log("email",t.get("email")),console.log("password",t.get("password")),console.log("name",t.get("name")),console.log("tenant-key",t.get("tenant-key")),console.log("login-callback",t.get("login-callback")),console.log("logout-callback",t.get("logout-callback")),fetch(`${c(this.staging,this.develop)}/api/${t.get("tenant-key")}/signup`,{method:"POST",body:t}).then(l=>l.json()).then(l=>{window.location.replace(`${this.loginCallback}/api/${l.message.token}`)}).finally(()=>this.loginPending=!1)}render(){return b`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
           <flp-logo></flp-logo>
@@ -74,4 +74,4 @@ h2 {
     </flp-signup>
   </div>
 \``,...(f=(d=s.parameters)==null?void 0:d.docs)==null?void 0:f.source}}};const Y=["Default"];export{s as Default,Y as __namedExportsOrder,X as default};
-//# sourceMappingURL=flp-signup.stories-BLRGI1v_.js.map
+//# sourceMappingURL=flp-signup.stories-Ca0IBjHp.js.map
