@@ -48,7 +48,7 @@ h2 {
   text-align: right;
   --flp-spacing-medium: 0px;
 }
-`;var C=Object.defineProperty,F=Object.getOwnPropertyDescriptor,a=(n,o,t,l)=>{for(var i=l>1?void 0:l?F(o,t):o,p=n.length-1,g;p>=0;p--)(g=n[p])&&(i=(l?g(o,t,i):g(i))||i);return l&&i&&C(o,t,i),i};let e=class extends w{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}async loginByGoogle(){console.log("login by google")}async loginByApple(){console.log("login by apple")}async onSubmitHandle(n){n.preventDefault(),this.loginPending=!0;const o=new FormData(n.target);if(Array.from(o.values()).some(l=>l==="")){this.errorText="Password or email is empty",this.loginPending=!1;return}const t=new URLSearchParams;t.append("tenant_key",this.tenantKey),t.append("login_callback",this.loginCallback),t.append("logout_callback",this.logoutCallback),t.append("name",o.get("name")),t.append("email",o.get("email")),t.append("password",o.get("password")),this.errorText=null,fetch(`${m(this.staging,this.develop)}/api/${this.tenantKey}/login`,{method:"POST",body:t,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(l=>{l.status>=300&&l.status<400&&(window.location.href=l.headers.get("Location"))}).catch(()=>this.errorText="Error while send to API").finally(()=>this.loginPending=!1)}render(){return b`
+`;var C=Object.defineProperty,F=Object.getOwnPropertyDescriptor,a=(n,l,t,e)=>{for(var i=e>1?void 0:e?F(l,t):l,p=n.length-1,g;p>=0;p--)(g=n[p])&&(i=(e?g(l,t,i):g(i))||i);return e&&i&&C(l,t,i),i};let o=class extends w{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}async loginByGoogle(){console.log("login by google")}async loginByApple(){console.log("login by apple")}async onSubmitHandle(n){n.preventDefault(),this.loginPending=!0;const l=new FormData(n.target);if(Array.from(l.values()).some(e=>e==="")){this.errorText="Password or email is empty",this.loginPending=!1;return}const t=new URLSearchParams;t.append("tenant_key",this.tenantKey),t.append("login_callback",this.loginCallback),t.append("logout_callback",this.logoutCallback),t.append("name",l.get("name")),t.append("email",l.get("email")),t.append("password",l.get("password")),this.errorText=null,fetch(`${m(this.staging,this.develop)}/api/${this.tenantKey}/login`,{method:"POST",body:t,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(e=>{e.status>=300&&e.status<400&&e.headers.get("Location")&&(window.location.href=e.headers.get("Location"))}).catch(()=>this.errorText="Error while send to API").finally(()=>this.loginPending=!1)}render(){return b`
     <flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
@@ -93,11 +93,11 @@ h2 {
         <flp-button class="mb-medium" href=${`${m(this.staging,this.develop)}/${this.tenantKey}/signup`} variant="primary" size="large" outline>Create new account by email</flp-button>
         <div class="error">${this.errorText}</div>
       </form>
-    </flp-card>`}};e.styles=[$];a([r({type:String,attribute:"tenant_key"})],e.prototype,"tenantKey",2);a([r({type:String,attribute:"login_callback"})],e.prototype,"loginCallback",2);a([r({type:String,attribute:"logout_callback"})],e.prototype,"logoutCallback",2);a([r({type:String,attribute:"name"})],e.prototype,"name",2);a([r({type:Boolean,attribute:"staging"})],e.prototype,"staging",2);a([r({type:Boolean,attribute:"develop"})],e.prototype,"develop",2);a([y()],e.prototype,"errorText",2);a([y()],e.prototype,"loginPending",2);e=a([x("flp-login")],e);const lt={title:"containers/Login",component:"flp-login"},S={},D=(n,{globals:{theme:o}})=>b`
+    </flp-card>`}};o.styles=[$];a([r({type:String,attribute:"tenant_key"})],o.prototype,"tenantKey",2);a([r({type:String,attribute:"login_callback"})],o.prototype,"loginCallback",2);a([r({type:String,attribute:"logout_callback"})],o.prototype,"logoutCallback",2);a([r({type:String,attribute:"name"})],o.prototype,"name",2);a([r({type:Boolean,attribute:"staging"})],o.prototype,"staging",2);a([r({type:Boolean,attribute:"develop"})],o.prototype,"develop",2);a([y()],o.prototype,"errorText",2);a([y()],o.prototype,"loginPending",2);o=a([x("flp-login")],o);const lt={title:"containers/Login",component:"flp-login"},S={},L=(n,{globals:{theme:l}})=>b`
   <div class="flp-theme-light">
     <flp-login .develop=${!0} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
-`,s=D.bind({});s.args=S;var d,f,u;s.parameters={...s.parameters,docs:{...(d=s.parameters)==null?void 0:d.docs,source:{originalSource:`(props: Login, {
+`,s=L.bind({});s.args=S;var d,f,u;s.parameters={...s.parameters,docs:{...(d=s.parameters)==null?void 0:d.docs,source:{originalSource:`(props: Login, {
   globals: {
     theme
   }
@@ -110,4 +110,4 @@ h2 {
     <flp-login .develop=\${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
 \``,...(u=(f=s.parameters)==null?void 0:f.docs)==null?void 0:u.source}}};const at=["Default"];export{s as Default,at as __namedExportsOrder,lt as default};
-//# sourceMappingURL=flp-login.stories-Bmn_ROml.js.map
+//# sourceMappingURL=flp-login.stories-jiu8RegA.js.map
