@@ -32,6 +32,8 @@ export class FlpSignup extends FlpElement {
     event.preventDefault();
     this.loginPending = true;
     const formData = new FormData(event.target);
+    console.log('this.tenantKey', this.tenantKey);
+    console.log('formData', formData.get("tenant_key"));
     if (Array.from(formData.values()).some(item => item === '')) {
       this.loginPending = false;
       return;
