@@ -43,7 +43,7 @@ export class FlpSignup extends FlpElement {
     console.log('tenant-key', formData.get('tenant-key'));
     console.log('login-callback', formData.get('login-callback'));
     console.log('logout-callback', formData.get('logout-callback'));
-    fetch(`${getApiUrl(this.staging, this.develop)}/${formData.get('tenant-key')}/signup`, {
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant-key')}/signup`, {
       method: "POST",
       body: formData,
     })
