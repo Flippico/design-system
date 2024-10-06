@@ -32,8 +32,6 @@ export class FlpSignup extends FlpElement {
     event.preventDefault();
     this.loginPending = true;
     const formData = new FormData(event.target);
-    console.log('this.tenantKey', this.tenantKey);
-    console.log('formData', formData.get("tenant_key"));
     if (Array.from(formData.values()).some(item => item === '')) {
       this.loginPending = false;
       return;
@@ -41,6 +39,9 @@ export class FlpSignup extends FlpElement {
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/signup`, {
       method: "POST",
       body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
     })
     .then(res => res.json())
     .then((res) => {

@@ -52,6 +52,9 @@ export class FlpLogin extends FlpElement {
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/login`, {
       method: "POST",
       body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
     })
     .then(res => res.json())
     .then((res) => {
