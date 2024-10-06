@@ -21,7 +21,7 @@ const Template: Story<Signup> = (
   }
 ) => html`
   <div class="flp-theme-light">
-    <flp-signup>
+    <flp-signup .develop=${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback">
     </flp-signup>
   </div>
 `;

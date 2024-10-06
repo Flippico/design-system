@@ -64,6 +64,9 @@ export class FlpSignup extends FlpElement {
         <flp-input class="mb-small"  type="text" required name="name" label="Name"></flp-input>
         <flp-input class="mb-small"  type="email" required name="email" label="Email"></flp-input>
         <flp-input class="mb-medium"  name="password" required type="password" label="Password" password-toggle></flp-input>
+        <input type="hidden" name="tenant-key" value=${this.tenantKey}/>
+        <input type="hidden" name="login-callback" value=${this.loginCallback} />
+        <input type="hidden" name="logout-callback" value=${this.logoutCallback} />
         <flp-button 
           class="mb-small" 
           size="large" 
