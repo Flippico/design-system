@@ -30,7 +30,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-`;var P=Object.defineProperty,x=Object.getOwnPropertyDescriptor,l=(i,e,n,r)=>{for(var a=r>1?void 0:r?x(e,n):e,s=i.length-1,m;s>=0;s--)(m=i[s])&&(a=(r?m(e,n,a):m(a))||a);return r&&a&&P(e,n,a),a};let t=class extends y{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(i){i.preventDefault(),this.loginPending=!0;const e=new FormData(i.target);if(Array.from(e.values()).some(n=>n==="")){this.loginPending=!1;return}fetch(`${c(this.staging,this.develop)}/api/${e.get("tenant-key")}/signup`,{method:"POST",body:e}).then(n=>n.json()).then(n=>{window.location.replace(`${this.loginCallback}/api/${n.message.token}`)}).finally(()=>this.loginPending=!1)}render(){return b`<flp-card class="auth-container">
+`;var P=Object.defineProperty,x=Object.getOwnPropertyDescriptor,l=(a,n,e,r)=>{for(var i=r>1?void 0:r?x(n,e):n,s=a.length-1,m;s>=0;s--)(m=a[s])&&(i=(r?m(n,e,i):m(i))||i);return r&&i&&P(n,e,i),i};let t=class extends y{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(a){a.preventDefault(),this.loginPending=!0;const n=new FormData(a.target);if(Array.from(n.values()).some(e=>e==="")){this.loginPending=!1;return}fetch(`${c(this.staging,this.develop)}/api/${this.tenantKey}/signup`,{method:"POST",body:n}).then(e=>e.json()).then(e=>{window.location.replace(`${this.loginCallback}/api/${e.message.token}`)}).finally(()=>this.loginPending=!1)}render(){return b`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
           <flp-logo></flp-logo>
@@ -55,7 +55,7 @@ h2 {
           <flp-button class="login--button" variant="text" href=${`${c(this.staging,this.develop)}/${this.tenantKey}/login`}>Login</flp-button>
         </div>
       </form>
-    </flp-card>`}};t.styles=[_];l([o({type:String,attribute:"tenant_key"})],t.prototype,"tenantKey",2);l([o({type:String,attribute:"login_callback"})],t.prototype,"loginCallback",2);l([o({type:String,attribute:"logout_callback"})],t.prototype,"logoutCallback",2);l([o({type:String,attribute:"name"})],t.prototype,"name",2);l([o({type:Boolean,attribute:"staging"})],t.prototype,"staging",2);l([o({type:Boolean,attribute:"develop"})],t.prototype,"develop",2);l([k()],t.prototype,"loginPending",2);t=l([v("flp-signup")],t);const X={title:"containers/Signup",component:"flp-signup"},$={},w=(i,{globals:{theme:e}})=>b`
+    </flp-card>`}};t.styles=[_];l([o({type:String,attribute:"tenant_key"})],t.prototype,"tenantKey",2);l([o({type:String,attribute:"login_callback"})],t.prototype,"loginCallback",2);l([o({type:String,attribute:"logout_callback"})],t.prototype,"logoutCallback",2);l([o({type:String,attribute:"name"})],t.prototype,"name",2);l([o({type:Boolean,attribute:"staging"})],t.prototype,"staging",2);l([o({type:Boolean,attribute:"develop"})],t.prototype,"develop",2);l([k()],t.prototype,"loginPending",2);t=l([v("flp-signup")],t);const X={title:"containers/Signup",component:"flp-signup"},$={},w=(a,{globals:{theme:n}})=>b`
   <div class="flp-theme-light">
     <flp-signup .develop=${!0} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback">
     </flp-signup>
@@ -74,4 +74,4 @@ h2 {
     </flp-signup>
   </div>
 \``,...(f=(d=p.parameters)==null?void 0:d.docs)==null?void 0:f.source}}};const Y=["Default"];export{p as Default,Y as __namedExportsOrder,X as default};
-//# sourceMappingURL=flp-signup.stories-BMRbMWJK.js.map
+//# sourceMappingURL=flp-signup.stories-CC1d1Epm.js.map
