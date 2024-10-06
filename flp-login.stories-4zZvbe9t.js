@@ -48,7 +48,7 @@ h2 {
   text-align: right;
   --flp-spacing-medium: 0px;
 }
-`;var C=Object.defineProperty,F=Object.getOwnPropertyDescriptor,o=(n,l,e,s)=>{for(var i=s>1?void 0:s?F(l,e):l,p=n.length-1,g;p>=0;p--)(g=n[p])&&(i=(s?g(l,e,i):g(i))||i);return s&&i&&C(l,e,i),i};let t=class extends k{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}async loginByGoogle(){console.log("login by google")}async loginByApple(){console.log("login by apple")}async onSubmitHandle(n){n.preventDefault(),this.loginPending=!0;const l=new FormData(n.target);if(Array.from(l.values()).some(e=>e==="")){this.errorText="Password or email is empty",this.loginPending=!1;return}this.errorText=null,fetch(`${m(this.staging,this.develop)}/api/${this.tenantKey}/login`,{method:"POST",body:l}).then(e=>e.json()).then(e=>{window.location.replace(`${this.loginCallback}/${e.message.token}`)}).catch(()=>this.errorText="Error while send to API").finally(()=>this.loginPending=!1)}render(){return b`
+`;var C=Object.defineProperty,F=Object.getOwnPropertyDescriptor,o=(n,l,e,s)=>{for(var i=s>1?void 0:s?F(l,e):l,p=n.length-1,g;p>=0;p--)(g=n[p])&&(i=(s?g(l,e,i):g(i))||i);return s&&i&&C(l,e,i),i};let t=class extends k{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.staging=!1,this.develop=!1,this.loginPending=!1}async loginByGoogle(){console.log("login by google")}async loginByApple(){console.log("login by apple")}async onSubmitHandle(n){n.preventDefault(),this.loginPending=!0;const l=new FormData(n.target);if(Array.from(l.values()).some(e=>e==="")){this.errorText="Password or email is empty",this.loginPending=!1;return}this.errorText=null,fetch(`${m(this.staging,this.develop)}/api/${this.tenantKey}/login`,{method:"POST",body:l,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(e=>e.json()).then(e=>{window.location.replace(`${this.loginCallback}/${e.message.token}`)}).catch(()=>this.errorText="Error while send to API").finally(()=>this.loginPending=!1)}render(){return b`
     <flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
@@ -110,4 +110,4 @@ h2 {
     <flp-login .develop=\${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
 \``,...(u=(f=r.parameters)==null?void 0:f.docs)==null?void 0:u.source}}};const it=["Default"];export{r as Default,it as __namedExportsOrder,lt as default};
-//# sourceMappingURL=flp-login.stories-CnWL4ehX.js.map
+//# sourceMappingURL=flp-login.stories-4zZvbe9t.js.map
