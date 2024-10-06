@@ -66,7 +66,9 @@ export class FlpLogin extends FlpElement {
     })
     .then((response) => {
       if (response.status >= 300 && response.status < 400) {
-        window.location.href = response.headers.get('Location');
+        if (response.headers.get('Location')) {
+          window.location.href = response.headers.get('Location') as string;
+        }
       }
     })
     .catch(() => this.errorText = "Error while send to API")
