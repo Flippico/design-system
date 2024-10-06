@@ -51,10 +51,6 @@ export class FlpSignup extends FlpElement {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
-    .then(res => res.json())
-    .then((res) => {
-      window.location.replace(`${this.loginCallback}/api/${res.message.token}`);
-    })
     .finally(() => this.loginPending = false);
   }
 
