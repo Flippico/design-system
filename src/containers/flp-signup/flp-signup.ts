@@ -52,6 +52,7 @@ export class FlpSignup extends FlpElement {
       }
     })
     .then((response) => {
+      console.log(response);
       if (response.status >= 300 && response.status < 400) {
         window.location.href = response.headers.get('Location');
       }
