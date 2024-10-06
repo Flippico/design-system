@@ -36,9 +36,17 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("tenant_key", this.tenantKey);
+    urlencoded.append("login_callback", this.loginCallback);
+    urlencoded.append("logout_callback", this.logoutCallback);
+    urlencoded.append("name", formData.get("name") as string);
+    urlencoded.append("email", formData.get("email") as string);
+    urlencoded.append("password", formData.get("password") as string);
+
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/signup`, {
       method: "POST",
-      body: formData,
+      body: urlencoded,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       }
