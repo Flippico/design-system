@@ -51,6 +51,11 @@ export class FlpSignup extends FlpElement {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
+    .then((response) => {
+      if (response.status >= 300 && response.status < 400) {
+        window.location.href = response.headers.get('Location');
+      }
+    })
     .finally(() => this.loginPending = false);
   }
 

@@ -64,9 +64,10 @@ export class FlpLogin extends FlpElement {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
-    .then(res => res.json())
-    .then((res) => {
-      window.location.replace(`${this.loginCallback}/${res.message.token}`);
+    .then((response) => {
+      if (response.status >= 300 && response.status < 400) {
+        window.location.href = response.headers.get('Location');
+      }
     })
     .catch(() => this.errorText = "Error while send to API")
     .finally(() => this.loginPending = false);
