@@ -22,3 +22,4 @@ import './components/flp-range/flp-range';
 import './components/flp-spinner/flp-spinner';
 import './containers/flp-login/flp-login';
 import './containers/flp-signup/flp-signup';
+import './containers/flp-signup/flp-confirm-signup';

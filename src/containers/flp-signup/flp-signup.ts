@@ -49,11 +49,12 @@ export class FlpSignup extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
+      console.log('response', response);
       if (response.code < 4000) {
         window.location.href = response.message.redirect_url;
         return;
       }
-      this.errorText = response.message.error;
+      this.errorText = response.message;
       event.target.reset();
     })
     .catch(console.error)

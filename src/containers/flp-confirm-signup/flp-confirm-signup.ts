@@ -43,6 +43,7 @@ export class FlpConfirmSignup extends FlpElement {
     })
     .then(res => res.json())
     .then((response) => {
+      console.log('response', response);
       if (response.code <= 4000) {
         window.location.href = this.successConfirmUrl;
         return;
