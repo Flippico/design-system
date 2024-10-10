@@ -30,7 +30,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-`;var P=Object.defineProperty,w=Object.getOwnPropertyDescriptor,l=(p,n,t,a)=>{for(var o=a>1?void 0:a?w(n,t):n,s=p.length-1,m;s>=0;s--)(m=p[s])&&(o=(a?m(n,t,o):m(o))||o);return a&&o&&P(n,t,o),o};let e=class extends h{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.loginUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(p){p.preventDefault(),this.loginPending=!0;const n=new FormData(p.target);if(Array.from(n.values()).some(a=>a==="")){this.loginPending=!1;return}const t=new URLSearchParams;t.append("tenant_key",this.tenantKey),t.append("login_callback",this.loginCallback),t.append("logout_callback",this.logoutCallback),t.append("name",n.get("name")),t.append("email",n.get("email")),t.append("password",n.get("password")),fetch(`${k(this.staging,this.develop)}/api/${this.tenantKey}/signup`,{method:"POST",body:t,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(a=>{console.log(a)}).finally(()=>this.loginPending=!1)}render(){return f`<flp-card class="auth-container">
+`;var P=Object.defineProperty,w=Object.getOwnPropertyDescriptor,a=(p,n,t,l)=>{for(var o=l>1?void 0:l?w(n,t):n,s=p.length-1,m;s>=0;s--)(m=p[s])&&(o=(l?m(n,t,o):m(o))||o);return l&&o&&P(n,t,o),o};let e=class extends h{constructor(){super(...arguments),this.tenantKey="",this.loginCallback="",this.logoutCallback="",this.name="",this.loginUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(p){p.preventDefault(),this.loginPending=!0;const n=new FormData(p.target);if(Array.from(n.values()).some(l=>l==="")){this.loginPending=!1;return}const t=new URLSearchParams;t.append("tenant_key",this.tenantKey),t.append("login_callback",this.loginCallback),t.append("logout_callback",this.logoutCallback),t.append("name",n.get("name")),t.append("email",n.get("email")),t.append("password",n.get("password")),fetch(`${k(this.staging,this.develop)}/api/${this.tenantKey}/signup`,{method:"POST",body:t,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(l=>l.json()).then(l=>{console.log(l)}).finally(()=>this.loginPending=!1)}render(){return f`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
           <flp-logo></flp-logo>
@@ -55,7 +55,7 @@ h2 {
           <flp-button class="login--button" variant="text" href=${this.loginUrl}>Login</flp-button>
         </div>
       </form>
-    </flp-card>`}};e.styles=[_];l([i({type:String,attribute:"tenant_key"})],e.prototype,"tenantKey",2);l([i({type:String,attribute:"login_callback"})],e.prototype,"loginCallback",2);l([i({type:String,attribute:"logout_callback"})],e.prototype,"logoutCallback",2);l([i({type:String,attribute:"name"})],e.prototype,"name",2);l([i({type:String,attribute:"login_url"})],e.prototype,"loginUrl",2);l([i({type:Boolean,attribute:"staging"})],e.prototype,"staging",2);l([i({type:Boolean,attribute:"develop"})],e.prototype,"develop",2);l([v()],e.prototype,"loginPending",2);e=l([y("flp-signup")],e);const X={title:"containers/Signup",component:"flp-signup"},x={},S=(p,{globals:{theme:n}})=>f`
+    </flp-card>`}};e.styles=[_];a([i({type:String,attribute:"tenant_key"})],e.prototype,"tenantKey",2);a([i({type:String,attribute:"login_callback"})],e.prototype,"loginCallback",2);a([i({type:String,attribute:"logout_callback"})],e.prototype,"logoutCallback",2);a([i({type:String,attribute:"name"})],e.prototype,"name",2);a([i({type:String,attribute:"login_url"})],e.prototype,"loginUrl",2);a([i({type:Boolean,attribute:"staging"})],e.prototype,"staging",2);a([i({type:Boolean,attribute:"develop"})],e.prototype,"develop",2);a([v()],e.prototype,"loginPending",2);e=a([y("flp-signup")],e);const X={title:"containers/Signup",component:"flp-signup"},x={},S=(p,{globals:{theme:n}})=>f`
   <div class="flp-theme-light">
     <flp-signup .develop=${!0} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback">
     </flp-signup>
@@ -74,4 +74,4 @@ h2 {
     </flp-signup>
   </div>
 \``,...(d=(u=r.parameters)==null?void 0:u.docs)==null?void 0:d.source}}};const Y=["Default"];export{r as Default,Y as __namedExportsOrder,X as default};
-//# sourceMappingURL=flp-signup.stories-D2TqgAji.js.map
+//# sourceMappingURL=flp-signup.stories-Dom7XcX-.js.map
