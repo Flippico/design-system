@@ -34,7 +34,7 @@ export class FlpConfirmSignup extends FlpElement {
     const urlencoded = new URLSearchParams();
     urlencoded.append("code", formData.get("code") as string);
     urlencoded.append("token", this.token);
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/confirm-password`, {
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/confirm-account`, {
       method: "POST",
       body: formData,
       headers: {
