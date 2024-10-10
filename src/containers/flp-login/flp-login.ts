@@ -25,6 +25,8 @@ export class FlpLogin extends FlpElement {
   @property({ type: String, attribute: "login_callback" }) loginCallback = '';
   @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
   @property({ type: String, attribute: "name" }) name = '';
+  @property({ type: String, attribute: "signup_url" }) signUpUrl = '';
+  @property({ type: String, attribute: "reset_password_url" }) resetPasswordUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
@@ -104,7 +106,7 @@ export class FlpLogin extends FlpElement {
         <div class="password--and-forgot-password-link--container">
           <flp-input name="password" required type="password" label="Password" password-toggle></flp-input>
           <div class="forgot-password-link--container">
-            <flp-button variant="text" href=${`${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/reset-password`}>Fogrot your password?</flp-button>
+            <flp-button variant="text" href=${this.resetPasswordUrl}>Fogrot your password?</flp-button>
           </div>
         </div>
         <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
@@ -118,7 +120,7 @@ export class FlpLogin extends FlpElement {
           .loading=${ifDefined(this.loginPending)} 
           .disabled=${ifDefined(this.loginPending)}
         >Login</flp-button>
-        <flp-button class="mb-medium" href=${`${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/signup`} variant="primary" size="large" outline>Create new account by email</flp-button>
+        <flp-button class="mb-medium" href=${this.signUpUrl} variant="primary" size="large" outline>Create new account by email</flp-button>
         <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;
