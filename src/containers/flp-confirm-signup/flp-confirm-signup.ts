@@ -33,7 +33,6 @@ export class FlpConfirmSignup extends FlpElement {
     }
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    
     const urlencoded = new URLSearchParams();
     urlencoded.append("token", formData.get("token") as string);
     urlencoded.append("code", formData.get("code") as string);

@@ -36,6 +36,8 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     const urlencoded = new URLSearchParams();
     urlencoded.append("name", formData.get("name") as string);
     urlencoded.append("email", formData.get("email") as string);
@@ -43,9 +45,7 @@ export class FlpSignup extends FlpElement {
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/signup`, {
       method: "POST",
       body: urlencoded,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
+      headers: myHeaders,
     })
     .then((response) => response.json())
     .then((response) => {
