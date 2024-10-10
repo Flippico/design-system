@@ -33,7 +33,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-`;var P=Object.defineProperty,C=Object.getOwnPropertyDescriptor,o=(r,i,s,n)=>{for(var t=n>1?void 0:n?C(i,s):i,p=r.length-1,m;p>=0;p--)(m=r[p])&&(t=(n?m(i,s,t):m(t))||t);return n&&t&&P(i,s,t),t};let e=class extends b{constructor(){super(...arguments),this.tenantKey="",this.token="",this.successConfirmUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(r){r.preventDefault(),this.loginPending=!0;const i=new FormData(r.target);if(Array.from(i.values()).some(t=>t==="")){this.loginPending=!1;return}const s=new Headers;s.append("Content-Type","application/x-www-form-urlencoded");const n=new URLSearchParams;n.append("token","921676822932325308"),n.append("code","2342"),fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/confirm-account`,{method:"POST",headers:s,body:n,redirect:"follow"}).then(t=>t.json()).then(t=>{if(console.log("response",t),t.code<=4e3){window.location.href=this.successConfirmUrl;return}this.errorText=t.message.error,r.target.reset()}).finally(()=>this.loginPending=!1)}render(){return u`<flp-card class="auth-container">
+`;var P=Object.defineProperty,C=Object.getOwnPropertyDescriptor,r=(i,n,s,o)=>{for(var t=o>1?void 0:o?C(n,s):n,p=i.length-1,m;p>=0;p--)(m=i[p])&&(t=(o?m(n,s,t):m(t))||t);return o&&t&&P(n,s,t),t};let e=class extends b{constructor(){super(...arguments),this.tenantKey="",this.token="",this.successConfirmUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(i){i.preventDefault(),this.loginPending=!0;const n=new FormData(i.target);if(Array.from(n.values()).some(t=>t==="")){this.loginPending=!1;return}const s=new Headers;s.append("Content-Type","application/x-www-form-urlencoded");const o=new URLSearchParams;o.append("token",n.get("token")),o.append("code",n.get("code")),fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/confirm-account`,{method:"POST",headers:s,body:o,redirect:"follow"}).then(t=>t.json()).then(t=>{if(console.log("response",t),t.code<=4e3){window.location.href=this.successConfirmUrl;return}this.errorText=t.message.error,i.target.reset()}).finally(()=>this.loginPending=!1)}render(){return u`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
           <flp-logo></flp-logo>
@@ -51,7 +51,7 @@ h2 {
         >Confirm</flp-button>
         <div class="error">${this.errorText}</div>
       </form>
-    </flp-card>`}};e.styles=[w];o([l({type:String,attribute:"tenant_key"})],e.prototype,"tenantKey",2);o([l({type:String,attribute:"token"})],e.prototype,"token",2);o([l({type:String,attribute:"success_confirm_url"})],e.prototype,"successConfirmUrl",2);o([l({type:Boolean,attribute:"staging"})],e.prototype,"staging",2);o([l({type:Boolean,attribute:"develop"})],e.prototype,"develop",2);o([h()],e.prototype,"errorText",2);o([h()],e.prototype,"loginPending",2);e=o([v("flp-confirm-signup")],e);const H={title:"containers/ConfirmSignup",component:"flp-confirm-signup"},S={},_=(r,{globals:{theme:i}})=>u`
+    </flp-card>`}};e.styles=[w];r([l({type:String,attribute:"tenant_key"})],e.prototype,"tenantKey",2);r([l({type:String,attribute:"token"})],e.prototype,"token",2);r([l({type:String,attribute:"success_confirm_url"})],e.prototype,"successConfirmUrl",2);r([l({type:Boolean,attribute:"staging"})],e.prototype,"staging",2);r([l({type:Boolean,attribute:"develop"})],e.prototype,"develop",2);r([h()],e.prototype,"errorText",2);r([h()],e.prototype,"loginPending",2);e=r([v("flp-confirm-signup")],e);const F={title:"containers/ConfirmSignup",component:"flp-confirm-signup"},S={},_=(i,{globals:{theme:n}})=>u`
   <div class="flp-theme-light">
     <flp-confirm-signup>
     </flp-confirm-signup>
@@ -69,5 +69,5 @@ h2 {
     <flp-confirm-signup>
     </flp-confirm-signup>
   </div>
-\``,...(d=(g=a.parameters)==null?void 0:g.docs)==null?void 0:d.source}}};const k=["Default"];export{a as Default,k as __namedExportsOrder,H as default};
-//# sourceMappingURL=flp-confirm-signup.stories-8fU4ylbo.js.map
+\``,...(d=(g=a.parameters)==null?void 0:g.docs)==null?void 0:d.source}}};const H=["Default"];export{a as Default,H as __namedExportsOrder,F as default};
+//# sourceMappingURL=flp-confirm-signup.stories--KdcbXah.js.map
