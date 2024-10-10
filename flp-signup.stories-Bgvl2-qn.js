@@ -33,7 +33,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-`;var P=Object.defineProperty,_=Object.getOwnPropertyDescriptor,r=(i,e,n,t)=>{for(var l=t>1?void 0:t?_(e,n):e,s=i.length-1,m;s>=0;s--)(m=i[s])&&(l=(t?m(e,n,l):m(l))||l);return t&&l&&P(e,n,l),l};let o=class extends y{constructor(){super(...arguments),this.tenantKey="",this.name="",this.loginUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(i){i.preventDefault(),this.loginPending=!0;const e=new FormData(i.target);if(Array.from(e.values()).some(t=>t==="")){this.loginPending=!1;return}const n=new URLSearchParams;n.append("name",e.get("name")),n.append("email",e.get("email")),n.append("password",e.get("password")),fetch(`${w(this.staging,this.develop)}/api/${this.tenantKey}/signup`,{method:"POST",body:n,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(t=>t.json()).then(t=>{if(t.code<4e3){window.location.href=t.message.redirect_url;return}this.errorText=t.message.error,i.target.reset()}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return f`<flp-card class="auth-container">
+`;var P=Object.defineProperty,_=Object.getOwnPropertyDescriptor,i=(r,e,n,t)=>{for(var l=t>1?void 0:t?_(e,n):e,s=r.length-1,m;s>=0;s--)(m=r[s])&&(l=(t?m(e,n,l):m(l))||l);return t&&l&&P(e,n,l),l};let o=class extends y{constructor(){super(...arguments),this.tenantKey="",this.name="",this.loginUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(r){r.preventDefault(),this.loginPending=!0;const e=new FormData(r.target);if(Array.from(e.values()).some(t=>t==="")){this.loginPending=!1;return}const n=new URLSearchParams;n.append("name",e.get("name")),n.append("email",e.get("email")),n.append("password",e.get("password")),fetch(`${w(this.staging,this.develop)}/api/${this.tenantKey}/signup`,{method:"POST",body:n,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(t=>t.json()).then(t=>{if(console.log("response",t),t.code<4e3){window.location.href=t.message.redirect_url;return}this.errorText=t.message,r.target.reset()}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return f`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
           <flp-logo></flp-logo>
@@ -56,7 +56,7 @@ h2 {
         </div>
         <div class="error">${this.errorText}</div>
       </form>
-    </flp-card>`}};o.styles=[x];r([p({type:String,attribute:"tenant_key"})],o.prototype,"tenantKey",2);r([p({type:String,attribute:"name"})],o.prototype,"name",2);r([p({type:String,attribute:"login_url"})],o.prototype,"loginUrl",2);r([p({type:Boolean,attribute:"staging"})],o.prototype,"staging",2);r([p({type:Boolean,attribute:"develop"})],o.prototype,"develop",2);r([h()],o.prototype,"errorText",2);r([h()],o.prototype,"loginPending",2);o=r([v("flp-signup")],o);const X={title:"containers/Signup",component:"flp-signup"},S={},k=(i,{globals:{theme:e}})=>f`
+    </flp-card>`}};o.styles=[x];i([p({type:String,attribute:"tenant_key"})],o.prototype,"tenantKey",2);i([p({type:String,attribute:"name"})],o.prototype,"name",2);i([p({type:String,attribute:"login_url"})],o.prototype,"loginUrl",2);i([p({type:Boolean,attribute:"staging"})],o.prototype,"staging",2);i([p({type:Boolean,attribute:"develop"})],o.prototype,"develop",2);i([h()],o.prototype,"errorText",2);i([h()],o.prototype,"loginPending",2);o=i([v("flp-signup")],o);const X={title:"containers/Signup",component:"flp-signup"},S={},k=(r,{globals:{theme:e}})=>f`
   <div class="flp-theme-light">
     <flp-signup .develop=${!0} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback">
     </flp-signup>
@@ -75,4 +75,4 @@ h2 {
     </flp-signup>
   </div>
 \``,...(d=(u=a.parameters)==null?void 0:u.docs)==null?void 0:d.source}}};const Y=["Default"];export{a as Default,Y as __namedExportsOrder,X as default};
-//# sourceMappingURL=flp-signup.stories-BI9pF_fY.js.map
+//# sourceMappingURL=flp-signup.stories-Bgvl2-qn.js.map
