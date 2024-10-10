@@ -37,6 +37,9 @@ export class FlpConfirmSignup extends FlpElement {
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/confirm-password`, {
       method: "POST",
       body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
     })
     .then(res => res.json())
     .then((response) => {
