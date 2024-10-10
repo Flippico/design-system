@@ -37,13 +37,6 @@ export class FlpSignup extends FlpElement {
       return;
     }
     const urlencoded = new URLSearchParams();
-    urlencoded.append("tenant_key", this.tenantKey);
-    urlencoded.append("login_callback", this.loginCallback);
-    urlencoded.append("logout_callback", this.logoutCallback);
-    urlencoded.append("name", formData.get("name") as string);
-    urlencoded.append("email", formData.get("email") as string);
-    urlencoded.append("password", formData.get("password") as string);
-    console.log("before");
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/signup`, {
       method: "POST",
       body: urlencoded,
@@ -53,7 +46,7 @@ export class FlpSignup extends FlpElement {
     })
     .then((response) => {
       console.log(response);
-      window.location.href = `${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/login`;
+      // window.location.href = `${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/confirm-account/${response.message.token}`;
     })
     .finally(() => this.loginPending = false);
   }
