@@ -15,12 +15,12 @@ export class FlpConfirmSignup extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
-  @property({ type: String, attribute: "login_callback" }) loginCallback = '';
-  @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
-  @property({ type: String, attribute: "name" }) name = '';
+  @property({ type: String, attribute: "token" }) token = '';
+  @property({ type: String, attribute: "success_confirm_url" }) successConfirmUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
+  @state() errorText: null | string;
   @state() loginPending = false;
 
   onSubmitHandle(event: any) {
@@ -31,20 +31,21 @@ export class FlpConfirmSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
-    
-    console.log('email', formData.get('email'));
-    console.log('password', formData.get('password'));
-    console.log('name', formData.get('name'));
-    console.log('tenant-key', formData.get('tenant-key'));
-    console.log('login-callback', formData.get('login-callback'));
-    console.log('logout-callback', formData.get('logout-callback'));
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${formData.get('tenant-key')}/signup`, {
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("code", formData.get("code") as string);
+    urlencoded.append("token", this.token);
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/confirm-password`, {
       method: "POST",
       body: formData,
     })
     .then(res => res.json())
-    .then((res) => {
-      window.location.replace(`${this.loginCallback}/${res.message.token}`);
+    .then((response) => {
+      if (response.code <= 4000) {
+        window.location.href = this.successConfirmUrl;
+        return;
+      }
+      this.errorText = response.message.error;
+      event.target.reset();
     })
     .finally(() => this.loginPending = false);
   }
@@ -56,7 +57,7 @@ export class FlpConfirmSignup extends FlpElement {
           <flp-logo></flp-logo>
         </div>
         <h2 class="text-align-center">Confirm your account</h2>
-        <flp-input class="mb-small"  type="number" required name="code" label="Code"></flp-input>
+        <flp-input class="mb-small" type="number" required min="1000" max="9000" name="code" label="Code"></flp-input>
         <flp-button 
           class="mb-small" 
           size="large" 
@@ -65,6 +66,7 @@ export class FlpConfirmSignup extends FlpElement {
           .loading=${ifDefined(this.loginPending)} 
           .disabled=${ifDefined(this.loginPending)}
         >Confirm</flp-button>
+        <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;
   }

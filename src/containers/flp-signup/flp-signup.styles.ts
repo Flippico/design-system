@@ -4,6 +4,9 @@ export const flippico = css`
 flp-button {
   width: 100%;
 }
+.error {
+  color: var(--flp-color-warning-700);
+}
 h2 {
   font-family: var(--flp-font-medium);
 }

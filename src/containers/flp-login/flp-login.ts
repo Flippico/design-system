@@ -22,13 +22,12 @@ export class FlpLogin extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
-  @property({ type: String, attribute: "login_callback" }) loginCallback = '';
-  @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
   @property({ type: String, attribute: "name" }) name = '';
   @property({ type: String, attribute: "signup_url" }) signUpUrl = '';
   @property({ type: String, attribute: "reset_password_url" }) resetPasswordUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
+  @property({ type: Boolean, attribute: "mobile_login" }) mobileLogin = false;
 
   @state() errorText: null | string;
   @state() loginPending: boolean = false;
@@ -52,8 +51,6 @@ export class FlpLogin extends FlpElement {
     }
     const urlencoded = new URLSearchParams();
     urlencoded.append("tenant_key", this.tenantKey);
-    urlencoded.append("login_callback", this.loginCallback);
-    urlencoded.append("logout_callback", this.logoutCallback);
     urlencoded.append("name", formData.get("name") as string);
     urlencoded.append("email", formData.get("email") as string);
     urlencoded.append("password", formData.get("password") as string);
@@ -68,6 +65,10 @@ export class FlpLogin extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
+      if (this.mobileLogin) {
+        window.location.href = `${response.message.redirect_url}?token=${response.message.token}`;  
+        return;
+      }
       window.location.href = response.message.redirect_url;
     })
     .catch(console.error)
@@ -107,8 +108,6 @@ export class FlpLogin extends FlpElement {
           </div>
         </div>
         <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
-        <input type="hidden" name="login_callback" value=${this.loginCallback} />
-        <input type="hidden" name="logout_callback" value=${this.logoutCallback} />
         <flp-button 
           class="mb-small" 
           size="large" 

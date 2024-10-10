@@ -20,13 +20,12 @@ export class FlpSignup extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
-  @property({ type: String, attribute: "login_callback" }) loginCallback = '';
-  @property({ type: String, attribute: "logout_callback" }) logoutCallback = '';
   @property({ type: String, attribute: "name" }) name = '';
   @property({ type: String, attribute: "login_url" }) loginUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
+  @state() errorText: null | string;
   @state() loginPending = false;
 
   onSubmitHandle(event: any) {
@@ -38,9 +37,6 @@ export class FlpSignup extends FlpElement {
       return;
     }
     const urlencoded = new URLSearchParams();
-    urlencoded.append("tenant_key", this.tenantKey);
-    urlencoded.append("login_callback", this.loginCallback);
-    urlencoded.append("logout_callback", this.logoutCallback);
     urlencoded.append("name", formData.get("name") as string);
     urlencoded.append("email", formData.get("email") as string);
     urlencoded.append("password", formData.get("password") as string);
@@ -53,7 +49,12 @@ export class FlpSignup extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
-      window.location.href = response.message.redirect_url;
+      if (response.code < 4000) {
+        window.location.href = response.message.redirect_url;
+        return;
+      }
+      this.errorText = response.message.error;
+      event.target.reset();
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);
@@ -69,9 +70,6 @@ export class FlpSignup extends FlpElement {
         <flp-input class="mb-small"  type="text" required name="name" label="Name"></flp-input>
         <flp-input class="mb-small"  type="email" required name="email" label="Email"></flp-input>
         <flp-input class="mb-medium"  name="password" required type="password" label="Password" password-toggle></flp-input>
-        <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
-        <input type="hidden" name="login_callback" value=${this.loginCallback} />
-        <input type="hidden" name="logout_callback" value=${this.logoutCallback} />
         <flp-button 
           class="mb-small" 
           size="large" 
@@ -84,6 +82,7 @@ export class FlpSignup extends FlpElement {
           <span>Already have account?</span>
           <flp-button class="login--button" variant="text" href=${this.loginUrl}>Login</flp-button>
         </div>
+        <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;
   }
