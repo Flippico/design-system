@@ -51,6 +51,7 @@ export class FlpSignup extends FlpElement {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
+    .then((response) => response.json())
     .then((response) => {
       console.log(response);
       // window.location.href = `${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/login`;
