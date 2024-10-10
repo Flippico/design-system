@@ -33,7 +33,7 @@ export class FlpConfirmSignup extends FlpElement {
     }
     const urlencoded = new URLSearchParams();
     urlencoded.append("code", formData.get("code") as string);
-    urlencoded.append("token", this.token);
+    urlencoded.append("token", formData.get("token") as string);
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/confirm-account`, {
       method: "POST",
       body: formData,
@@ -62,6 +62,7 @@ export class FlpConfirmSignup extends FlpElement {
         </div>
         <h2 class="text-align-center">Confirm your account</h2>
         <flp-input class="mb-small" type="number" required min="1000" max="9000" name="code" label="Code"></flp-input>
+        <input type="hidden" value=${this.token} name="token" />
         <flp-button 
           class="mb-small" 
           size="large" 
