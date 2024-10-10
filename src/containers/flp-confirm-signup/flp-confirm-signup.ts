@@ -31,15 +31,23 @@ export class FlpConfirmSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
+    // const urlencoded = new URLSearchParams();
+    // urlencoded.append("token", formData.get("token") as string);
+    // urlencoded.append("code", formData.get("code") as string);
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
     const urlencoded = new URLSearchParams();
-    urlencoded.append("code", formData.get("code") as string);
-    urlencoded.append("token", formData.get("token") as string);
+    urlencoded.append("token", "921676822932325308");
+    urlencoded.append("code", "2342");
+    
+
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/confirm-account`, {
       method: "POST",
-      body: formData,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow"
     })
     .then(res => res.json())
     .then((response) => {
