@@ -53,9 +53,9 @@ export class FlpSignup extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
-      // window.location.href = `${getApiUrl(this.staging, this.develop)}/${this.tenantKey}/login`;
+      window.location.href = response.message.redirect_url;
     })
+    .catch(console.error)
     .finally(() => this.loginPending = false);
   }
 
