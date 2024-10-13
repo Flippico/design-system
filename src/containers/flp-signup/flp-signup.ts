@@ -36,6 +36,11 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
+    if (!/^[a-zA-Z0-9-]{6,}[0-9]{2,}\b$/.test(formData.get("password") as string)) {
+      this.errorText = 'At least 8 characters and at least two numbers';
+      this.loginPending = false;
+      return;
+    }
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     const urlencoded = new URLSearchParams();
@@ -70,7 +75,7 @@ export class FlpSignup extends FlpElement {
         <h2 class="text-align-center">Create your account</h2>
         <flp-input class="mb-small"  type="text" required name="name" label="Name"></flp-input>
         <flp-input class="mb-small"  type="email" required name="email" label="Email"></flp-input>
-        <flp-input class="mb-medium"  name="password" required type="password" label="Password" password-toggle></flp-input>
+        <flp-input class="mb-medium"  name="password" help-text="At least 8 characters and at least two numbers" required type="password" label="Password" password-toggle></flp-input>
         <flp-button 
           class="mb-small" 
           size="large" 
