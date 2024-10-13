@@ -41,6 +41,7 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
+    this.errorText = null;
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     const urlencoded = new URLSearchParams();
