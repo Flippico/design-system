@@ -22,7 +22,6 @@ export class FlpLogin extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
-  @property({ type: String, attribute: "name" }) name = '';
   @property({ type: String, attribute: "signup_url" }) signUpUrl = '';
   @property({ type: String, attribute: "reset_password_url" }) resetPasswordUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;

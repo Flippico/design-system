@@ -23,3 +23,5 @@ import './components/flp-spinner/flp-spinner';
 import './containers/flp-login/flp-login';
 import './containers/flp-signup/flp-signup';
 import './containers/flp-confirm-signup/flp-confirm-signup';
+import './containers/flp-reset-password/flp-reset-password';
+import './containers/flp-set-new-password/flp-set-new-password';

@@ -1,56 +1,59 @@
 import { CSSResultGroup, html } from 'lit';
 import FlpElement from '../../utils/flippico-element';
 import {customElement, property, state} from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import { flippico } from './flp-confirm-signup.styles';
+import "./../../components/flp-icon";
+
+import { flippico } from './flp-reset-password.styles';
 import { getApiUrl } from '../../utils/get-api-url';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
- * @summary This the flp-confirm-signup component
+ * @summary This the flp-reset-password component
  *
- * @tag flp-confirm-signup
+ * @tag flp-reset-password
  */
- @customElement("flp-confirm-signup")
-export class FlpConfirmSignup extends FlpElement {
+ @customElement("flp-reset-password")
+export class FlpResetPassword extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
-  @property({ type: String, attribute: "token" }) token = '';
-  @property({ type: String, attribute: "success_confirm_url" }) successConfirmUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
   @state() errorText: null | string;
-  @state() loginPending = false;
+  @state() loginPending: boolean = false;
+  @state() successState: boolean = false;
 
-  onSubmitHandle(event: any) {
+  async onSubmitHandle(event: any) {
     event.preventDefault();
     this.loginPending = true;
     const formData = new FormData(event.target);
     if (Array.from(formData.values()).some(item => item === '')) {
+      this.errorText = 'Email is empty';
       this.loginPending = false;
       return;
     }
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     const urlencoded = new URLSearchParams();
-    urlencoded.append("token", formData.get("token") as string);
-    urlencoded.append("code", formData.get("code") as string);
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/confirm-account`, {
+    urlencoded.append("email", formData.get("email") as string);
+
+    this.errorText = null;
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/reset-password`, {
       method: "POST",
-      headers: myHeaders,
       body: urlencoded,
-      redirect: "follow"
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
     })
-    .then(res => res.json())
+    .then((response) => response.json())
     .then((response) => {
       if (response.code <= 4000) {
-        window.location.href = this.successConfirmUrl;
+        this.successState = true;
         return;
       }
       this.errorText = response.message.error;
       event.target.reset();
     })
+    .catch(console.error)
     .finally(() => this.loginPending = false);
   }
 
@@ -60,17 +63,19 @@ export class FlpConfirmSignup extends FlpElement {
         <div class="logo-container text-align-center">
           <flp-logo></flp-logo>
         </div>
-        <h2 class="text-align-center">Confirm your account</h2>
-        <flp-input class="mb-small" type="number" required min="1000" max="9000" name="code" label="Code"></flp-input>
-        <input type="hidden" value=${this.token} name="token" />
-        <flp-button 
+        <h2 class="text-align-center">Forgot password?</h2>
+        <div class="mb-medium text-align-center">
+          <span class="text-align-center">No worries, we'll send you instructions</span>
+        </div>
+        <flp-input class="mb-small" type="email" required name="email" label="Email"></flp-input>
+        ${this.successState ? html`<maui-icon name="envelope-at"></maui-icon>` : html`<flp-button 
           class="mb-small" 
           size="large" 
           variant="primary" 
           type="submit" 
           .loading=${ifDefined(this.loginPending)} 
           .disabled=${ifDefined(this.loginPending)}
-        >Confirm</flp-button>
+        >Reset password</flp-button>`}
         <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;
