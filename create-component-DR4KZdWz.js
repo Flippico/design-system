@@ -1,0 +1,6 @@
+/**
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */const y=new Set(["children","localName","ref","style","className"]),p=new WeakMap,E=(n,u,a,i,l)=>{const d=l==null?void 0:l[u];d===void 0||a===i?(n[u]=a,a==null&&u in HTMLElement.prototype&&n.removeAttribute(u)):((c,r,o)=>{let s=p.get(c);s===void 0&&p.set(c,s=new Map);let t=s.get(r);o!==void 0?t===void 0?(s.set(r,t={handleEvent:o}),c.addEventListener(r,t)):t.handleEvent=o:t!==void 0&&(s.delete(r),c.removeEventListener(r,t))})(n,d,a)},h=({react:n,tagName:u,elementClass:a,events:i,displayName:l})=>{const d=new Set(Object.keys(i??{})),c=n.forwardRef((r,o)=>{const s=n.useRef(null),t=n.useRef(null),f={},m={};for(const[e,v]of Object.entries(r))y.has(e)?f[e==="className"?"class":e]=v:d.has(e)||e in a.prototype?m[e]=v:f[e]=v;return n.useLayoutEffect(()=>{if(t.current!==null){for(const e in m)E(t.current,e,r[e],s.current?s.current[e]:void 0,i);s.current=r}}),n.useLayoutEffect(()=>{var e;(e=t.current)==null||e.removeAttribute("defer-hydration")},[]),f.suppressHydrationWarning=!0,n.createElement(u,{...f,ref:e=>{t.current=e,typeof o=="function"?o(e):o!==null&&(o.current=e)}})});return c.displayName=l??a.name,c};export{h as l};
+//# sourceMappingURL=create-component-DR4KZdWz.js.map
