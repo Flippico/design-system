@@ -1,6 +1,6 @@
 import { FlpSetNewPassword as FlpSetNewPasswordRaw } from './flp-set-new-password.js';
 import * as React from 'react';
-import { EventName, createComponent } from '@lit/react';
+import { createComponent } from '@lit/react';
 
 declare global {
   interface HTMLElementTagNameMap {
