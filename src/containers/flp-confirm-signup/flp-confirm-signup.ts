@@ -49,7 +49,7 @@ export class FlpConfirmSignup extends FlpElement {
         window.location.href = this.successConfirmUrl;
         return;
       }
-      this.errorText = response.message.error;
+      this.errorText = JSON.stringify(response.message.error);
       event.target.reset();
     })
     .finally(() => this.loginPending = false);
