@@ -17,6 +17,7 @@ export class FlpSetNewPassword extends FlpElement {
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
   @property({ type: String, attribute: "token" }) token = '';
+  @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
@@ -34,7 +35,7 @@ export class FlpSetNewPassword extends FlpElement {
       return;
     }
     const urlencoded = new URLSearchParams();
-    if (!/^[a-zA-Z0-9-]{6,}[0-9]{2,}\b$/.test(formData.get("password") as string)) {
+    if (!/^(?=.*\d.*\d)[A-Za-z\d]{6,}$/.test(formData.get("password") as string)) {
       this.errorText = 'At least 8 characters and at least two numbers';
       this.loginPending = false;
       return;
@@ -73,7 +74,7 @@ export class FlpSetNewPassword extends FlpElement {
     return html`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          <flp-logo></flp-logo>
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Set new password</h2>
         <div class="mb-medium text-align-center">

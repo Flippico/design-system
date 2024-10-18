@@ -16,6 +16,7 @@ export class FlpConfirmSignup extends FlpElement {
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
   @property({ type: String, attribute: "token" }) token = '';
+  @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: String, attribute: "success_confirm_url" }) successConfirmUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
@@ -58,7 +59,7 @@ export class FlpConfirmSignup extends FlpElement {
     return html`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          <flp-logo></flp-logo>
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Confirm your account</h2>
         <flp-input class="mb-small" type="number" required min="1000" max="9000" name="code" label="Code"></flp-input>

@@ -17,6 +17,7 @@ export class FlpResetPassword extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
+  @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
@@ -61,7 +62,7 @@ export class FlpResetPassword extends FlpElement {
     return html`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          <flp-logo></flp-logo>
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Forgot password?</h2>
         <div class="mb-medium text-align-center">

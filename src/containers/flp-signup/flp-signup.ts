@@ -21,6 +21,7 @@ export class FlpSignup extends FlpElement {
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
   @property({ type: String, attribute: "name" }) name = '';
+  @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: String, attribute: "login_url" }) loginUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
@@ -36,7 +37,7 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
-    if (!/^[a-zA-Z0-9-]{6,}[0-9]{2,}\b$/.test(formData.get("password") as string)) {
+    if (!/^(?=.*\d.*\d)[A-Za-z\d]{6,}$/.test(formData.get("password") as string)) {
       this.errorText = 'At least 8 characters and at least two numbers';
       this.loginPending = false;
       return;
@@ -71,7 +72,7 @@ export class FlpSignup extends FlpElement {
     return html`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          <flp-logo></flp-logo>
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Create your account</h2>
         <flp-input class="mb-small"  type="text" required name="name" label="Name"></flp-input>

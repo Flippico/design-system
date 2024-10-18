@@ -26,7 +26,7 @@ const Template: Story<Login> = (
   }
 ) => html`
   <div class="flp-theme-light">
-    <flp-login .develop=${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
+    <flp-login logo="https://flippico-assets.s3.eu-central-1.amazonaws.com/bajkomat/appstore.png" .develop=${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
 `;
 

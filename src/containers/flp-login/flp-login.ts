@@ -22,6 +22,7 @@ export class FlpLogin extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
+  @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: String, attribute: "signup_url" }) signUpUrl = '';
   @property({ type: String, attribute: "reset_password_url" }) resetPasswordUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
@@ -79,7 +80,7 @@ export class FlpLogin extends FlpElement {
     <flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          <flp-logo></flp-logo>
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Hello again!</h2>
         <flp-button size="large" variant="default" @click=${this.loginByGoogle}>
