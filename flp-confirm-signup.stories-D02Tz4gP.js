@@ -33,7 +33,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-`;var P=Object.defineProperty,S=Object.getOwnPropertyDescriptor,o=(i,n,s,r)=>{for(var t=r>1?void 0:r?S(n,s):n,m=i.length-1,c;m>=0;m--)(c=i[m])&&(t=(r?c(n,s,t):c(t))||t);return r&&t&&P(n,s,t),t};let e=class extends b{constructor(){super(...arguments),this.tenantKey="",this.token="",this.logo="",this.successConfirmUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(i){i.preventDefault(),this.loginPending=!0;const n=new FormData(i.target);if(Array.from(n.values()).some(t=>t==="")){this.loginPending=!1;return}const s=new Headers;s.append("Content-Type","application/x-www-form-urlencoded");const r=new URLSearchParams;r.append("token",n.get("token")),r.append("code",n.get("code")),fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/confirm-account`,{method:"POST",headers:s,body:r,redirect:"follow"}).then(t=>t.json()).then(t=>{if(t.code<=4e3){window.location.href=this.successConfirmUrl;return}this.errorText=t.message.error,i.target.reset()}).finally(()=>this.loginPending=!1)}render(){return p`<flp-card class="auth-container">
+`;var P=Object.defineProperty,S=Object.getOwnPropertyDescriptor,o=(i,n,s,r)=>{for(var t=r>1?void 0:r?S(n,s):n,m=i.length-1,c;m>=0;m--)(c=i[m])&&(t=(r?c(n,s,t):c(t))||t);return r&&t&&P(n,s,t),t};let e=class extends b{constructor(){super(...arguments),this.tenantKey="",this.token="",this.logo="",this.successConfirmUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(i){i.preventDefault(),this.loginPending=!0;const n=new FormData(i.target);if(Array.from(n.values()).some(t=>t==="")){this.loginPending=!1;return}const s=new Headers;s.append("Content-Type","application/x-www-form-urlencoded");const r=new URLSearchParams;r.append("token",n.get("token")),r.append("code",n.get("code")),fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/confirm-account`,{method:"POST",headers:s,body:r,redirect:"follow"}).then(t=>t.json()).then(t=>{if(t.code<=4e3){window.location.href=this.successConfirmUrl;return}this.errorText=JSON.stringify(t.message.error),i.target.reset()}).finally(()=>this.loginPending=!1)}render(){return p`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
           ${this.logo?p`<img .src=${this.logo} alt="logo" width="150" height="150" />`:p`<flp-logo></flp-logo>`}
@@ -70,4 +70,4 @@ h2 {
     </flp-confirm-signup>
   </div>
 \``,...(u=(d=a.parameters)==null?void 0:d.docs)==null?void 0:u.source}}};const H=["Default"];export{a as Default,H as __namedExportsOrder,F as default};
-//# sourceMappingURL=flp-confirm-signup.stories-Bsqs7rBW.js.map
+//# sourceMappingURL=flp-confirm-signup.stories-D02Tz4gP.js.map
