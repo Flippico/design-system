@@ -57,14 +57,16 @@ export class FlpSetNewPassword extends FlpElement {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
-    .then((response) => response.json())
     .then((response) => {
       if (response.ok) {
-        window.location.href = response.message.redirect_url;
-        return;
+        return response.json()
       }
       this.errorText = "Something went wrong, try again";
       event.target.reset();
+      throw new Error("Something went wrong, try again");
+    })
+    .then((response) => {
+      window.location.href = response.message.redirect_url;
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);

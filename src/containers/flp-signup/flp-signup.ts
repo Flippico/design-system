@@ -53,16 +53,18 @@ export class FlpSignup extends FlpElement {
       body: urlencoded,
       headers: myHeaders,
     })
-    .then((response) => response.json())
     .then((response) => {
       if (response.ok) {
-        window.location.href = response.message.redirect_url;
-        return;
+        return response.json();
       }
       if (response.status === 403) {
         this.errorText = "User already exist";
+        event.target.reset();
+        throw new Error("User already exist");
       }
-      event.target.reset();
+    })
+    .then((response) => {
+      window.location.href = response.message.redirect_url;
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);

@@ -64,7 +64,7 @@ export class FlpLogin extends FlpElement {
     })
     .then((response) => {
       if (response.ok) {
-        response.json();
+        return response.json();
       }
       if (response.status === 404) {
         this.errorText = "User not found";
@@ -76,7 +76,6 @@ export class FlpLogin extends FlpElement {
       }
     })
     .then((response: any) => {
-      console.log('response', response);
       window.location.href = response.message.redirect_url;
     })
     .catch(console.error)

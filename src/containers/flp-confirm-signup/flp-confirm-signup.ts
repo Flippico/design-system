@@ -42,15 +42,18 @@ export class FlpConfirmSignup extends FlpElement {
       body: urlencoded,
       redirect: "follow"
     })
-    .then(res => res.json())
-    .then((response) => {
+    .then(response => {
       if (response.ok) {
-        window.location.href = response.message.redirect_url;
-        return;
+        return response.json()
       }
       this.errorText = "Something went wrong, try again";
       event.target.reset();
+      throw new Error("Something went wrong, try again");
     })
+    .then((response) => {
+      window.location.href = response.message.redirect_url;
+    })
+    .catch(console.error)
     .finally(() => this.loginPending = false);
   }
 
