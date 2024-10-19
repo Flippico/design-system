@@ -65,7 +65,7 @@ export class FlpLogin extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
-      window.location.href = `${response.message.redirect_url}?token=${response.message.token}`;
+      window.location.href = response.message.redirect_url;
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);

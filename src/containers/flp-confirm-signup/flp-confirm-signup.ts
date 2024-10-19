@@ -17,7 +17,6 @@ export class FlpConfirmSignup extends FlpElement {
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
   @property({ type: String, attribute: "token" }) token = '';
   @property({ type: String, attribute: "logo" }) logo = '';
-  @property({ type: String, attribute: "success_confirm_url" }) successConfirmUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
 
@@ -46,7 +45,7 @@ export class FlpConfirmSignup extends FlpElement {
     .then(res => res.json())
     .then((response) => {
       if (response.code <= 4000) {
-        window.location.href = this.successConfirmUrl;
+        window.location.href = response.message.redirect_url;
         return;
       }
       this.errorText = JSON.stringify(response.message.error);
