@@ -62,19 +62,22 @@ export class FlpLogin extends FlpElement {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
-    .then((response) => response.json())
     .then((response) => {
-      console.log('response', response);
       if (response.ok) {
-        window.location.href = response.message.redirect_url;
-        return;
+        response.json();
       }
       if (response.status === 404) {
         this.errorText = "User not found";
+        throw new Error("User not found");
       }
       if (response.status === 403) {
         this.errorText = "Incorrect password";
+        throw new Error("Incorrect password");
       }
+    })
+    .then((response: any) => {
+      console.log('response', response);
+      window.location.href = response.message.redirect_url;
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);
