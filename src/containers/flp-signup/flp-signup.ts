@@ -20,7 +20,6 @@ export class FlpSignup extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   @property({ type: String, attribute: "tenant_key" }) tenantKey = '';
-  @property({ type: String, attribute: "name" }) name = '';
   @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: String, attribute: "login_url" }) loginUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
@@ -56,12 +55,13 @@ export class FlpSignup extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
-      console.log('response', response);
-      if (response.code < 4000) {
+      if (response.ok) {
         window.location.href = response.message.redirect_url;
         return;
       }
-      this.errorText = response.message;
+      if (response.status === 403) {
+        this.errorText = "User already exist";
+      }
       event.target.reset();
     })
     .catch(console.error)

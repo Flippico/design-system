@@ -59,11 +59,11 @@ export class FlpSetNewPassword extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
-      if (response.code <= 4000) {
+      if (response.ok) {
         window.location.href = response.message.redirect_url;
         return;
       }
-      this.errorText = response.message.error;
+      this.errorText = "Something went wrong, try again";
       event.target.reset();
     })
     .catch(console.error)

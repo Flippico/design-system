@@ -51,7 +51,6 @@ export class FlpLogin extends FlpElement {
     }
     const urlencoded = new URLSearchParams();
     urlencoded.append("tenant_key", this.tenantKey);
-    urlencoded.append("name", formData.get("name") as string);
     urlencoded.append("email", formData.get("email") as string);
     urlencoded.append("password", formData.get("password") as string);
 
@@ -65,7 +64,17 @@ export class FlpLogin extends FlpElement {
     })
     .then((response) => response.json())
     .then((response) => {
-      window.location.href = response.message.redirect_url;
+      console.log('response', response);
+      if (response.ok) {
+        window.location.href = response.message.redirect_url;
+        return;
+      }
+      if (response.status === 404) {
+        this.errorText = "User not found";
+      }
+      if (response.status === 403) {
+        this.errorText = "Incorrect password";
+      }
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);
