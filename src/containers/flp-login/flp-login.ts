@@ -33,7 +33,7 @@ export class FlpLogin extends FlpElement {
   @state() loginPending: boolean = false;
 
   async loginByGoogle() {
-    console.log('login by google');
+    window.location.href = `co.flippi.bajkomat://login?token="sds"`;
   }
 
   async loginByApple() {
