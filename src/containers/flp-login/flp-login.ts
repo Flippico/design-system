@@ -33,7 +33,27 @@ export class FlpLogin extends FlpElement {
   @state() loginPending: boolean = false;
 
   async loginByGoogle() {
-    window.location.href = `bajkomat://login?token="sds"`;
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/google`, {
+      method: "GET",
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      if (response.status === 404) {
+        this.errorText = "User not found";
+        throw new Error("User not found");
+      }
+      if (response.status === 403) {
+        this.errorText = "Incorrect password";
+        throw new Error("Incorrect password");
+      }
+    })
+    .then((response: any) => {
+      window.location.href = response.message.redirect_url;
+    })
+    .catch(console.error)
+    .finally(() => this.loginPending = false);
   }
 
   async loginByApple() {
