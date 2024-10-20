@@ -46,7 +46,7 @@ h2 {
 .forgot-password-link--container {
   text-align: right;
   --flp-spacing-medium: 0px;
-}`;var P=Object.defineProperty,_=Object.getOwnPropertyDescriptor,r=(s,o,i,t)=>{for(var n=t>1?void 0:t?_(o,i):o,m=s.length-1,g;m>=0;m--)(g=s[m])&&(n=(t?g(o,i,n):g(n))||n);return t&&n&&P(o,i,n),n};let e=class extends y{constructor(){super(...arguments),this.tenantKey="",this.logo="",this.staging=!1,this.develop=!1,this.loginPending=!1,this.successState=!1}async onSubmitHandle(s){s.preventDefault(),this.loginPending=!0;const o=new FormData(s.target);if(Array.from(o.values()).some(t=>t==="")){this.errorText="Email is empty",this.loginPending=!1;return}const i=new URLSearchParams;i.append("email",o.get("email")),this.errorText=null,fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/reset-password`,{method:"POST",body:i,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(t=>{if(t.ok)return t.json();throw this.errorText="Something went wrong, try again",s.target.reset(),new Error("Something went wrong, try again")}).then(t=>{window.location.href=t.message.redirect_url}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return a`<flp-card class="auth-container">
+}`;var P=Object.defineProperty,_=Object.getOwnPropertyDescriptor,r=(s,o,i,e)=>{for(var n=e>1?void 0:e?_(o,i):o,m=s.length-1,g;m>=0;m--)(g=s[m])&&(n=(e?g(o,i,n):g(n))||n);return e&&n&&P(o,i,n),n};let t=class extends y{constructor(){super(...arguments),this.tenantKey="",this.logo="",this.staging=!1,this.develop=!1,this.loginPending=!1,this.successState=!1}async onSubmitHandle(s){s.preventDefault(),this.loginPending=!0;const o=new FormData(s.target);if(Array.from(o.values()).some(e=>e==="")){this.errorText="Email is empty",this.loginPending=!1;return}const i=new URLSearchParams;i.append("email",o.get("email")),this.errorText=null,fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/reset-password`,{method:"POST",body:i,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(e=>{if(e.ok)return e.json();throw this.errorText="Something went wrong, try again",s.target.reset(),new Error("Something went wrong, try again")}).then(()=>{this.successState=!0}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return a`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
           ${this.logo?a`<img .src=${this.logo} alt="logo" width="150" height="150" />`:a`<flp-logo></flp-logo>`}
@@ -66,7 +66,7 @@ h2 {
         >Reset password</flp-button>`}
         <div class="error">${this.errorText}</div>
       </form>
-    </flp-card>`}};e.styles=[v];r([p({type:String,attribute:"tenant_key"})],e.prototype,"tenantKey",2);r([p({type:String,attribute:"logo"})],e.prototype,"logo",2);r([p({type:Boolean,attribute:"staging"})],e.prototype,"staging",2);r([p({type:Boolean,attribute:"develop"})],e.prototype,"develop",2);r([d()],e.prototype,"errorText",2);r([d()],e.prototype,"loginPending",2);r([d()],e.prototype,"successState",2);e=r([b("flp-reset-password")],e);const z={title:"containers/ResetPassword",component:"flp-reset-password"},S={},$=(s,{globals:{theme:o}})=>a`
+    </flp-card>`}};t.styles=[v];r([p({type:String,attribute:"tenant_key"})],t.prototype,"tenantKey",2);r([p({type:String,attribute:"logo"})],t.prototype,"logo",2);r([p({type:Boolean,attribute:"staging"})],t.prototype,"staging",2);r([p({type:Boolean,attribute:"develop"})],t.prototype,"develop",2);r([d()],t.prototype,"errorText",2);r([d()],t.prototype,"loginPending",2);r([d()],t.prototype,"successState",2);t=r([b("flp-reset-password")],t);const z={title:"containers/ResetPassword",component:"flp-reset-password"},S={},$=(s,{globals:{theme:o}})=>a`
   <div class="flp-theme-light">
     <flp-reset-password tenant_key="some_key"></flp-reset-password>
   </div>
@@ -83,4 +83,4 @@ h2 {
     <flp-reset-password tenant_key="some_key"></flp-reset-password>
   </div>
 \``,...(u=(h=l.parameters)==null?void 0:h.docs)==null?void 0:u.source}}};const L=["Default"];export{l as Default,L as __namedExportsOrder,z as default};
-//# sourceMappingURL=flp-reset-password.stories-bl3iDI8b.js.map
+//# sourceMappingURL=flp-reset-password.stories-Dqg6wP0n.js.map
