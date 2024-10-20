@@ -50,7 +50,7 @@ export class FlpSetNewPassword extends FlpElement {
     urlencoded.append("token", formData.get("token") as string);
 
     this.errorText = null;
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/set-password`, {
+    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/set-password/${formData.get("token")}`, {
       method: "POST",
       body: urlencoded,
       headers: {
