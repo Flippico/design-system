@@ -53,8 +53,8 @@ export class FlpResetPassword extends FlpElement {
       event.target.reset();
       throw new Error("Something went wrong, try again");
     })
-    .then((response) => {
-      window.location.href = response.message.redirect_url;
+    .then(() => {
+      this.successState = true;
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);
