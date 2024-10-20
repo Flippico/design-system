@@ -48,7 +48,7 @@ h2 {
   text-align: right;
   --flp-spacing-medium: 0px;
 }
-`;var $=Object.defineProperty,U=Object.getOwnPropertyDescriptor,r=(t,i,n,e)=>{for(var a=e>1?void 0:e?U(i,n):i,m=t.length-1,g;m>=0;m--)(g=t[m])&&(a=(e?g(i,n,a):g(a))||a);return e&&a&&$(i,n,a),a};let o=class extends w{constructor(){super(...arguments),this.tenantKey="",this.logo="",this.signUpUrl="",this.resetPasswordUrl="",this.staging=!1,this.develop=!1,this.mobileLogin=!1,this.loginPending=!1}async loginByGoogle(){fetch(`${d(this.staging,this.develop)}/api/${this.tenantKey}/google`,{method:"GET"}).then(t=>{if(t.ok)return t.json();if(t.status===404)throw this.errorText="User not found",new Error("User not found");if(t.status===403)throw this.errorText="Incorrect password",new Error("Incorrect password")}).then(t=>{window.location.href=t.message.redirect_url}).catch(console.error).finally(()=>this.loginPending=!1)}async loginByApple(){console.log("login by apple")}async onSubmitHandle(t){t.preventDefault(),this.loginPending=!0;const i=new FormData(t.target);if(Array.from(i.values()).some(e=>e==="")){this.errorText="Password or email is empty",this.loginPending=!1;return}const n=new URLSearchParams;n.append("tenant_key",this.tenantKey),n.append("email",i.get("email")),n.append("password",i.get("password")),this.errorText=null,fetch(`${d(this.staging,this.develop)}/api/${this.tenantKey}/login`,{method:"POST",body:n,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(e=>{if(e.ok)return e.json();if(e.status===404)throw this.errorText="User not found",new Error("User not found");if(e.status===403)throw this.errorText="Incorrect password",new Error("Incorrect password")}).then(e=>{window.location.href=e.message.redirect_url}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return p`
+`;var $=Object.defineProperty,U=Object.getOwnPropertyDescriptor,i=(t,r,n,e)=>{for(var a=e>1?void 0:e?U(r,n):r,m=t.length-1,g;m>=0;m--)(g=t[m])&&(a=(e?g(r,n,a):g(a))||a);return e&&a&&$(r,n,a),a};let o=class extends w{constructor(){super(...arguments),this.tenantKey="",this.logo="",this.signUpUrl="",this.resetPasswordUrl="",this.staging=!1,this.develop=!1,this.mobileLogin=!1,this.loginPending=!1}async loginByGoogle(){fetch(`${d(this.staging,this.develop)}/api/${this.tenantKey}/google`,{method:"GET"}).then(t=>{if(t.ok)return t.json();if(t.status===404)throw this.errorText="User not found",new Error("User not found");if(t.status===403)throw this.errorText="Incorrect password",new Error("Incorrect password")}).then(t=>{window.location.href=t.message.redirect_url}).catch(console.error).finally(()=>this.loginPending=!1)}async loginByApple(){console.log("login by apple")}async onSubmitHandle(t){t.preventDefault(),this.loginPending=!0;const r=new FormData(t.target);if(Array.from(r.values()).some(e=>e==="")){this.errorText="Password or email is empty",this.loginPending=!1;return}const n=new URLSearchParams;n.append("tenant_key",this.tenantKey),n.append("email",r.get("email")),n.append("password",r.get("password")),this.errorText=null,fetch(`${d(this.staging,this.develop)}/api/${this.tenantKey}/login`,{method:"POST",body:n,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(e=>{if(e.ok)return e.json();if(e.status===404)throw this.errorText="User not found",new Error("User not found");if(e.status===403)throw this.errorText="Incorrect password",new Error("Incorrect password")}).then(e=>{window.location.href=e.message.redirect_url}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return p`
     <flp-card class="auth-container">
       <form .action=${`/api/${this.tenantKey}/google`} method="get">
         <div class="logo-container text-align-center">
@@ -60,14 +60,12 @@ h2 {
           Login by Google
         </flp-button>
       </form>
+      <br/>
       <form .action=${`/api/${this.tenantKey}/apple`} method="get"></form>
-        <br/>
-        <br/>
         <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="apple"></flp-icon>
           Login by Apple
         </flp-button>
-
         <div class="login-by-email-text">
           <div class="login-by-email-text--line"></div>
           <div class="text-align-center">or login by email</div>
@@ -94,7 +92,7 @@ h2 {
         <flp-button class="mb-medium" href=${this.signUpUrl} variant="primary" size="large" outline>Create new account by email</flp-button>
         <div class="error">${this.errorText}</div>
       </form>
-    </flp-card>`}};o.styles=[k];r([l({type:String,attribute:"tenant_key"})],o.prototype,"tenantKey",2);r([l({type:String,attribute:"logo"})],o.prototype,"logo",2);r([l({type:String,attribute:"signup_url"})],o.prototype,"signUpUrl",2);r([l({type:String,attribute:"reset_password_url"})],o.prototype,"resetPasswordUrl",2);r([l({type:Boolean,attribute:"staging"})],o.prototype,"staging",2);r([l({type:Boolean,attribute:"develop"})],o.prototype,"develop",2);r([l({type:Boolean,attribute:"mobile_login"})],o.prototype,"mobileLogin",2);r([b()],o.prototype,"errorText",2);r([b()],o.prototype,"loginPending",2);o=r([v("flp-login")],o);const it={title:"containers/Login",component:"flp-login"},T={},S=(t,{globals:{theme:i}})=>p`
+    </flp-card>`}};o.styles=[k];i([l({type:String,attribute:"tenant_key"})],o.prototype,"tenantKey",2);i([l({type:String,attribute:"logo"})],o.prototype,"logo",2);i([l({type:String,attribute:"signup_url"})],o.prototype,"signUpUrl",2);i([l({type:String,attribute:"reset_password_url"})],o.prototype,"resetPasswordUrl",2);i([l({type:Boolean,attribute:"staging"})],o.prototype,"staging",2);i([l({type:Boolean,attribute:"develop"})],o.prototype,"develop",2);i([l({type:Boolean,attribute:"mobile_login"})],o.prototype,"mobileLogin",2);i([b()],o.prototype,"errorText",2);i([b()],o.prototype,"loginPending",2);o=i([v("flp-login")],o);const rt={title:"containers/Login",component:"flp-login"},T={},S=(t,{globals:{theme:r}})=>p`
   <div class="flp-theme-light">
     <flp-login logo="https://flippico-assets.s3.eu-central-1.amazonaws.com/bajkomat/appstore.png" .develop=${!0} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
@@ -110,5 +108,5 @@ h2 {
   <div class="flp-theme-light">
     <flp-login logo="https://flippico-assets.s3.eu-central-1.amazonaws.com/bajkomat/appstore.png" .develop=\${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
-\``,...(h=(u=s.parameters)==null?void 0:u.docs)==null?void 0:h.source}}};const nt=["Default"];export{s as Default,nt as __namedExportsOrder,it as default};
-//# sourceMappingURL=flp-login.stories-B7sx3WBE.js.map
+\``,...(h=(u=s.parameters)==null?void 0:u.docs)==null?void 0:h.source}}};const nt=["Default"];export{s as Default,nt as __namedExportsOrder,rt as default};
+//# sourceMappingURL=flp-login.stories-CoM3mSS0.js.map
