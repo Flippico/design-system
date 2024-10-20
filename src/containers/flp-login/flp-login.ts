@@ -105,18 +105,20 @@ export class FlpLogin extends FlpElement {
   render() {
     return html`
     <flp-card class="auth-container">
-      <form @submit=${this.onSubmitHandle}>
+      <form .action=${`/api/${this.tenantKey}/google`} method="get">
         <div class="logo-container text-align-center">
           ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Hello again!</h2>
-        <flp-button size="large" variant="default" @click=${this.loginByGoogle}>
+        <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="google"></flp-icon>
           Login by Google
         </flp-button>
+      </form>
+      <form .action=${`/api/${this.tenantKey}/apple`} method="get"></form>
         <br/>
         <br/>
-        <flp-button size="large" variant="default" @click=${this.loginByApple}>
+        <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="apple"></flp-icon>
           Login by Apple
         </flp-button>
@@ -126,7 +128,8 @@ export class FlpLogin extends FlpElement {
           <div class="text-align-center">or login by email</div>
           <div class="login-by-email-text--line"></div>
         </div>
-
+      </form>
+      <form @submit=${this.onSubmitHandle}>
         <flp-input class="email--input" type="email" required name="email" label="Email"></flp-input>
         <div class="password--and-forgot-password-link--container">
           <flp-input name="password" required type="password" label="Password" password-toggle></flp-input>
