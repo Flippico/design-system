@@ -116,11 +116,12 @@ export class FlpLogin extends FlpElement {
         </flp-button>
       </form>
       <br/>
-      <form .action=${`/api/${this.tenantKey}/apple`} method="get"></form>
+      <form .action=${`/api/${this.tenantKey}/apple`} method="get">
         <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="apple"></flp-icon>
           Login by Apple
         </flp-button>
+      </form>
         <div class="login-by-email-text">
           <div class="login-by-email-text--line"></div>
           <div class="text-align-center">or login by email</div>
