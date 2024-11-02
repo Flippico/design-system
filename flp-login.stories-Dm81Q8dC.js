@@ -61,11 +61,12 @@ h2 {
         </flp-button>
       </form>
       <br/>
-      <form .action=${`/api/${this.tenantKey}/apple`} method="get"></form>
+      <form .action=${`/api/${this.tenantKey}/apple`} method="get">
         <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="apple"></flp-icon>
           Login by Apple
         </flp-button>
+      </form>
         <div class="login-by-email-text">
           <div class="login-by-email-text--line"></div>
           <div class="text-align-center">or login by email</div>
@@ -109,4 +110,4 @@ h2 {
     <flp-login logo="https://flippico-assets.s3.eu-central-1.amazonaws.com/bajkomat/appstore.png" .develop=\${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
 \``,...(h=(u=s.parameters)==null?void 0:u.docs)==null?void 0:h.source}}};const nt=["Default"];export{s as Default,nt as __namedExportsOrder,rt as default};
-//# sourceMappingURL=flp-login.stories-CoM3mSS0.js.map
+//# sourceMappingURL=flp-login.stories-Dm81Q8dC.js.map
