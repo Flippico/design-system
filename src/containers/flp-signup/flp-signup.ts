@@ -36,7 +36,7 @@ export class FlpSignup extends FlpElement {
       this.loginPending = false;
       return;
     }
-    if (!/^(?=.*\d.*\d)[A-Za-z\d]{6,}$/.test(formData.get("password") as string)) {
+    if (!/^(?=.*\d.*\d)[A-Za-z\d!@#$%^&*()_+\-=[\]{};':",.<>?\/]{6,}$/.test(formData.get("password") as string)) {
       this.errorText = 'At least 8 characters and at least two numbers';
       this.loginPending = false;
       return;
