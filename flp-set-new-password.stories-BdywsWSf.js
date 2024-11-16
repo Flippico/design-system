@@ -1,4 +1,4 @@
-import{i as u,x as i}from"./lit-element-UdLzEcH-.js";import{F as y,t as b}from"./custom-element-_dbbq29R.js";import{n as p}from"./property-BiB_YYz7.js";import{r as m}from"./state-BpJekWaB.js";import{o as c}from"./if-defined-CeGyAtVP.js";import{g as x}from"./get-api-url-BNamD47E.js";/* empty css             */const v=u`
+import{i as u,x as i}from"./lit-element-UdLzEcH-.js";import{F as y,t as b}from"./custom-element-_dbbq29R.js";import{n as p}from"./property-BiB_YYz7.js";import{r as m}from"./state-BpJekWaB.js";import{o as c}from"./if-defined-CeGyAtVP.js";import{g as x}from"./get-api-url-CY5fWP8z.js";/* empty css             */const v=u`
 flp-button {
   width: 100%;
 }
@@ -72,4 +72,4 @@ h2 {
     <flp-set-new-password token="some_token" tenant_key="tenant_key"></flp-set-new-password>
   </div>
 \``,...(h=(f=l.parameters)==null?void 0:f.docs)==null?void 0:h.source}}};const E=["Default"];export{l as Default,E as __namedExportsOrder,N as default};
-//# sourceMappingURL=flp-set-new-password.stories--75q8zEd.js.map
+//# sourceMappingURL=flp-set-new-password.stories-BdywsWSf.js.map
