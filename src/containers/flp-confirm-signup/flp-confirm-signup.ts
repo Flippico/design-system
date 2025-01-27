@@ -19,6 +19,7 @@ export class FlpConfirmSignup extends FlpElement {
   @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
+  @property({ type: Boolean, attribute: "use_event" }) useEvent = false;
 
   @state() errorText: null | string;
   @state() loginPending = false;
@@ -51,6 +52,10 @@ export class FlpConfirmSignup extends FlpElement {
       throw new Error("Something went wrong, try again");
     })
     .then((response) => {
+      if (this.useEvent) {
+        this.emit('flp-confirm-signup-success', response.message);
+        return;
+      }
       window.location.href = response.message.redirect_url;
     })
     .catch(console.error)

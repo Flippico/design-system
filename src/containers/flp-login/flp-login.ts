@@ -28,6 +28,7 @@ export class FlpLogin extends FlpElement {
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
   @property({ type: Boolean, attribute: "mobile_login" }) mobileLogin = false;
+  @property({ type: Boolean, attribute: "use_event" }) useEvent = false;
 
   @state() errorText: null | string;
   @state() loginPending: boolean = false;
@@ -96,6 +97,10 @@ export class FlpLogin extends FlpElement {
       }
     })
     .then((response: any) => {
+      if (this.useEvent) {
+        this.emit('flp-login-success', response.message);
+        return;
+      }
       window.location.href = response.message.redirect_url;
     })
     .catch(console.error)

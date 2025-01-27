@@ -15,3 +15,7 @@ export type { FlpHideEvent } from './flp-hide.js';
 export type { FlpRemoveEvent } from './flp-remove.js';
 export type { FlpRepositionEvent } from './flp-reposition.js';
 export type { FlpSelectEvent } from './flp-select.js';
+export type { FlpSignUpSuccessEvent } from './flp-signup-success.js';
+export type { FlpLoginSuccessEvent } from './flp-login-success.js';
+export type { FlpResetPasswordSuccessEvent } from './flp-reset-password-success.js';
+export type { FlpConfirmSignupSuccessEvent } from './flp-confirm-signup-success.js';
