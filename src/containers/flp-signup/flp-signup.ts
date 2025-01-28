@@ -24,7 +24,6 @@ export class FlpSignup extends FlpElement {
   @property({ type: String, attribute: "login_url" }) loginUrl = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
-  @property({ type: Boolean, attribute: "use_event" }) useEvent = false;
 
   @state() errorText: null | string;
   @state() loginPending = false;
@@ -65,10 +64,8 @@ export class FlpSignup extends FlpElement {
       }
     })
     .then((response) => {
-      if (this.useEvent) {
-        this.emit('flp-signup-success', response.message);
-        return;
-      }
+      this.emit('flp-signup-success', response.message);
+      window.parent.postMessage({ type: 'SIGNUP_SUCCESS', payload: response.message }, '*');
       window.location.href = response.message.redirect_url;
     })
     .catch(console.error)

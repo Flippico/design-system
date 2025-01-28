@@ -66,6 +66,8 @@ export class FlpSetNewPassword extends FlpElement {
       throw new Error("Something went wrong, try again");
     })
     .then((response) => {
+      this.emit('flp-set-new-password-success');
+      window.parent.postMessage({ type: 'SET_NEW_PASSWORD_SUCCESS', payload: {} }, '*');
       window.location.href = response.message.redirect_url;
     })
     .catch(console.error)

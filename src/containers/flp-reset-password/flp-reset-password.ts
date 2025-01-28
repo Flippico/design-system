@@ -20,7 +20,6 @@ export class FlpResetPassword extends FlpElement {
   @property({ type: String, attribute: "logo" }) logo = '';
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
-  @property({ type: Boolean, attribute: "use_event" }) useEvent = false;
 
   @state() errorText: null | string;
   @state() loginPending: boolean = false;
@@ -55,9 +54,8 @@ export class FlpResetPassword extends FlpElement {
       throw new Error("Something went wrong, try again");
     })
     .then(() => {
-      if (this.useEvent) {
-        this.emit('flp-reset-password-success');
-      }
+      this.emit('flp-reset-password-success');
+      window.parent.postMessage({ type: 'RESET_PASSWORD_SUCCESS', payload: {} }, '*');
       this.successState = true;
     })
     .catch(console.error)

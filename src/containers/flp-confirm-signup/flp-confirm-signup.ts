@@ -52,10 +52,8 @@ export class FlpConfirmSignup extends FlpElement {
       throw new Error("Something went wrong, try again");
     })
     .then((response) => {
-      if (this.useEvent) {
-        this.emit('flp-confirm-signup-success', response.message);
-        return;
-      }
+      this.emit('flp-confirm-signup-success', response.message);
+      window.parent.postMessage({ type: 'CONFIRM_SUCCESS', payload: response.message }, '*');
       window.location.href = response.message.redirect_url;
     })
     .catch(console.error)
