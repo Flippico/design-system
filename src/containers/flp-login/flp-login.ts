@@ -96,9 +96,9 @@ export class FlpLogin extends FlpElement {
       }
     })
     .then((response: any) => {
+      this.emit('flp-login-success', response.message);
       window.parent.postMessage({ type: 'LOGIN_SUCCESS', payload: response.message }, '*');
-      console.log('SENT POST MESSGAE');
-      // window.location.href = response.message.redirect_url;
+      window.location.href = response.message.redirect_url;
     })
     .catch(console.error)
     .finally(() => this.loginPending = false);
