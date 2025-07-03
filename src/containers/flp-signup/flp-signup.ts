@@ -37,7 +37,7 @@ export class FlpSignup extends FlpElement {
       return;
     }
     if (!/^(?=.*\d.*\d)[A-Za-z\d!@#$%^&*()_+\-=[\]{};':",.<>?\/]{6,}$/.test(formData.get("password") as string)) {
-      this.errorText = 'At least 8 characters and at least two numbers';
+      this.errorText = 'Minimum 8 znaków oraz minimum dwie liczby';
       this.loginPending = false;
       return;
     }
@@ -81,7 +81,7 @@ export class FlpSignup extends FlpElement {
         <h2 class="text-align-center">Stwórz nowe konto</h2>
         <flp-input class="mb-small"  type="text" required name="name" label="Imię"></flp-input>
         <flp-input class="mb-small"  type="email" required name="email" label="Email"></flp-input>
-        <flp-input class="mb-medium"  name="password" help-text="At least 8 characters and at least two numbers" required type="password" label="Hasło" password-toggle></flp-input>
+        <flp-input class="mb-medium"  name="password" help-text="Minimum 8 znaków oraz minimum dwie liczby" required type="password" label="Hasło" password-toggle></flp-input>
         <flp-button
           class="mb-small"
           size="large"

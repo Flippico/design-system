@@ -36,12 +36,12 @@ export class FlpSetNewPassword extends FlpElement {
     }
     const urlencoded = new URLSearchParams();
     if (!/^(?=.*\d.*\d)[A-Za-z\d!@#$%^&*()_+\-=[\]{};':",.<>?\/]{6,}$/.test(formData.get("password") as string)) {
-      this.errorText = 'At least 8 characters and at least two numbers';
+      this.errorText = 'Minimum 8 znaków oraz minimum dwie liczby';
       this.loginPending = false;
       return;
     }
     if (formData.get("new_password") !== formData.get("password")) {
-      this.errorText = 'Passwords are different';
+      this.errorText = 'Hasła się różnią';
       this.loginPending = false;
       return;
     }
