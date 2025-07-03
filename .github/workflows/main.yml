@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18 # Use Node.js 18 here
-          
+
       - name: Install Yarn
         run: npm install -g yarn
 
@@ -46,3 +46,32 @@ jobs:
 
       - name: Sync assets directory to S3
         run: aws s3 sync ./dist-cdn/design-system/assets s3://flippico-assets/design-system/assets --delete
+
+  notify:
+    name: Notify
+    runs-on: ubuntu-latest
+    needs: ['deploy']
+    if: always()
+
+    steps:
+      - name: Notify Slack on Success
+        if: needs.deploy.result == 'success'
+        uses: 8398a7/action-slack@v3
+        with:
+          status: success
+          channel: '#notifications-dev'
+          text: ':white_check_mark: Release deployment succeeded!'
+          fields: repo,message,commit,author,action,eventName,ref,workflow
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Notify Slack on Failure
+        if: needs.deploy.result == 'failure'
+        uses: 8398a7/action-slack@v3
+        with:
+          status: failure
+          channel: '#notifications-dev'
+          text: ':x: Release deployment failed!'
+          fields: repo,message,commit,author,action,eventName,ref,workflow
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

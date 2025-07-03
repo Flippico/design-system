@@ -1,6 +1,6 @@
 import { CSSResultGroup, html } from 'lit';
 import FlpElement from '../../utils/flippico-element';
-import {customElement, property, state} from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import "./../../components/flp-card";
 import "./../../components/flp-button";
 import "./../../components/flp-input";
@@ -17,7 +17,7 @@ import { getApiUrl } from '../../utils/get-api-url';
  *
  * @tag flp-login
  */
- @customElement("flp-login")
+@customElement("flp-login")
 export class FlpLogin extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
@@ -36,24 +36,24 @@ export class FlpLogin extends FlpElement {
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/google`, {
       method: "GET",
     })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      if (response.status === 404) {
-        this.errorText = "User not found";
-        throw new Error("User not found");
-      }
-      if (response.status === 403) {
-        this.errorText = "Incorrect password";
-        throw new Error("Incorrect password");
-      }
-    })
-    .then((response: any) => {
-      window.location.href = response.message.redirect_url;
-    })
-    .catch(console.error)
-    .finally(() => this.loginPending = false);
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        if (response.status === 404) {
+          this.errorText = "User not found";
+          throw new Error("User not found");
+        }
+        if (response.status === 403) {
+          this.errorText = "Incorrect password";
+          throw new Error("Incorrect password");
+        }
+      })
+      .then((response: any) => {
+        window.location.href = response.message.redirect_url;
+      })
+      .catch(console.error)
+      .finally(() => this.loginPending = false);
   }
 
   async loginByApple() {
@@ -82,26 +82,26 @@ export class FlpLogin extends FlpElement {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      if (response.status === 404) {
-        this.errorText = "User not found";
-        throw new Error("User not found");
-      }
-      if (response.status === 403) {
-        this.errorText = "Incorrect password";
-        throw new Error("Incorrect password");
-      }
-    })
-    .then((response: any) => {
-      this.emit('flp-login-success', response.message);
-      window.parent.postMessage({ type: 'LOGIN_SUCCESS', payload: response.message }, '*');
-      window.location.href = response.message.redirect_url;
-    })
-    .catch(console.error)
-    .finally(() => this.loginPending = false);
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        if (response.status === 404) {
+          this.errorText = "User not found";
+          throw new Error("User not found");
+        }
+        if (response.status === 403) {
+          this.errorText = "Incorrect password";
+          throw new Error("Incorrect password");
+        }
+      })
+      .then((response: any) => {
+        this.emit('flp-login-success', response.message);
+        window.parent.postMessage({ type: 'LOGIN_SUCCESS', payload: response.message }, '*');
+        window.location.href = response.message.redirect_url;
+      })
+      .catch(console.error)
+      .finally(() => this.loginPending = false);
   }
 
   render() {
@@ -111,43 +111,43 @@ export class FlpLogin extends FlpElement {
         <div class="logo-container text-align-center">
           ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
-        <h2 class="text-align-center">Hello again!</h2>
+        <h2 class="text-align-center">Witaj!</h2>
         <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="google"></flp-icon>
-          Login by Google
+          Zaloguj się z Google
         </flp-button>
       </form>
       <br/>
       <form .action=${`/api/${this.tenantKey}/apple`} method="get">
         <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="apple"></flp-icon>
-          Login by Apple
+          Zaloguj się z Apple
         </flp-button>
       </form>
         <div class="login-by-email-text">
           <div class="login-by-email-text--line"></div>
-          <div class="text-align-center">or login by email</div>
+          <div class="text-align-center">Lub zaloguj się przez email</div>
           <div class="login-by-email-text--line"></div>
         </div>
       </form>
       <form @submit=${this.onSubmitHandle}>
         <flp-input class="email--input" type="email" required name="email" label="Email"></flp-input>
         <div class="password--and-forgot-password-link--container">
-          <flp-input name="password" required type="password" label="Password" password-toggle></flp-input>
+          <flp-input name="password" required type="password" label="Hasło" password-toggle></flp-input>
           <div class="forgot-password-link--container">
-            <flp-button variant="text" href=${this.resetPasswordUrl}>Fogrot your password?</flp-button>
+            <flp-button variant="text" href=${this.resetPasswordUrl}>Zresetuj hasło</flp-button>
           </div>
         </div>
         <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
-        <flp-button 
-          class="mb-small" 
-          size="large" 
-          variant="primary" 
-          type="submit" 
-          .loading=${ifDefined(this.loginPending)} 
+        <flp-button
+          class="mb-small"
+          size="large"
+          variant="primary"
+          type="submit"
+          .loading=${ifDefined(this.loginPending)}
           .disabled=${ifDefined(this.loginPending)}
-        >Login</flp-button>
-        <flp-button class="mb-medium" href=${this.signUpUrl} variant="primary" size="large" outline>Create new account by email</flp-button>
+        >Zaloguj się</flp-button>
+        <flp-button class="mb-medium" href=${this.signUpUrl} variant="primary" size="large" outline>Utwórz nowe konto przez email</flp-button>
         <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;
