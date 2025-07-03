@@ -1,6 +1,6 @@
 import { CSSResultGroup, html } from 'lit';
 import FlpElement from '../../utils/flippico-element';
-import {customElement, property, state} from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { flippico } from './flp-confirm-signup.styles';
 import { getApiUrl } from '../../utils/get-api-url';
@@ -10,7 +10,7 @@ import { getApiUrl } from '../../utils/get-api-url';
  *
  * @tag flp-confirm-signup
  */
- @customElement("flp-confirm-signup")
+@customElement("flp-confirm-signup")
 export class FlpConfirmSignup extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
@@ -43,21 +43,21 @@ export class FlpConfirmSignup extends FlpElement {
       body: urlencoded,
       redirect: "follow"
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json()
-      }
-      this.errorText = "Something went wrong, try again";
-      event.target.reset();
-      throw new Error("Something went wrong, try again");
-    })
-    .then((response) => {
-      this.emit('flp-confirm-signup-success', response.message);
-      window.parent.postMessage({ type: 'CONFIRM_SUCCESS', payload: response.message }, '*');
-      window.location.href = response.message.redirect_url;
-    })
-    .catch(console.error)
-    .finally(() => this.loginPending = false);
+      .then(response => {
+        if (response.ok) {
+          return response.json()
+        }
+        this.errorText = "Something went wrong, try again";
+        event.target.reset();
+        throw new Error("Something went wrong, try again");
+      })
+      .then((response) => {
+        this.emit('flp-confirm-signup-success', response.message);
+        window.parent.postMessage({ type: 'CONFIRM_SUCCESS', payload: response.message }, '*');
+        window.location.href = response.message.redirect_url;
+      })
+      .catch(console.error)
+      .finally(() => this.loginPending = false);
   }
 
   render() {
@@ -66,15 +66,15 @@ export class FlpConfirmSignup extends FlpElement {
         <div class="logo-container text-align-center">
           ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
         </div>
-        <h2 class="text-align-center">Confirm your account</h2>
-        <flp-input class="mb-small" type="number" required min="1000" max="9000" name="code" label="Code"></flp-input>
+        <h2 class="text-align-center">Potwierdź rejestrację konta</h2>
+        <flp-input class="mb-small" type="number" required min="1000" max="9000" name="code" label="Kod z wiadomości email"></flp-input>
         <input type="hidden" value=${this.token} name="token" />
-        <flp-button 
-          class="mb-small" 
-          size="large" 
-          variant="primary" 
-          type="submit" 
-          .loading=${ifDefined(this.loginPending)} 
+        <flp-button
+          class="mb-small"
+          size="large"
+          variant="primary"
+          type="submit"
+          .loading=${ifDefined(this.loginPending)}
           .disabled=${ifDefined(this.loginPending)}
         >Confirm</flp-button>
         <div class="error">${this.errorText}</div>
