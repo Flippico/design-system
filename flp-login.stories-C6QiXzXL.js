@@ -34,7 +34,7 @@ h2 {
 }
 .login-by-email-text--line {
   height: 1px;
-  width: 30%;
+  width: 20%;
   background-color: black;
 }
 .password--and-forgot-password-link--container {
@@ -110,4 +110,4 @@ h2 {
     <flp-login logo="https://flippico-assets.s3.eu-central-1.amazonaws.com/bajkomat/appstore.png" .develop=\${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
 \``,...(h=(u=s.parameters)==null?void 0:u.docs)==null?void 0:h.source}}};const nt=["Default"];export{s as Default,nt as __namedExportsOrder,rt as default};
-//# sourceMappingURL=flp-login.stories-DoVF7q-H.js.map
+//# sourceMappingURL=flp-login.stories-C6QiXzXL.js.map
