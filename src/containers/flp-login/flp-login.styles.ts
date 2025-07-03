@@ -36,7 +36,7 @@ h2 {
 }
 .login-by-email-text--line {
   height: 1px;
-  width: 30%;
+  width: 20%;
   background-color: black;
 }
 .password--and-forgot-password-link--container {
