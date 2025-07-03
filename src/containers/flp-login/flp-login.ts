@@ -109,7 +109,7 @@ export class FlpLogin extends FlpElement {
     <flp-card class="auth-container">
       <form .action=${`/api/${this.tenantKey}/google`} method="get">
         <div class="logo-container text-align-center">
-          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="auto" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Witaj!</h2>
         <flp-button size="large" variant="default" type="submit">

@@ -64,7 +64,7 @@ export class FlpConfirmSignup extends FlpElement {
     return html`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="auto" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Potwierdź rejestrację konta</h2>
         <flp-input class="mb-small" type="number" required min="1000" max="9000" name="code" label="Kod z wiadomości email"></flp-input>

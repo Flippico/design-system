@@ -76,7 +76,7 @@ export class FlpSignup extends FlpElement {
     return html`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="150" />` : html`<flp-logo></flp-logo>`}
+          ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="auto" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Stwórz nowe konto</h2>
         <flp-input class="mb-small"  type="text" required name="name" label="Imię"></flp-input>
