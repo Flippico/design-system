@@ -36,7 +36,7 @@ h2 {
 `;var v=Object.defineProperty,P=Object.getOwnPropertyDescriptor,o=(r,e,n,t)=>{for(var a=t>1?void 0:t?P(e,n):e,d=r.length-1,m;d>=0;d--)(m=r[d])&&(a=(t?m(e,n,a):m(a))||a);return t&&a&&v(e,n,a),a};let s=class extends y{constructor(){super(...arguments),this.tenantKey="",this.token="",this.logo="",this.staging=!1,this.develop=!1,this.loginPending=!1,this.successState=!1}async onSubmitHandle(r){r.preventDefault(),this.loginPending=!0;const e=new FormData(r.target);if(Array.from(e.values()).some(t=>t==="")){this.errorText="Password is empty",this.loginPending=!1;return}const n=new URLSearchParams;if(!/^(?=.*\d.*\d)[A-Za-z\d!@#$%^&*()_+\-=[\]{};':",.<>?\/]{6,}$/.test(e.get("password"))){this.errorText="Minimum 8 znaków oraz minimum dwie liczby",this.loginPending=!1;return}if(e.get("new_password")!==e.get("password")){this.errorText="Hasła się różnią",this.loginPending=!1;return}n.append("new_password",e.get("new_password")),n.append("password",e.get("password")),n.append("token",e.get("token")),this.errorText=null,fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/set-password/${e.get("token")}`,{method:"POST",body:n,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(t=>{if(t.ok)return t.json();throw this.errorText="Something went wrong, try again",r.target.reset(),new Error("Something went wrong, try again")}).then(t=>{this.emit("flp-set-new-password-success"),window.parent.postMessage({type:"SET_NEW_PASSWORD_SUCCESS",payload:{}},"*"),window.location.href=t.message.redirect_url}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return i`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          ${this.logo?i`<img .src=${this.logo} alt="logo" width="150" height="150" />`:i`<flp-logo></flp-logo>`}
+          ${this.logo?i`<img .src=${this.logo} alt="logo" width="150" height="auto" />`:i`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Ustaw nowe hasło</h2>
         <div class="mb-medium text-align-center">
@@ -72,4 +72,4 @@ h2 {
     <flp-set-new-password token="some_token" tenant_key="tenant_key"></flp-set-new-password>
   </div>
 \``,...(f=(h=l.parameters)==null?void 0:h.docs)==null?void 0:f.source}}};const N=["Default"];export{l as Default,N as __namedExportsOrder,U as default};
-//# sourceMappingURL=flp-set-new-password.stories-DhgLLOuT.js.map
+//# sourceMappingURL=flp-set-new-password.stories-DBj94bke.js.map

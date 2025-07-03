@@ -33,7 +33,7 @@ h2 {
 }
 .login-by-email-text--line {
   height: 1px;
-  width: 30%;
+  width: 20%;
   background-color: black;
 }
 .password--and-forgot-password-link--container {
@@ -49,7 +49,7 @@ h2 {
 }`;var P=Object.defineProperty,S=Object.getOwnPropertyDescriptor,r=(s,o,n,e)=>{for(var a=e>1?void 0:e?S(o,n):o,m=s.length-1,g;m>=0;m--)(g=s[m])&&(a=(e?g(o,n,a):g(a))||a);return e&&a&&P(o,n,a),a};let t=class extends y{constructor(){super(...arguments),this.tenantKey="",this.logo="",this.staging=!1,this.develop=!1,this.loginPending=!1,this.successState=!1}async onSubmitHandle(s){s.preventDefault(),this.loginPending=!0;const o=new FormData(s.target);if(Array.from(o.values()).some(e=>e==="")){this.errorText="Email is empty",this.loginPending=!1;return}const n=new URLSearchParams;n.append("email",o.get("email")),this.errorText=null,fetch(`${x(this.staging,this.develop)}/api/${this.tenantKey}/reset-password`,{method:"POST",body:n,headers:{"Content-Type":"application/x-www-form-urlencoded"}}).then(e=>{if(e.ok)return e.json();throw this.errorText="Something went wrong, try again",s.target.reset(),new Error("Something went wrong, try again")}).then(()=>{this.emit("flp-reset-password-success"),window.parent.postMessage({type:"RESET_PASSWORD_SUCCESS",payload:{}},"*"),this.successState=!0}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return i`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          ${this.logo?i`<img .src=${this.logo} alt="logo" width="150" height="150" />`:i`<flp-logo></flp-logo>`}
+          ${this.logo?i`<img .src=${this.logo} alt="logo" width="150" height="auto" />`:i`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Zapomniane hasło?</h2>
         <div class="mb-medium text-align-center">
@@ -83,4 +83,4 @@ h2 {
     <flp-reset-password tenant_key="some_key"></flp-reset-password>
   </div>
 \``,...(u=(h=l.parameters)==null?void 0:h.docs)==null?void 0:u.source}}};const z=["Default"];export{l as Default,z as __namedExportsOrder,q as default};
-//# sourceMappingURL=flp-reset-password.stories-D9i3ErRm.js.map
+//# sourceMappingURL=flp-reset-password.stories-D--pK1Ie.js.map

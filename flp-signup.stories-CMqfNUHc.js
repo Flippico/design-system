@@ -36,7 +36,7 @@ h2 {
 `;var P=Object.defineProperty,_=Object.getOwnPropertyDescriptor,n=(r,e,l,i)=>{for(var t=i>1?void 0:i?_(e,l):e,m=r.length-1,g;m>=0;m--)(g=r[m])&&(t=(i?g(e,l,t):g(t))||t);return i&&t&&P(e,l,t),t};let o=class extends y{constructor(){super(...arguments),this.tenantKey="",this.logo="",this.loginUrl="",this.staging=!1,this.develop=!1,this.loginPending=!1}onSubmitHandle(r){r.preventDefault(),this.loginPending=!0;const e=new FormData(r.target);if(Array.from(e.values()).some(t=>t==="")){this.loginPending=!1;return}if(!/^(?=.*\d.*\d)[A-Za-z\d!@#$%^&*()_+\-=[\]{};':",.<>?\/]{6,}$/.test(e.get("password"))){this.errorText="Minimum 8 znaków oraz minimum dwie liczby",this.loginPending=!1;return}this.errorText=null;const l=new Headers;l.append("Content-Type","application/x-www-form-urlencoded");const i=new URLSearchParams;i.append("name",e.get("name")),i.append("email",e.get("email")),i.append("password",e.get("password")),fetch(`${v(this.staging,this.develop)}/api/${this.tenantKey}/signup`,{method:"POST",body:i,headers:l}).then(t=>{if(t.ok)return t.json();if(t.status===403)throw this.errorText="User already exist",r.target.reset(),new Error("User already exist")}).then(t=>{this.emit("flp-signup-success",t.message),window.parent.postMessage({type:"SIGNUP_SUCCESS",payload:t.message},"*"),window.location.href=t.message.redirect_url}).catch(console.error).finally(()=>this.loginPending=!1)}render(){return p`<flp-card class="auth-container">
       <form @submit=${this.onSubmitHandle}>
         <div class="logo-container text-align-center">
-          ${this.logo?p`<img .src=${this.logo} alt="logo" width="150" height="150" />`:p`<flp-logo></flp-logo>`}
+          ${this.logo?p`<img .src=${this.logo} alt="logo" width="150" height="auto" />`:p`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Stwórz nowe konto</h2>
         <flp-input class="mb-small"  type="text" required name="name" label="Imię"></flp-input>
@@ -75,4 +75,4 @@ h2 {
     </flp-signup>
   </div>
 \``,...(f=(d=a.parameters)==null?void 0:d.docs)==null?void 0:f.source}}};const Y=["Default"];export{a as Default,Y as __namedExportsOrder,X as default};
-//# sourceMappingURL=flp-signup.stories-bxUDTcj3.js.map
+//# sourceMappingURL=flp-signup.stories-CMqfNUHc.js.map

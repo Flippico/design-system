@@ -52,7 +52,7 @@ h2 {
     <flp-card class="auth-container">
       <form .action=${`/api/${this.tenantKey}/google`} method="get">
         <div class="logo-container text-align-center">
-          ${this.logo?p`<img .src=${this.logo} alt="logo" width="150" height="150" />`:p`<flp-logo></flp-logo>`}
+          ${this.logo?p`<img .src=${this.logo} alt="logo" width="150" height="auto" />`:p`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Witaj!</h2>
         <flp-button size="large" variant="default" type="submit">
@@ -110,4 +110,4 @@ h2 {
     <flp-login logo="https://flippico-assets.s3.eu-central-1.amazonaws.com/bajkomat/appstore.png" .develop=\${true} tenant_key="somekey" name="GDPR Plugin" login_callback="some login callback" logout_callback="som logout callback"></flp-login>
   </div>
 \``,...(h=(u=s.parameters)==null?void 0:u.docs)==null?void 0:h.source}}};const nt=["Default"];export{s as Default,nt as __namedExportsOrder,rt as default};
-//# sourceMappingURL=flp-login.stories-CT875uqO.js.map
+//# sourceMappingURL=flp-login.stories-DoVF7q-H.js.map
