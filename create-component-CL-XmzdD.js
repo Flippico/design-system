@@ -1,6 +1,0 @@
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */const v=new Set(["children","localName","ref","style","className"]),y=new WeakMap,E=(t,d,a,f,o)=>{const l=o==null?void 0:o[d];l===void 0||a===f?(t[d]=a,a==null&&d in HTMLElement.prototype&&t.removeAttribute(d)):((c,r,s)=>{let u=y.get(c);u===void 0&&y.set(c,u=new Map);let n=u.get(r);s!==void 0?n===void 0?(u.set(r,n={handleEvent:s}),c.addEventListener(r,n)):n.handleEvent=s:n!==void 0&&(u.delete(r),c.removeEventListener(r,n))})(t,l,a)},h=({react:t,tagName:d,elementClass:a,events:f,displayName:o})=>{const l=new Set(Object.keys(f??{})),c=t.forwardRef((r,s)=>{const u=t.useRef(null),n=t.useRef(null),i={},p={};for(const[e,m]of Object.entries(r))v.has(e)?i[e==="className"?"class":e]=m:l.has(e)||e in a.prototype?p[e]=m:i[e]=m;return t.useLayoutEffect(()=>{if(n.current!==null){for(const e in p)E(n.current,e,r[e],u.current?u.current[e]:void 0,f);u.current=r}}),t.useLayoutEffect(()=>{var e;(e=n.current)==null||e.removeAttribute("defer-hydration")},[]),i.suppressHydrationWarning=!0,t.createElement(d,{...i,ref:e=>{n.current=e,typeof s=="function"?s(e):s!==null&&(s.current=e)}})});return c.displayName=o??a.name,c};export{h as l};
-//# sourceMappingURL=create-component-CL-XmzdD.js.map
