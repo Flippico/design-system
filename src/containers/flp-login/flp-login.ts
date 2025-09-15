@@ -28,9 +28,17 @@ export class FlpLogin extends FlpElement {
   @property({ type: Boolean, attribute: "staging" }) staging = false;
   @property({ type: Boolean, attribute: "develop" }) develop = false;
   @property({ type: Boolean, attribute: "mobile_login" }) mobileLogin = false;
+  @property({ attribute: "is_admin_panel" }) _isAdminPanel = false;
 
   @state() errorText: null | string;
   @state() loginPending: boolean = false;
+
+  get isAdminPanel() {
+    if ((this._isAdminPanel as any) === "true") {
+      return true;
+    }
+    return false;
+  }
 
   async loginByGoogle() {
     fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/google`, {
@@ -112,13 +120,16 @@ export class FlpLogin extends FlpElement {
           ${this.logo ? html`<img .src=${this.logo} alt="logo" width="150" height="auto" />` : html`<flp-logo></flp-logo>`}
         </div>
         <h2 class="text-align-center">Witaj!</h2>
-        <flp-button size="large" variant="default" type="submit">
-          <flp-icon slot="prefix" name="google"></flp-icon>
-          Zaloguj się z Google
-        </flp-button>
+        ${this.isAdminPanel ? null : html`
+          <flp-button size="large" variant="default" type="submit">
+            <flp-icon slot="prefix" name="google"></flp-icon>
+            Zaloguj się z Google
+          </flp-button>
+        `}
       </form>
       <br/>
-      <form .action=${`/api/${this.tenantKey}/apple`} method="get">
+      ${this.isAdminPanel ? null : html`
+        <form .action=${`/api/${this.tenantKey}/apple`} method="get">
         <flp-button size="large" variant="default" type="submit">
           <flp-icon slot="prefix" name="apple"></flp-icon>
           Zaloguj się z Apple
@@ -130,13 +141,16 @@ export class FlpLogin extends FlpElement {
           <div class="login-by-email-text--line"></div>
         </div>
       </form>
+      `}
       <form @submit=${this.onSubmitHandle}>
         <flp-input class="email--input" type="email" required name="email" label="Email"></flp-input>
         <div class="password--and-forgot-password-link--container">
           <flp-input name="password" required type="password" label="Hasło" password-toggle></flp-input>
-          <div class="forgot-password-link--container">
+          ${this.isAdminPanel ? null : html`
+            <div class="forgot-password-link--container">
             <flp-button variant="text" href=${this.resetPasswordUrl}>Zresetuj hasło</flp-button>
           </div>
+          `}
         </div>
         <input type="hidden" name="tenant_key" value=${this.tenantKey}/>
         <flp-button
@@ -147,7 +161,7 @@ export class FlpLogin extends FlpElement {
           .loading=${ifDefined(this.loginPending)}
           .disabled=${ifDefined(this.loginPending)}
         >Zaloguj się</flp-button>
-        <flp-button class="mb-medium" href=${this.signUpUrl} variant="primary" size="large" outline>Utwórz nowe konto przez email</flp-button>
+        ${this.isAdminPanel ? null : html`<flp-button class="mb-medium" href=${this.signUpUrl} variant="primary" size="large" outline>Utwórz nowe konto przez email</flp-button>`}
         <div class="error">${this.errorText}</div>
       </form>
     </flp-card>`;
