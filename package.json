@@ -2,6 +2,7 @@
   "name": "@flippico/design-system",
   "version": "0.9.40",
   "type": "module",
+  "url": "https://github.com/Flippico/design-system",
   "scripts": {
     "dev": "vite",
     "prebuild": "rm -rf dist",
