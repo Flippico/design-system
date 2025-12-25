@@ -24,12 +24,15 @@ jobs:
         run: yarn install
 
       - name: Build cdn
+        run: yarn run generate-icons
+
+      - name: Build cdn
         run: yarn run build
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -50,7 +53,7 @@ jobs:
   notify:
     name: Notify
     runs-on: ubuntu-latest
-    needs: ['deploy']
+    needs: ["deploy"]
     if: always()
 
     steps:
@@ -59,8 +62,8 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: success
-          channel: '#notifications-dev'
-          text: ':white_check_mark: Release deployment succeeded!'
+          channel: "#notifications-dev"
+          text: ":white_check_mark: Release deployment succeeded!"
           fields: repo,message,commit,author,action,eventName,ref,workflow
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -70,8 +73,8 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: failure
-          channel: '#notifications-dev'
-          text: ':x: Release deployment failed!'
+          channel: "#notifications-dev"
+          text: ":x: Release deployment failed!"
           fields: repo,message,commit,author,action,eventName,ref,workflow
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
