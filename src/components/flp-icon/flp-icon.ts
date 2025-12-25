@@ -1,15 +1,24 @@
-import { CSSResultGroup, HTMLTemplateResult, html } from 'lit';
-import FlpElement from '../../utils/flippico-element';
-import {customElement, property, state} from 'lit/decorators.js';
+import { CSSResultGroup, HTMLTemplateResult, html } from "lit";
+import FlpElement from "../../utils/flippico-element";
+import { customElement, property, state } from "lit/decorators.js";
 
-import { flippico } from './flp-icon.styles';
-import { IconLibrary, getIconLibrary, unwatchIcon, watchIcon } from './library.js';
-import { watch } from '../../utils/watch.js';
-import { isTemplateResult } from 'lit/directive-helpers.js';
+import { flippico } from "./flp-icon.styles";
+import {
+  IconLibrary,
+  getIconLibrary,
+  unwatchIcon,
+  watchIcon,
+} from "./library.js";
+import { watch } from "../../utils/watch.js";
+import { isTemplateResult } from "lit/directive-helpers.js";
 
 const CACHEABLE_ERROR = Symbol();
 const RETRYABLE_ERROR = Symbol();
-type SVGResult = HTMLTemplateResult | SVGSVGElement | typeof RETRYABLE_ERROR | typeof CACHEABLE_ERROR;
+type SVGResult =
+  | HTMLTemplateResult
+  | SVGSVGElement
+  | typeof RETRYABLE_ERROR
+  | typeof CACHEABLE_ERROR;
 
 let parser: DOMParser;
 const iconCache = new Map<string, Promise<SVGResult>>();
@@ -19,20 +28,22 @@ interface IconSource {
   fromLibrary: boolean;
 }
 
-
 /**
  * @summary This the flp-icon component
  *
  * @tag flp-icon
  */
- @customElement("flp-icon")
+@customElement("flp-icon")
 export class FlpIcon extends FlpElement {
   static styles: CSSResultGroup = [flippico];
 
   private initialRender = false;
 
   /** Given a URL, this function returns the resulting SVG element or an appropriate error symbol. */
-  private async resolveIcon(url: string, library?: IconLibrary): Promise<SVGResult> {
+  private async resolveIcon(
+    url: string,
+    library?: IconLibrary
+  ): Promise<SVGResult> {
     let fileData: Response;
 
     if (library?.spriteSheet) {
@@ -42,26 +53,27 @@ export class FlpIcon extends FlpElement {
     }
 
     try {
-      fileData = await fetch(url, { mode: 'cors' });
-      if (!fileData.ok) return fileData.status === 410 ? CACHEABLE_ERROR : RETRYABLE_ERROR;
+      fileData = await fetch(url, { mode: "cors" });
+      if (!fileData.ok)
+        return fileData.status === 410 ? CACHEABLE_ERROR : RETRYABLE_ERROR;
     } catch {
       return RETRYABLE_ERROR;
     }
 
     try {
-      const div = document.createElement('div');
+      const div = document.createElement("div");
       div.innerHTML = await fileData.text();
 
       const svg = div.firstElementChild;
-      if (svg?.tagName?.toLowerCase() !== 'svg') return CACHEABLE_ERROR;
+      if (svg?.tagName?.toLowerCase() !== "svg") return CACHEABLE_ERROR;
 
       if (!parser) parser = new DOMParser();
-      const doc = parser.parseFromString(svg.outerHTML, 'text/html');
+      const doc = parser.parseFromString(svg.outerHTML, "text/html");
 
-      const svgEl = doc.body.querySelector('svg');
+      const svgEl = doc.body.querySelector("svg");
       if (!svgEl) return CACHEABLE_ERROR;
 
-      svgEl.part.add('svg');
+      svgEl.part.add("svg");
       return document.adoptNode(svgEl);
     } catch {
       return CACHEABLE_ERROR;
@@ -83,10 +95,10 @@ export class FlpIcon extends FlpElement {
    * An alternate description to use for assistive devices. If omitted, the icon will be considered presentational and
    * ignored by assistive devices.
    */
-  @property() label = '';
+  @property() label = "";
 
   /** The name of a registered custom icon library. */
-  @property({ reflect: true }) library = 'default';
+  @property({ reflect: true }) library = "default";
 
   connectedCallback() {
     super.connectedCallback();
@@ -108,32 +120,32 @@ export class FlpIcon extends FlpElement {
     if (this.name && library) {
       return {
         url: library.resolver(this.name),
-        fromLibrary: true
+        fromLibrary: true,
       };
     }
 
     return {
       url: this.src,
-      fromLibrary: false
+      fromLibrary: false,
     };
   }
 
-  @watch('label')
+  @watch("label")
   handleLabelChange() {
-    const hasLabel = typeof this.label === 'string' && this.label.length > 0;
+    const hasLabel = typeof this.label === "string" && this.label.length > 0;
 
     if (hasLabel) {
-      this.setAttribute('role', 'img');
-      this.setAttribute('aria-label', this.label);
-      this.removeAttribute('aria-hidden');
+      this.setAttribute("role", "img");
+      this.setAttribute("aria-label", this.label);
+      this.removeAttribute("aria-hidden");
     } else {
-      this.removeAttribute('role');
-      this.removeAttribute('aria-label');
-      this.setAttribute('aria-hidden', 'true');
+      this.removeAttribute("role");
+      this.removeAttribute("aria-label");
+      this.setAttribute("aria-hidden", "true");
     }
   }
 
-  @watch(['name', 'src', 'library'])
+  @watch(["name", "src", "library"])
   async setIcon() {
     const { url, fromLibrary } = this.getIconSource();
     const library = fromLibrary ? getIconLibrary(this.library) : undefined;
@@ -169,17 +181,16 @@ export class FlpIcon extends FlpElement {
       this.svg = svg;
       return;
     }
-
     switch (svg) {
       case RETRYABLE_ERROR:
       case CACHEABLE_ERROR:
         this.svg = null;
-        this.emit('flp-error');
+        this.emit("flp-error");
         break;
       default:
         this.svg = svg.cloneNode(true) as SVGElement;
         library?.mutator?.(this.svg);
-        this.emit('flp-load');
+        this.emit("flp-load");
     }
   }
 
