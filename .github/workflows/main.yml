@@ -33,13 +33,6 @@ jobs:
       - name: Build cdn
         run: yarn run build
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-          registry-url: "https://registry.npmjs.org"
-
-      - run: npm publish
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -52,6 +45,13 @@ jobs:
 
       - name: Sync assets directory to S3
         run: aws s3 sync ./dist-cdn/design-system/assets s3://flippico-assets/design-system/assets --delete
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+
+      - run: npm publish
 
   notify:
     name: Notify
