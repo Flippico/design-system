@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build cdn
+      - name: Generate icons
         run: yarn run generate-icons
 
       - name: Build cdn
