@@ -20,3 +20,7 @@ export type { FlpLoginSuccessEvent } from './flp-login-success.js';
 export type { FlpResetPasswordSuccessEvent } from './flp-reset-password-success.js';
 export type { FlpConfirmSignupSuccessEvent } from './flp-confirm-signup-success.js';
 export type { FlpSetNewPasswordSuccessEvent } from './flp-set-new-password-success.js';
+export type { FlpLoginMfaRequiredEvent } from './flp-login-mfa-required.js';
+export type { FlpLoginMfaSetupRequiredEvent } from './flp-login-mfa-setup-required.js';
+export type { FlpMfaVerifySuccessEvent } from './flp-mfa-verify-success.js';
+export type { FlpMfaSetupSuccessEvent } from './flp-mfa-setup-success.js';
