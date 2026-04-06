@@ -10,7 +10,7 @@ import "./../../components/flp-icon";
 import "./../../components/flp-spinner";
 import { flippico } from '../flp-login/flp-login.styles';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { getApiUrl } from '../../utils/get-api-url';
+
 
 interface ProviderMethod {
   method_type: string;
@@ -84,8 +84,7 @@ export class FlpLoginV2 extends FlpElement {
     return this.providerId ? `${this.tenantKey}/${this.providerId}` : this.tenantKey;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
+  firstUpdated() {
     if (this.mockMethods) {
       this.applyMockMethods();
     } else {
@@ -115,7 +114,7 @@ export class FlpLoginV2 extends FlpElement {
 
   private async fetchConfig() {
     try {
-      const res = await fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.providerPath}/config`);
+      const res = await fetch(`/api/${this.providerPath}/config`);
       if (res.ok) {
         const data = await res.json();
         const config: TenantConfig = data.message;
@@ -141,7 +140,7 @@ export class FlpLoginV2 extends FlpElement {
 
   async loginByOAuth(methodType: string) {
     this.loginPending = true;
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.providerPath}/${methodType}`, {
+    fetch(`/api/${this.providerPath}/${methodType}`, {
       method: "GET",
     })
       .then(response => {
@@ -171,7 +170,7 @@ export class FlpLoginV2 extends FlpElement {
     urlencoded.append("password", formData.get("password") as string);
 
     this.errorText = null;
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/${this.tenantKey}/login`, {
+    fetch(`/api/${this.tenantKey}/login`, {
       method: "POST",
       body: urlencoded,
       headers: { "Content-Type": "application/x-www-form-urlencoded" }
@@ -214,7 +213,7 @@ export class FlpLoginV2 extends FlpElement {
     const code = formData.get("mfa_code") as string;
     const method = formData.get("mfa_method") as string || 'totp';
 
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/mfa/${this.tenantKey}/verify`, {
+    fetch(`/api/mfa/${this.tenantKey}/verify`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ challenge_token: this.mfaChallengeToken, code, method })
@@ -235,7 +234,7 @@ export class FlpLoginV2 extends FlpElement {
   }
 
   async requestSmsCode() {
-    fetch(`${getApiUrl(this.staging, this.develop)}/api/mfa/${this.tenantKey}/sms/send`, {
+    fetch(`/api/mfa/${this.tenantKey}/sms/send`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ challenge_token: this.mfaChallengeToken })
@@ -243,27 +242,9 @@ export class FlpLoginV2 extends FlpElement {
   }
 
   private renderOAuthButtons() {
+    if (!this.configLoaded) return nothing;
+
     const methods = this.oauthMethods;
-
-    // Legacy fallback: if no config loaded or no providers, show Google/Apple
-    if (!this.configLoaded || (methods.length === 0 && !this.isAdminPanel && this.providers.length === 0)) {
-      return html`
-        <form .action=${`/api/${this.providerPath}/google`} method="get">
-          <flp-button size="large" variant="default" type="submit">
-            <flp-icon slot="prefix" name="google"></flp-icon>
-            Zaloguj się z Google
-          </flp-button>
-        </form>
-        <br/>
-        <form .action=${`/api/${this.providerPath}/apple`} method="get">
-          <flp-button size="large" variant="default" type="submit">
-            <flp-icon slot="prefix" name="apple"></flp-icon>
-            Zaloguj się z Apple
-          </flp-button>
-        </form>
-      `;
-    }
-
     if (methods.length === 0) return nothing;
 
     return html`
@@ -304,7 +285,7 @@ export class FlpLoginV2 extends FlpElement {
       </flp-card>`;
     }
 
-    const showOAuth = this.oauthMethods.length > 0 || (!this.isAdminPanel && this.providers.length === 0);
+    const showOAuth = this.oauthMethods.length > 0;
     const showDivider = showOAuth && this.hasEmailPassword;
 
     return html`
