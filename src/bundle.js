@@ -28,3 +28,6 @@ import './containers/flp-confirm-signup/flp-confirm-signup';
 import './containers/flp-reset-password/flp-reset-password';
 import './containers/flp-set-new-password/flp-set-new-password';
 import './containers/flp-mfa-setup/flp-mfa-setup';
+import './containers/flp-set-new-password-v2/flp-set-new-password-v2';
+import './containers/flp-reset-password-v2/flp-reset-password-v2';
+import './containers/flp-confirm-signup-v2/flp-confirm-signup-v2';

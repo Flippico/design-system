@@ -1,4 +1,4 @@
-export type FlpMfaSetupSuccessEvent = CustomEvent<Record<PropertyKey, never>>;
+export type FlpMfaSetupSuccessEvent = CustomEvent<{ method: string }>;
 
 declare global {
   interface GlobalEventHandlersEventMap {

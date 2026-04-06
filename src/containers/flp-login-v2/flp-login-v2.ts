@@ -170,7 +170,7 @@ export class FlpLoginV2 extends FlpElement {
     urlencoded.append("password", formData.get("password") as string);
 
     this.errorText = null;
-    fetch(`/api/${this.tenantKey}/login`, {
+    fetch(`/api/${this.providerPath}/login`, {
       method: "POST",
       body: urlencoded,
       headers: { "Content-Type": "application/x-www-form-urlencoded" }

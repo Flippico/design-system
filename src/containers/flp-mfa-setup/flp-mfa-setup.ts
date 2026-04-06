@@ -87,7 +87,7 @@ export class FlpMfaSetup extends FlpElement {
       const data = await res.json();
       this.backupCodes = data.message.backup_codes;
       this.totpSetupDone = true;
-      this.emit('flp-mfa-setup-success', { method: 'totp' });
+      this.emit('flp-mfa-setup-success', { detail: { method: 'totp' } });
       window.parent.postMessage({ type: 'MFA_SETUP_SUCCESS', payload: { method: 'totp' } }, '*');
     } catch { this.errorText = 'Verification failed'; }
     this.pending = false;
@@ -123,7 +123,7 @@ export class FlpMfaSetup extends FlpElement {
       const data = await res.json();
       this.backupCodes = data.message.backup_codes;
       this.smsSetupDone = true;
-      this.emit('flp-mfa-setup-success', { method: 'sms' });
+      this.emit('flp-mfa-setup-success', { detail: { method: 'sms' } });
       window.parent.postMessage({ type: 'MFA_SETUP_SUCCESS', payload: { method: 'sms' } }, '*');
     } catch { this.errorText = 'Verification failed'; }
     this.pending = false;

@@ -28,3 +28,6 @@ export { FlpSetNewPassword } from './containers/flp-set-new-password';
 export { FlpMfaSetup } from './containers/flp-mfa-setup';
 export { FlpLoginV2 } from './containers/flp-login-v2';
 export { FlpSignupV2 } from './containers/flp-signup-v2';
+export { FlpSetNewPasswordV2 } from './containers/flp-set-new-password-v2';
+export { FlpResetPasswordV2 } from './containers/flp-reset-password-v2';
+export { FlpConfirmSignupV2 } from './containers/flp-confirm-signup-v2';
