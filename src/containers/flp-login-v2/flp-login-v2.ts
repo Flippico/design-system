@@ -140,19 +140,7 @@ export class FlpLoginV2 extends FlpElement {
 
   async loginByOAuth(methodType: string) {
     this.loginPending = true;
-    fetch(`/api/${this.providerPath}/${methodType}`, {
-      method: "GET",
-    })
-      .then(response => {
-        if (response.ok) return response.json();
-        this.errorText = "Login failed";
-        throw new Error("OAuth redirect failed");
-      })
-      .then((response: any) => {
-        window.location.href = response.message.redirect_url;
-      })
-      .catch(console.error)
-      .finally(() => this.loginPending = false);
+    window.location.href = `/api/${this.providerPath}/${methodType}`;
   }
 
   async onSubmitHandle(event: any) {
